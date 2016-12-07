@@ -16,7 +16,7 @@ _is_svn(){
 
 _svn_branch() {
   ref=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || return false;
-  echo " SVN: @${ref} ";
+  echo "(S: @${ref})";
   return true;
 }
 
@@ -27,7 +27,7 @@ _is_git(){
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
-  echo " GIT:  ${ref#refs/heads/} ";
+  echo "(G: ${ref#refs/heads/})";
   return true;
 }
 
@@ -37,7 +37,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  echo " HG:  ${ref} ";
+  echo "(M: ${ref})";
   return true;
 }
 
@@ -49,123 +49,28 @@ _vcs_info(){
   elif [[ $(_is_svn) == 1 ]]; then
     _svn_branch;
   else
-    echo " ";
+    echo "";
   fi
 }
 
-__storage_info(){
-  fs=`df -h . | tail -1 | awk '{print $1}' | sed "s|\.|•|g" `;
-  size=`df -h . | tail -1 | awk '{print $2}' | sed "s|\.|•|g" `;
-  used=`df -h . | tail -1 | awk '{print $3}' | sed "s|\.|•|g" `;
-  usedp=`df -h . | tail -1 | awk '{print $5}' | sed "s|\.|•|g" `;
-  free=`df -h . | tail -1 | awk '{print $4}' | sed "s|\.|•|g" `;
-  echo "💾 $fs - F:$free U:$used T:$size";
-}
-__date_time_info(){
-  echo "`date +%r`";
-}
-
-__ssh_client(){
+__ssh(){
   if [ -n "$SSH_CLIENT" ]; then
-    echo $SSH_CLIENT | awk {'print $1 " "'};
+    echo " S";
   fi
 }
 
-__battery_stat(){
-  __os=`uname`;
-  if [[ $__os = "Linux" ]]; then
-    if which upower > /dev/null ; then
-      __bat_power=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'`;
-      __bat_power_ind="";
-      if [[ $__bat_power = "charging" ]]; then __bat_power_ind="+";
-      elif [[ $__bat_power = "discharging" ]]; then __bat_power_ind="-";
-      elif [[ $__bat_power = "fully-charged" ]]; then __bat_power_ind="•";
-      fi
-      __bat_per=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | sed "s|%||g"`;
-      if [[ -n $__bat_per ]]; then
-        echo " | ${__bat_power_ind}${__bat_per}";
-      fi
-    fi
-  fi
-  if [[ $__os = "Darwin" ]]; then
-    __bat_power=`pmset -g batt | tail -1 | awk '{print $4}' | tr -d "%;"`;
-    __bat_power_ind="";
-    if [[ $__bat_power = "charging" ]]; then __bat_power_ind="+";
-    elif [[ $__bat_power = "discharging" ]]; then __bat_power_ind="-";
-    elif [[ $__bat_power = "finishing" ]]; then __bat_power_ind="+";
-    elif [[ $__bat_power = "charged" ]]; then __bat_power_ind="•";
-    fi
-       __bat_per=`pmset -g batt | tail -1 | awk '{print $3}' | tr -d "%;"`
-    if [[ -n $__bat_per ]]; then
-      echo " | ${__bat_power_ind}${__bat_per}";
-    fi
-  fi
-}
+alien_prompt(){
 
-alien0(){
-  if [[ $ALIEN_THEME == "red" ]]; then
-    color0=088    # time bg
-    color1=226    # init bg
-    color1r=196   # init bg error
-    color2=254    # time fg
-    color3=202    # user bg
-    color4=232    # user fg
-    color5=214    # dir bg
-    color6=232    # dir fg
-    color7=238    # vcs bg
-    color8=228    # prompt fg
-    color9=226    # vcs fg
-  elif [[ $ALIEN_THEME == "green" ]]; then
-    color0=022    # time bg
-    color1=226    # init bg
-    color1r=196   # init bg error
-    color2=254    # time fg
-    color3=034    # user bg
-    color4=232    # user fg
-    color5=082    # dir bg
-    color6=232    # dir fg
-    color7=238    # vcs bg
-    color8=228    # prompt fg
-    color9=154    # vcs fg
-  elif [[ $ALIEN_THEME == "blue" ]]; then
-    color0=018    # time bg
-    color1=226    # init bg
-    color1r=196   # init bg error
-    color2=254    # time fg
-    color3=026    # user bg
-    color4=254    # user fg
-    color5=045    # dir bg
-    color6=019    # dir fg
-    color7=238    # vcs bg
-    color8=228    # prompt fg
-    color9=051    # vcs fg
-  else
-    color0=018    # time bg
-    color1=226    # init bg
-    color1r=196   # init bg error
-    color2=254    # time fg
-    color3=026    # user bg
-    color4=254    # user fg
-    color5=045    # dir bg
-    color6=019    # dir fg
-    color7=238    # vcs bg
-    color8=228    # prompt fg
-    color9=051    # vcs fg
-  fi
+  color1=000    # dir bg
+  color2=255    # dir fg
+  color3=255    # vcs fg
 
   RPROMPT=''
   _user=`whoami`
   setopt promptsubst
-  PROMPT='
-%(?.%K{$color0}%F{$color1}%f%k.%K{$color0}%F{$color1r}%f%k)%K{$color0}%F{$color2} $(__date_time_info)$(__battery_stat) %f%k%K{$color3}%F{$color0}%f%k%K{$color3}%F{$color4} $_user %f%k%K{$color5}%F{$color3}%f%k%K{$color5}%F{$color6} %3~ %f%k%F{$color5}%K{$color7}%k%f%K{$color7}%F{$color9}`_vcs_info`%f%k%F{$color7}%f
-%F{$color3}$(__ssh_client)%f%F{$color8}%B❱%b%f '
-}
-
-alien_prompts(){
-  alien0
+  PROMPT='%(?.%K{$color1}%F{$color1}%f%k.%K{$color1}%F{$color2}%f%k)%K{$color1}%F{$color2}`__ssh` %1~ %f%k%F{$color1}%f%F{$color3}`_vcs_info`%f '
 }
 
 autoload -U add-zsh-hook
-alien_prompts
-
+alien_prompt
 
