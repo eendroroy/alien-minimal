@@ -16,7 +16,7 @@ _is_svn(){
 
 _svn_branch() {
   ref=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || return false;
-  echo "(S: @${ref})";
+  echo "(S: @${ref})";
   return true;
 }
 
@@ -27,7 +27,7 @@ _is_git(){
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
-  echo "(G: ${ref#refs/heads/})";
+  echo "(G: ${ref#refs/heads/})";
   return true;
 }
 
@@ -37,7 +37,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  echo "(M: ${ref})";
+  echo "(M: ${ref})";
   return true;
 }
 
@@ -68,7 +68,7 @@ alien_prompt(){
   RPROMPT=''
   _user=`whoami`
   setopt promptsubst
-  PROMPT='%(?.%K{$color1}%F{$color1}%f%k.%K{$color1}%F{$color2}%f%k)%K{$color1}%F{$color2}`__ssh` %1~ %f%k%F{$color1}%f%F{$color3}`_vcs_info`%f '
+  PROMPT='%(?..%K{$color1}%F{$color2}%f%k)%K{$color1}%F{$color2}`__ssh` %1~ %f%k%F{$color1}%f%F{$color3}`_vcs_info`%f '
 }
 
 autoload -U add-zsh-hook
