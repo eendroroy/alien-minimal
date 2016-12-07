@@ -1,0 +1,1 @@
+alien-minimal.zsh
