@@ -67,7 +67,7 @@ alien_prompt(){
   RPROMPT=''
   _user=`whoami`
   setopt promptsubst
-  PROMPT='%(?..%K{$color1}%F{$color2} %f%k)%K{$color1}%F{$color2}`__ssh`%1~ %f%k%F{$color1}%f%F{$color2}`_vcs_info`%f '
+  PROMPT='%(?..%K{$color1}%F{$color2} %f%k)%K{$color1}%F{$color2}`__ssh`%1~%f%k%F{$color1}%f%F{$color2}`_vcs_info`%f '
 }
 
 autoload -U add-zsh-hook
