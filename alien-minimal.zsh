@@ -27,7 +27,7 @@ _is_git(){
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
-  echo "(G: ${ref#refs/heads/})";
+  echo "(G:  ${ref#refs/heads/})";
   return true;
 }
 
@@ -37,7 +37,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  echo "(M: ${ref})";
+  echo "(M:  ${ref})";
   return true;
 }
 
