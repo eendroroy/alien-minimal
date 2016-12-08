@@ -3,10 +3,10 @@
 __color_man_page(){
   export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
   export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
-  export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
-  export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+  export LESS_TERMCAP_me=$(printf '\e[0m')     # turn off all appearance modes (mb, md, so, us)
+  export LESS_TERMCAP_se=$(printf '\e[0m')     # leave standout mode
   export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode - yellow
-  export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+  export LESS_TERMCAP_ue=$(printf '\e[0m')     # leave underline mode
   export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
 }
 
@@ -27,7 +27,7 @@ _is_git(){
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
-  echo "(G: ${ref#refs/heads/})";
+  echo "(G: ${ref#refs/heads/})";
   return true;
 }
 
@@ -37,7 +37,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  echo "(M: ${ref})";
+  echo "(M: ${ref})";
   return true;
 }
 
@@ -55,20 +55,20 @@ _vcs_info(){
 
 __ssh(){
   if [ -n "$SSH_CLIENT" ]; then
-    echo " S";
+    echo "S ";
   fi
 }
 
 alien_prompt(){
 
   color1=000    # dir bg
-  color2=255    # dir fg
+  color2=226    # dir fg
   color3=255    # vcs fg
 
   RPROMPT=''
   _user=`whoami`
   setopt promptsubst
-  PROMPT='%(?..%K{$color1}%F{$color2}%f%k)%K{$color1}%F{$color2}`__ssh` %1~ %f%k%F{$color1}%f%F{$color3}`_vcs_info`%f '
+  PROMPT='%(?..%K{$color1}%F{$color2} %f%k)%K{$color1}%F{$color2}`__ssh`%1~ %f%k%F{$color1}%f%F{$color3}`_vcs_info`%f '
 }
 
 autoload -U add-zsh-hook
