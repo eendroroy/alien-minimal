@@ -62,7 +62,7 @@ __ssh(){
 alien_prompt(){
 
   color1=000    # bg
-  color2=226    # fg
+  color2=051    # fg
 
   RPROMPT=''
   _user=`whoami`
