@@ -54,7 +54,6 @@ _vcs_info(){
 }
 
 __ssh(){
-    echo "[S] "
   if [ -n "$SSH_CLIENT" ]; then
     echo "[S] ";
   fi
