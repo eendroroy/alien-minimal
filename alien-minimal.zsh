@@ -16,7 +16,7 @@ _is_svn(){
 
 _svn_branch() {
   ref=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || return false;
-  echo "(S: @${ref})";
+  echo "S:@ ${ref}";
   return true;
 }
 
@@ -27,7 +27,7 @@ _is_git(){
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
-  echo "(G:  ${ref#refs/heads/})";
+  echo "G: ${ref#refs/heads/}";
   return true;
 }
 
@@ -37,7 +37,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  echo "(M:  ${ref})";
+  echo "M: ${ref}";
   return true;
 }
 
@@ -54,22 +54,24 @@ _vcs_info(){
 }
 
 __ssh(){
+    echo "[S] "
   if [ -n "$SSH_CLIENT" ]; then
-    echo "S ";
+    echo "[S] ";
   fi
 }
 
-alien_prompt(){
+alien_min_prompt(){
 
-  color1=000    # bg
-  color2=051    # fg
-
-  RPROMPT=''
-  _user=`whoami`
+  ssh=226
+  normal=39
+  error=208
+  vcs=78
+  
   setopt promptsubst
-  PROMPT='%(?..%K{$color1}%F{$color2} %f%k)%K{$color1}%F{$color2}`__ssh`%1~%f%k%F{$color1}%f%F{$color2}`_vcs_info`%f '
+  PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}✘ %f)%F{$normal}%1~%f '
+  RPROMPT='%F{$vcs}`_vcs_info`%f'
 }
 
 autoload -U add-zsh-hook
-alien_prompt
+alien_min_prompt
 
