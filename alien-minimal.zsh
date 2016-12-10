@@ -67,7 +67,7 @@ alien_min_prompt(){
   vcs=78
  
   setopt promptsubst
-  PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}$?|✘ %f)%F{$normal}%1~%f '
+  PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}%?|✘ %f)%F{$normal}%1~%f '
   RPROMPT='%F{$vcs}`_vcs_info`%f'
 }
 
