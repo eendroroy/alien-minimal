@@ -66,9 +66,8 @@ alien_min_prompt(){
   error=208
   vcs=78
  
-  ex_code=`echo $?`
   setopt promptsubst
-  PROMPT='%F{$ssh}`__ssh`%f%(ex_code..%F{$error}${ex_code}|✘ %f)%F{$normal}%1~%f '
+  PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}$?|✘ %f)%F{$normal}%1~%f '
   RPROMPT='%F{$vcs}`_vcs_info`%f'
 }
 
