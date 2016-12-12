@@ -62,9 +62,9 @@ __ssh(){
 alien_min_prompt(){
 
   ssh=226
-  normal=39
+  normal=039
   error=208
-  vcs=78
+  vcs=002
  
   setopt promptsubst
   PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}%?|✘ %f)%F{$normal}%1~%f '
