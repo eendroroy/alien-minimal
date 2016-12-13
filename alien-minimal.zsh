@@ -28,7 +28,7 @@ _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
   rev=$(git rev-parse HEAD | cut -c 1-7)
-  echo "G: ${ref#refs/heads/}@${rev}";
+  echo "G: ${ref#refs/heads/} @${rev}";
   return true;
 }
 
@@ -39,7 +39,7 @@ _is_hg(){
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
   rev=$(hg log -l 1 | grep changeset | tr ":" " " | awk '{print $2}')
-  echo "M: ${ref}@${rev}";
+  echo "M: ${ref} @${rev}";
   return true;
 }
 
