@@ -38,7 +38,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  rev=$(hg log -b ${ref} -l 1 | grep changeset | tr ":" " " | awk '{print $2}')
+  rev=$(hg identify --num)
   echo "M: ${ref} @${rev}";
   return true;
 }
