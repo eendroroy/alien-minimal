@@ -38,7 +38,7 @@ _is_hg(){
 
 _hg_branch() {
   ref=$(hg branch 2> /dev/null) || return true;
-  rev=$(hg identify --num)
+  rev=$(hg identify --num | tr -d " +")
   echo "M: ${ref} @${rev}";
   return true;
 }
