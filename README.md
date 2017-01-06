@@ -2,6 +2,7 @@
 ### Installation
 ##### antigen
 add in your .zshrc
+
     antigen theme eendroroy/alien-minimal alien-minimal
 ##### [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 #### screenshot
