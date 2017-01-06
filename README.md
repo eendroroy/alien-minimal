@@ -1,9 +1,9 @@
 # alien-minimal
-### configuration
+### Installation
 ##### antigen
+add in your .zshrc
     antigen theme eendroroy/alien-minimal alien-minimal
-##### oh-my-zsh
-[Installation instructions](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
+##### [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 #### screenshot
 -![screenshot](https://github.com/eendroroy/alien-minimal/raw/images/images/alien-minimal-mac.png "alien-minimal")
 
