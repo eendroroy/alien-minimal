@@ -1,6 +1,8 @@
 # alien-minimal
 ### Installation
 ##### antigen
+
+[![Join the chat at https://gitter.im/eendroroy/alien-minimal](https://badges.gitter.im/eendroroy/alien-minimal.svg)](https://gitter.im/eendroroy/alien-minimal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 add in your .zshrc
 
     antigen theme eendroroy/alien-minimal alien-minimal
