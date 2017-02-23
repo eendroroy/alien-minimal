@@ -94,14 +94,14 @@ __ssh(){
 }
 
 alien_min_prompt(){
-  ssh=226
-  normal=039
-  error=208
-  vcs=002
+  _ssh=226
+  _normal=039
+  _error=208
+  _vcs=046
  
   setopt promptsubst
-  PROMPT='%F{$ssh}`__ssh`%f%(?..%F{$error}%?|✘ %f)%F{$normal}%1~%f '
-  RPROMPT='%F{$vcs}`_vcs_info`%f'
+  PROMPT='%F{$_ssh}`__ssh`%f%(?..%F{$_error}%?|✘ %f)%F{$_normal}%1~%f '
+  RPROMPT='%F{$_vcs}`_vcs_info`%f'
 }
 
 _colorize()
