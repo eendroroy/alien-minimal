@@ -57,7 +57,6 @@ _is_git(){
 }
 
 _git_branch() {
-  ref=$(git name-rev --name-only HEAD 2> /dev/null) || \
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
   rev=$(git rev-parse HEAD | cut -c 1-7)
