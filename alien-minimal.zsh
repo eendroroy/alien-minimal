@@ -58,7 +58,7 @@ _is_git(){
 
 _git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(git rev-parse --short HEAD 2> /dev/null) || return false;
+  ref="detached" || return false;
   echo -n "${ref#refs/heads/}";
   return true;
 }
@@ -140,10 +140,12 @@ _vcs_dirty(){
 
 _vcs_left_right(){  
   if [[ $(_is_git) == 1 ]]; then
-    _pull=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` | awk '{print $2}' | tr -d ' ');
-    _push=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` | awk '{print $1}' | tr -d ' ');
-    [[ "$_pull" != "0" ]] && echo -n " ▼";
-    [[ "$_push" != "0" ]] && echo -n " ▲";
+    if [[ $(_git_branch) != "detached" ]]; then
+      _pull=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` | awk '{print $2}' | tr -d ' ');
+      _push=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` | awk '{print $1}' | tr -d ' ');
+      [[ "$_pull" != "0" ]] && echo -n " ▼";
+      [[ "$_push" != "0" ]] && echo -n " ▲";
+    fi
   elif [[ $(_is_hg) == 1 ]]; then
     echo -n "";
   elif [[ $(_is_svn) == 1 ]]; then
