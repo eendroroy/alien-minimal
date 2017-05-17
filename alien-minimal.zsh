@@ -87,7 +87,21 @@ _vcs_info(){
   fi
 }
 
-__ssh(){
+_git_wc_status(){
+  # _mod=`git status --porcelain 2>/dev/null | grep M | wc -l | tr -d ' '`;
+  # _add=`git status --porcelain 2>/dev/null | grep A | wc -l | tr -d ' '`;
+  # _del=`git status --porcelain 2>/dev/null | grep D | wc -l | tr -d ' '`;
+  # _new=`git status --porcelain 2>/dev/null | grep '??' | wc -l | tr -d ' '`;
+
+  _wc=`git status --porcelain 2>/dev/null | wc -l | tr -d ' '`;
+
+  _status_line=""
+  [[ "$_wc" != "0" ]] && _status_line="${_status_line} ✱";
+
+  echo "${_status_line}";
+}
+
+_ssh_st(){
   if [ -n "$SSH_CLIENT" ]; then
     echo "[S] ";
   fi
@@ -98,9 +112,10 @@ alien_min_prompt(){
   _normal=039
   _error=208
   _vcs=046
+  _gitst=246
  
   setopt promptsubst
-  PROMPT='%F{$_ssh}`__ssh`%f%(?..%F{$_error}%?|✘ %f)%F{$_normal}%1~%f '
+  PROMPT='%F{$_ssh}`_ssh_st`%f%(?..%F{$_error}%?|✘ %f)%F{$_normal}%1~%f%F{$_gitst}`_git_wc_status`%f '
   RPROMPT='%F{$_vcs}`_vcs_info`%f'
 }
 
