@@ -96,7 +96,7 @@ _git_wc_status(){
   _wc=`git status --porcelain 2>/dev/null | wc -l | tr -d ' '`;
 
   _status_line=""
-  [[ "$_wc" != "0" ]] && _status_line="${_status_line}＊" || _status_line=" ";
+  [[ "$_wc" != "0" ]] && _status_line="${_status_line} ✱";
 
   echo "${_status_line}";
 }
@@ -112,10 +112,10 @@ alien_min_prompt(){
   _normal=039
   _error=208
   _vcs=046
-  _gitst=246
+  _gitst=208
  
   setopt promptsubst
-  PROMPT='%F{$_ssh}`_ssh_st`%f%(?..%F{$_error}%?|✘ %f)%F{$_normal}%1~%f%F{$_gitst}`_git_wc_status`%f'
+  PROMPT='%F{$_ssh}`_ssh_st`%f%(?..%F{$_error}%?|✘ %f)%F{$_normal}%1~%f%F{$_gitst}`_git_wc_status`%f '
   RPROMPT='%F{$_vcs}`_vcs_info`%f'
 }
 
