@@ -549,10 +549,10 @@ _git_branch(){ ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="detached" || re
 _git_rev(){ rev=$(git rev-parse HEAD | cut -c 1-7); echo -n "${rev}"; return true; }
 
 _git_dirty(){
-  _mod=$(git status --porcelain 2>/dev/null | grep M | wc -l | tr -d ' ');
-  _add=$(git status --porcelain 2>/dev/null | grep A | wc -l | tr -d ' ');
-  _del=$(git status --porcelain 2>/dev/null | grep D | wc -l | tr -d ' ');
-  _new=$(git status --porcelain 2>/dev/null | grep '??' | wc -l | tr -d ' ');
+  _mod=$(git status --porcelain 2>/dev/null | grep 'M ' | wc -l | tr -d ' ');
+  _add=$(git status --porcelain 2>/dev/null | grep 'A ' | wc -l | tr -d ' ');
+  _del=$(git status --porcelain 2>/dev/null | grep 'D ' | wc -l | tr -d ' ');
+  _new=$(git status --porcelain 2>/dev/null | grep '?? ' | wc -l | tr -d ' ');
   [[ "$_mod" != "0" ]] && echo -n " ⭑";
   [[ "$_add" != "0" ]] && echo -n " +";
   [[ "$_del" != "0" ]] && echo -n " -";
