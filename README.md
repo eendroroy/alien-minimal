@@ -13,3 +13,5 @@ add in your .zshrc
 -![screenshot](https://github.com/eendroroy/alien-minimal/raw/images/images/alien-minimal-mac.png "alien-minimal")
 
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
+Credit goes to [@mafredri](https://github.com/mafredri) for ['zsh-async'](https://github.com/mafredri/zsh-async)
+
