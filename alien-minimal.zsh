@@ -557,6 +557,8 @@ _git_dirty(){
   [[ "$_add" != "0" ]] && echo -n " +";
   [[ "$_del" != "0" ]] && echo -n " -";
   [[ "$_new" != "0" ]] && echo -n " ?";
+
+  unset _mod _new _add _del
 }
 
 _git_left_right(){
@@ -565,6 +567,8 @@ _git_left_right(){
     _push=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` | awk '{print $1}' | tr -d ' ');
     [[ "$_pull" != "0" ]] && echo -n " ▼";
     [[ "$_push" != "0" ]] && echo -n " ▲";
+
+    unset _pull _push
   else
     echo -n "";
   fi
