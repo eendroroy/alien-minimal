@@ -502,6 +502,7 @@ _rev=248
 _br=046
 _dirty=208
 _lr=226
+_bjob=178
 
 _zsh_terminal_set_256color() {
   if [[ "$TERM" =~ "-256color$" ]] ; then
@@ -574,6 +575,13 @@ _git_left_right(){
   fi
 }
 
+_bg_count() {
+  _jobc="`jobs | wc -l | tr -d ' '`";
+  if [[ "$_jobc" != 0 ]]; then
+    echo -ne " [$_jobc]"
+  fi
+}
+
 _is_hg(){ if [[ $(hg branch 2>/dev/null) != "" ]]; then; echo 1 ; else; echo 0 ; fi; }
 _hg_branch(){ ref=$(hg branch 2> /dev/null) || return false; echo -n "${ref}"; return true; }
 _hg_rev(){ rev=$(hg identify --num | tr -d " +") || return false; echo -n "${rev}"; return true; }
@@ -583,11 +591,13 @@ _svn_rev(){ rev=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || re
 
 _set_r_prompt(){
   if [[ $(_is_git) == 1 ]]; then
-    echo -ne "%F{$_normal}G%f %F{$_br}`_git_branch`%f%F{$_lr}`_git_left_right`%f %F{$_rev}`_git_rev`%f%F{$_dirty}`_git_dirty`%f"
+    echo -ne "%F{$_normal}G%f %F{$_br}`_git_branch`%f%F{$_lr}`_git_left_right`%f %F{$_rev}`_git_rev`%f%F{$_dirty}`_git_dirty`%f%F{$_bjob}`_bg_count`%f"
   elif [[ $(_is_hg) == 1 ]]; then
-    echo -ne "%F{$_normal}M%f %F{$_br}`_hg_branch`%f %F{$_rev}`_hg_rev`%f"
+    echo -ne "%F{$_normal}M%f %F{$_br}`_hg_branch`%f %F{$_rev}`_hg_rev`%f%F{$_bjob}`_bg_count`%f"
   elif [[ $(_is_svn) == 1 ]]; then
-    echo -ne "%F{$_normal}G%f %F{$_rev}`_svn_rev`%f"
+    echo -ne "%F{$_normal}G%f %F{$_rev}`_svn_rev`%f%F{$_bjob}`_bg_count`%f"
+  else
+    echo -ne "%F{$_bjob}`_bg_count`%f"
   fi
 }
 
