@@ -566,8 +566,8 @@ _git_left_right(){
   if [[ $(_git_branch) != "detached" ]]; then
     _pull=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` 2>/dev/null | awk '{print $2}' | tr -d ' \n');
     _push=$(git rev-list --left-right --count `_git_branch`...origin/`_git_branch` 2>/dev/null | awk '{print $1}' | tr -d ' \n');
-    [[ "$_pull" != "0" ]] && [[ "$_pull" != "" ]] && echo -n "▼ ";
-    [[ "$_push" != "0" ]] && [[ "$_push" != "" ]] && echo -n "▲ ";
+    [[ "$_pull" != "0" ]] && [[ "$_pull" != "" ]] && echo -n " ▼";
+    [[ "$_push" != "0" ]] && [[ "$_push" != "" ]] && echo -n " ▲";
 
     unset _pull _push
   else
