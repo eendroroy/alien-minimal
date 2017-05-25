@@ -13,11 +13,12 @@ source "${THEME_ROOT}/modules/svn.zsh"
 source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/bgjob.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
+source "${THEME_ROOT}/modules/python.zsh"
 
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
-  PROMPT='`am_ssh_st`%(?.%F{$clean_normal_color}%1~%f.%F{$clean_error_color}%B%1~%b%f %F{$clean_fade_color}%?%f) '
+  PROMPT='`am_venv``am_ssh_st`%(?.%F{$clean_normal_color}%1~%f.%F{$clean_error_color}%B%1~%b%f %F{$clean_fade_color}%?%f) '
   RPROMPT=''
   am_async_r_prompt
 }

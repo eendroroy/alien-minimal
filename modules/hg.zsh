@@ -11,10 +11,10 @@ am_is_hg(){
 
 am_hg_branch(){
   ref=$(hg branch 2> /dev/null) || return;
-  echo -n "%B%F{$clean_branch_color}${ref}%f%b";
+  echo -n "%B%F{$am_branch_color}${ref}%f%b";
 }
 
 am_hg_rev(){
   rev=$(hg identify --num | tr -d " +") || return;
-  echo -n "%F{$clean_rev_color}${rev}%f";
+  echo -n "%F{$am_rev_color}${rev}%f";
 }

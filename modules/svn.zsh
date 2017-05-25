@@ -11,5 +11,5 @@ am_is_svn(){
 
 am_svn_rev(){
   rev=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || return;
-  echo -n "%B%F{$clean_rev_color}${rev}%f%b";
+  echo -n "%B%F{$am_rev_color}${rev}%f%b";
 }
