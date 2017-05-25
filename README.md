@@ -1,6 +1,4 @@
-# alien-minimal
-
-[![Join the chat at https://gitter.im/eendroroy/alien-minimal](https://badges.gitter.im/eendroroy/alien-minimal.svg)](https://gitter.im/eendroroy/alien-minimal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# clean
 
 ### Installation
 
@@ -8,7 +6,7 @@
 
 add in your .zshrc
 
-    antigen theme eendroroy/alien-minimal alien-minimal
+    antigen theme eendroroy/clean clean
 
 ##### [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
@@ -19,4 +17,3 @@ add in your .zshrc
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
 
 Credit goes to [@mafredri](https://github.com/mafredri) for ['zsh-async'](https://github.com/mafredri/zsh-async)
-
