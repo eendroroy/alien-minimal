@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-cp_is_git(){
+am_is_git(){
   if [[ $(\git branch 2>/dev/null) != "" ]]; then
     echo 1
   else
@@ -8,17 +8,17 @@ cp_is_git(){
   fi
 }
 
-cp_git_branch(){
+am_git_branch(){
   ref=$(\git symbolic-ref HEAD 2> /dev/null) || ref="detached" || return;
   echo -ne "%B%F{$clean_branch_color}${ref#refs/heads/}%f%b";
 }
 
-cp_git_rev(){
+am_git_rev(){
   rev=$(\git rev-parse HEAD | cut -c 1-7);
   echo -n "%F{$clean_rev_color}${rev}%f";
 }
 
-cp_git_dirty(){
+am_git_dirty(){
   _mod=$(\git status --porcelain 2>/dev/null | grep 'M ' | wc -l | tr -d ' ');
   _add=$(\git status --porcelain 2>/dev/null | grep 'A ' | wc -l | tr -d ' ');
   _del=$(\git status --porcelain 2>/dev/null | grep 'D ' | wc -l | tr -d ' ');
@@ -31,12 +31,12 @@ cp_git_dirty(){
   unset _mod _new _add _del
 }
 
-cp_git_left_right(){
+am_git_left_right(){
   function _branch(){
     ref=$(\git symbolic-ref HEAD 2> /dev/null) || ref="detached" || return;
     echo -ne "${ref#refs/heads/}";
   }
-  if [[ $(cp_git_branch) != "detached" ]]; then
+  if [[ $(am_git_branch) != "detached" ]]; then
     _pull=$(\git rev-list --left-right --count `_branch`...origin/`_branch` 2>/dev/null | awk '{print $2}' | tr -d ' \n');
     _push=$(\git rev-list --left-right --count `_branch`...origin/`_branch` 2>/dev/null | awk '{print $1}' | tr -d ' \n');
     [[ "$_pull" != "0" ]] && [[ "$_pull" != "" ]] && echo -n "%F{$clean_left_right_color} ▼%f";

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-cp_bg_count() {
+am_bg_count() {
   _jobc="`jobs | grep -v "pwd" | wc -l | tr -d ' '`";
   if [[ "$_jobc" != 0 ]]; then
     echo -ne "%F{$clean_fade_color}[$_jobc]%f "
