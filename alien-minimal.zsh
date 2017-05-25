@@ -18,6 +18,7 @@ source "${THEME_ROOT}/modules/python.zsh"
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
+  am_load_colors
   PROMPT='`am_ssh_st``am_venv`%(?.%F{$am_normal_color}%1~%f.%F{$am_error_color}%B%1~%b%f %F{$am_fade_color}%?%f) '
   RPROMPT=''
   am_async_r_prompt
