@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
-_ssh_st(){
-  [[ -n "$SSH_CLIENT" ]] && echo -n "[S] "
+cp_ssh_st(){
+  [[ -n "$SSH_CLIENT" ]] && echo -n "%F{$clean_ssh_color}[S] %f"
 }

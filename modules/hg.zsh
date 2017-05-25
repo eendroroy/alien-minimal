@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 
-_is_hg(){
+cp_is_hg(){
   if [[ $(hg branch 2>/dev/null) != "" ]]; then
     echo 1
   else
@@ -9,12 +9,12 @@ _is_hg(){
   fi
 }
 
-_hg_branch(){
+cp_hg_branch(){
   ref=$(hg branch 2> /dev/null) || return;
-  echo -n "${ref}";
+  echo -n "%F{$clean_branch_color}${ref}%f";
 }
 
-_hg_rev(){
+cp_hg_rev(){
   rev=$(hg identify --num | tr -d " +") || return;
-  echo -n "${rev}";
+  echo -n "%F{$clean_rev_color}${rev}%f";
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 
-_is_svn(){
+cp_is_svn(){
   if [[ $(svn info 2>/dev/null) != "" ]]; then
     echo 1
   else
@@ -9,7 +9,7 @@ _is_svn(){
   fi
  }
 
-_svn_rev(){
+cp_svn_rev(){
   rev=$(svn info 2>/dev/null | grep Revision | awk '{print $2}') || return;
-  echo -n "${rev}";
+  echo -n "%F{$clean_rev_color}${rev}%f";
 }

@@ -1,11 +1,16 @@
 #!/usr/bin/env zsh
 
-_ssh=226
-_normal=39
-_error=208
-_rev=248
-_br=46
-_dirty=208
-_lr=226
-_bjob=178
-_fade=240
+clean_vcs_color=248
+clean_ssh_color=226
+clean_normal_color=39
+clean_error_color=208
+clean_rev_color=248
+clean_branch_color=37
+clean_dirty_color=202
+clean_left_right_color=222
+clean_fade_color=242
+
+cp_unset_colors(){
+  unset clean_ssh_color clean_normal_color clean_error_color clean_rev_color clean_branch_color clean_vcs_color
+  unset clean_dirty_color clean_left_right_color clean_bgjob_color clean_fade_color
+}

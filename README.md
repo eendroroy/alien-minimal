@@ -1,4 +1,4 @@
-# clean
+# alien-minimal
 
 ### Installation
 
