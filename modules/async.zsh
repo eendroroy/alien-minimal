@@ -2,11 +2,11 @@
 
 cp_set_r_prompt(){
   if [[ $(cp_is_git) == 1 ]]; then
-    echo -ne "%F{$clean_vcs_color}G%f `cp_git_branch` `cp_git_rev``cp_git_left_right``cp_git_dirty``cp_bg_count`"
+    echo -ne "`cp_bg_count`%F{$clean_vcs_color}G%f `cp_git_branch` `cp_git_rev``cp_git_left_right``cp_git_dirty`"
   elif [[ $(cp_is_hg) == 1 ]]; then
-    echo -ne "%F{$clean_vcs_color}M%f `cp_hg_branch` `cp_hg_rev``cp_bg_count`"
+    echo -ne "`cp_bg_count`%F{$clean_vcs_color}M%f `cp_hg_branch` `cp_hg_rev`"
   elif [[ $(cp_is_svn) == 1 ]]; then
-    echo -ne "%F{$clean_vcs_color}G%f `cp_svn_rev``cp_bg_count`"
+    echo -ne "`cp_bg_count`%F{$clean_vcs_color}G%f `cp_svn_rev`"
   else
     echo -ne "`cp_bg_count`"
   fi

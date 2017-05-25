@@ -10,7 +10,7 @@ cp_is_git(){
 
 cp_git_branch(){
   ref=$(\git symbolic-ref HEAD 2> /dev/null) || ref="detached" || return;
-  echo -ne "%F{$clean_branch_color}${ref#refs/heads/}%f";
+  echo -ne "%B%F{$clean_branch_color}${ref#refs/heads/}%f%b";
 }
 
 cp_git_rev(){

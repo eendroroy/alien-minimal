@@ -11,7 +11,7 @@ cp_is_hg(){
 
 cp_hg_branch(){
   ref=$(hg branch 2> /dev/null) || return;
-  echo -n "%F{$clean_branch_color}${ref}%f";
+  echo -n "%B%F{$clean_branch_color}${ref}%f%b";
 }
 
 cp_hg_rev(){
