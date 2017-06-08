@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
 am_bg_count() {
-  _jobc="`jobs | grep -v "pwd" | wc -l | tr -d ' '`";
-  if [[ "$_jobc" != 0 ]]; then
-    echo -ne "%F{$am_fade_color}[$_jobc]%f "
-  fi
-  unset _jobc
+  echo -ne "%F{$am_fade_color}`plib_bg_count`%f "
 }
