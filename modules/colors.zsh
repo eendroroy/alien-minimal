@@ -9,6 +9,7 @@ am_load_colors(){
   am_branch_color=78
   am_dirty_color=202
   am_left_right_color=222
+  am_commit_since_color=242
   am_fade_color=242
   am_venv_color=245
 }

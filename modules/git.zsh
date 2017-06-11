@@ -19,3 +19,7 @@ am_git_dirty(){
 am_git_left_right(){
   echo -n "%F{$am_left_right_color}`plib_git_left_right`%f";
 }
+
+am_git_commit_time(){
+  echo -n "%B%F{$am_commit_since_color}`plib_git_commit_since`%f%b"
+}
