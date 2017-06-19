@@ -14,6 +14,22 @@ add in your .zshrc
 
 [![asciicast](https://asciinema.org/a/121488.png)](https://asciinema.org/a/121488)
 
+#### customizations
+    
+adding the following in .zshrc:
+
+    PROMPT_START_TAG='-->'
+    PROMPT_END_TAG=' $'
+    PROMPT_START_TAG_COLOR=81
+    PROMPT_END_TAG_COLOR=81
+
+will make the prompt look like:
+
+     --> ~ $
+     --> ~ $ 1
+    (venv) --> python-project $
+    (venv) --> python-project $ 130
+
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
 
 Credit goes to [@mafredri](https://github.com/mafredri) for ['zsh-async'](https://github.com/mafredri/zsh-async)
