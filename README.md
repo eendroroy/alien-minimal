@@ -12,7 +12,7 @@ add in your .zshrc
 
 #### screenshot
 
-[![asciicast](https://asciinema.org/a/125329.png)](https://asciinema.org/a/125329)
+[![asciicast](http://asciinema.org/a/125329.png)](https://asciinema.org/a/125329)
 
 #### customizations
     
