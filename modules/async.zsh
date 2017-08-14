@@ -16,7 +16,7 @@ function ap_dummy(){
 }
 
 function ap_lprompt_complete(){
-  RPROMPT='`am_set_r_prompt`'
+  RPROMPT='`version_prompt` `am_set_r_prompt`'
   zle && zle reset-prompt
   async_stop_worker lprompt -n
   am_unset_colors
