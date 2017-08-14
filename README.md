@@ -38,6 +38,12 @@ will make the prompt look like:
     (venv) --> python-project $
     (venv) --> python-project $ 130
 
+Show versions:
+
+Available version are: `RUBY` `PYTHON`
+
+    AM_VERSIONS_PROMPT=(RUBY PYTHON)
+
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
 
 Credit goes to [@mafredri](https://github.com/mafredri) for ['zsh-async'](https://github.com/mafredri/zsh-async)
