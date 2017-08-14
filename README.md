@@ -12,6 +12,10 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
     zgen load eendroroy/alien-minimal
 
+##### [zplug](https://github.com/zplug/zplug):
+
+    zplug eendroroy/alien-minimal
+
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
 #### screenshot
