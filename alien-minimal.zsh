@@ -15,6 +15,7 @@ source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/bgjob.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/python.zsh"
+source "${THEME_ROOT}/modules/ruby.zsh"
 source "${THEME_ROOT}/modules/config.zsh"
 
 configure
