@@ -19,20 +19,17 @@ source "${THEME_ROOT}/modules/config.zsh"
 
 configure
 
+function prompt_general(){
+  start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
+  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
+  echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+}
+
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_colors
-  start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
-  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
-  PROMPT='\
-`am_ssh_st`\
-`am_venv`\
-${start_tag}\
-%(?.\
-%F{$am_normal_color}%1~%f${end_tag}.\
-%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f) \
-'
+  PROMPT='`am_ssh_st``am_venv``prompt_general` '
   RPROMPT=''
   am_async_r_prompt
 }
