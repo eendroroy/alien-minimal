@@ -28,11 +28,11 @@ version_prompt(){
     LOOP_INDEX=0
     for _v in $AM_VERSIONS_PROMPT
     do
-      [ "$LOOP_INDEX" != "0" ] && echo -ne " %F{$am_fade_color}|%f "
-      [ "$LOOP_INDEX" = "0" ] && LOOP_INDEX=$(($LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f "
+      [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}|%f"
+      [ "$LOOP_INDEX" = "0" ] && LOOP_INDEX=$(($LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f"
       [ "$_v" = "PYTHON" ] && echo -ne "`am_python_version`"
       [ "$_v" = "RUBY" ] && echo -ne "`am_ruby_version`"
     done
-    [ "$LOOP_INDEX" != "0" ] && echo -ne " %F{$am_fade_color}]%f"
+    [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}]%f"
   fi
 }

@@ -12,8 +12,8 @@ am_load_colors(){
   am_commit_since_color=244
   am_fade_color=242
   am_venv_color=245
-  am_python_color=70
-  am_ruby_color=124
+  am_python_color=40
+  am_ruby_color=196
 }
 
 am_unset_colors(){
