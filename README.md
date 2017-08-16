@@ -26,10 +26,10 @@ Add the following line to your .zshrc depending on your zsh plugin manager
     
 adding the following in .zshrc:
 
-    PROMPT_START_TAG='-->'
-    PROMPT_END_TAG=' $'
-    PROMPT_START_TAG_COLOR=81
-    PROMPT_END_TAG_COLOR=81
+    export PROMPT_START_TAG='-->'
+    export PROMPT_END_TAG=' $'
+    export PROMPT_START_TAG_COLOR=81
+    export PROMPT_END_TAG_COLOR=81
 
 will make the prompt look like:
 
@@ -42,7 +42,11 @@ Show versions:
 
 Available version are: `RUBY` `PYTHON`
 
-    AM_VERSIONS_PROMPT=(RUBY PYTHON)
+    export AM_USE_TERMINAL_COLOR=(RUBY PYTHON)
+
+Use 8 bit color:
+
+    export AM_USER_TERMINAL_COLOR=1
 
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
 
