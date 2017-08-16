@@ -23,7 +23,7 @@ function configure(){
 }
 
 version_prompt(){
-  if [[ -v AM_VERSIONS_PROMPT ]]
+  if [[ ! -z "$AM_VERSIONS_PROMPT" ]]
   then
     LOOP_INDEX=0
     for _v in $AM_VERSIONS_PROMPT
