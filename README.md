@@ -42,7 +42,7 @@ Show versions:
 
 Available version are: `RUBY` `PYTHON`
 
-    export AM_USE_TERMINAL_COLOR=(RUBY PYTHON)
+    export AM_VERSIONS_PROMPT=(RUBY PYTHON)
 
 Use 8 bit color:
 
