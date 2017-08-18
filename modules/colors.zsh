@@ -33,8 +33,3 @@ am_load_colors(){
   fi
 }
 
-am_unset_colors(){
-  unset am_ssh_color am_normal_color am_error_color am_rev_color am_branch_color am_vcs_color
-  unset am_dirty_color am_left_right_color am_bgjob_color am_fade_color am_venv_color
-  unset am_python_color am_ruby_color
-}
