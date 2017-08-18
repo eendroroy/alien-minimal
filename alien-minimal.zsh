@@ -17,6 +17,7 @@ source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/python.zsh"
 source "${THEME_ROOT}/modules/ruby.zsh"
 source "${THEME_ROOT}/modules/config.zsh"
+source "${THEME_ROOT}/modules/timer.zsh"
 
 configure
 
@@ -26,11 +27,19 @@ function prompt_general(){
   echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
 }
 
+function preexec(){
+  am_preexec_executed=1
+  am_timer_start
+}
+
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_colors
-  PROMPT='`am_ssh_st``am_venv``prompt_general` '
+  __time="`am_get_time_prompt`"
+  am_preexec_executed=0
+  PROMPT='`am_ssh_st`$__time`am_venv``prompt_general` '
   RPROMPT=''
   am_async_r_prompt
+  am_timer_start
 }
