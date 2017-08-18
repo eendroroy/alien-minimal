@@ -48,6 +48,13 @@ Use 8 bit color:
 
     export AM_USER_TERMINAL_COLOR=1
 
+Show time for each process:
+
+    export AM_SHOW_PROCESS_TIME=1
+
+
+#### Credits
+
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
 
 Credit goes to [@mafredri](https://github.com/mafredri) for ['zsh-async'](https://github.com/mafredri/zsh-async)
