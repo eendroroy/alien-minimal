@@ -6,6 +6,6 @@ am_ssh_st(){
 	then
     echo -n " %F{$am_ssh_color}`plib_ssh_st`%f"
   else
-    echo -ne " asdad"
+    echo -ne ""
   fi
 }
