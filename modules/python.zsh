@@ -1,7 +1,13 @@
 #!/usr/bin/env zsh
 
 am_venv(){
-  echo -ne "%F{$am_venv_color}`plib_venv`%f "
+  __venv="`plib_venv`"
+  if [[ "$__venv" != "" ]]
+	then
+    echo -ne " %F{$am_venv_color}`plib_venv`%f"
+  else
+    echo -ne ""
+  fi
 }
 
 am_python_version(){

@@ -38,7 +38,7 @@ function precmd(){
   am_load_colors
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
-  PROMPT='`am_ssh_st`$__time`am_venv``prompt_general` '
+  PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general` '
   RPROMPT=''
   am_async_r_prompt
   am_timer_start
