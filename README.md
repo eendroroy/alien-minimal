@@ -20,7 +20,7 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 #### screenshot
 
-[![asciicast](http://asciinema.org/a/125329.png)](https://asciinema.org/a/125329)
+[![asciicast](http://asciinema.org/a/134365.png)](https://asciinema.org/a/134365)
 
 #### customizations
     
