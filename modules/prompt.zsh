@@ -17,25 +17,21 @@ function am_set_tags() {
   end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
 }
 
-function prompt_general_async(){
+function prompt_general_short_dir(){
   am_set_tags
   echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
 }
 
-function prompt_general(){
+function prompt_general_long_dir(){
   am_set_tags
   echo -ne "${start_tag}%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
 }
 
-function am_rprompt_complete(){
+function am_prompt_complete(){
+  PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_short_dir` '
+  zle && zle reset-prompt
   RPROMPT='`version_prompt` `am_r_prompt`'
   zle && zle reset-prompt
-  async_stop_worker rprompt -n
-}
-
-function am_lprompt_complete(){
-  PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_async` '
-  zle && zle reset-prompt
-  async_stop_worker lprompt -n
+  async_stop_worker prompt -n
 }
 

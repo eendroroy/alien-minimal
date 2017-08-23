@@ -3,17 +3,10 @@
 function am_dummy(){
 }
 
-am_async_r_prompt(){
+am_async_prompt(){
   async_init
-  async_start_worker rprompt -n
-  async_register_callback rprompt am_rprompt_complete
-  async_job rprompt ap_dummy
-}
-
-am_async_l_prompt(){
-  async_init
-  async_start_worker lprompt -n
-  async_register_callback lprompt am_lprompt_complete
-  async_job lprompt ap_dummy
+  async_start_worker prompt -n
+  async_register_callback prompt am_prompt_complete
+  async_job prompt ap_dummy
 }
 
