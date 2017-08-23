@@ -7,6 +7,7 @@ source "${THEME_ROOT}/libs/zsh-async/async.zsh"
 source "${THEME_ROOT}/libs/zsh-256color/zsh-256color.plugin.zsh"
 
 source "${THEME_ROOT}/modules/colors.zsh"
+source "${THEME_ROOT}/modules/prompt.zsh"
 
 source "${THEME_ROOT}/modules/git.zsh"
 source "${THEME_ROOT}/modules/hg.zsh"
@@ -22,11 +23,6 @@ source "${THEME_ROOT}/modules/timer.zsh"
 
 configure
 
-function prompt_general(){
-  start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
-  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
-  echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
-}
 
 function preexec(){
   am_preexec_executed=1
@@ -40,6 +36,7 @@ function precmd(){
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
   PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general` '
+  am_async_l_prompt
   RPROMPT=''
   am_async_r_prompt
   am_timer_start
