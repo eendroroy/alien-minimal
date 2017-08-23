@@ -40,9 +40,10 @@ will make the prompt look like:
 
 Show versions:
 
-Available version are: `RUBY` `PYTHON`
+Available version are: `RUBY` `PYTHON` `JAVA`
+Prompt maintain declaration order.
 
-    export AM_VERSIONS_PROMPT=(RUBY PYTHON)
+    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA)
 
 Use 8 bit color:
 
