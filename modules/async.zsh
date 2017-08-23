@@ -12,18 +12,18 @@ am_set_r_prompt(){
   fi
 }
 
-function ap_dummy(){
+function am_dummy(){
 }
 
-function ap_lprompt_complete(){
+function am_rprompt_complete(){
   RPROMPT='`version_prompt` `am_set_r_prompt`'
   zle && zle reset-prompt
-  async_stop_worker lprompt -n
+  async_stop_worker rprompt -n
 }
 
 am_async_r_prompt(){
   async_init
-  async_start_worker lprompt -n
-  async_register_callback lprompt ap_lprompt_complete
-  async_job lprompt ap_dummy
+  async_start_worker rprompt -n
+  async_register_callback rprompt am_rprompt_complete
+  async_job rprompt ap_dummy
 }
