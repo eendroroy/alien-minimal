@@ -16,6 +16,7 @@ am_load_colors(){
     am_venv_color=8
     am_python_color=2
     am_ruby_color=1
+    am_java_color=15
     am_timer_color=14
   else
     am_vcs_color=248
@@ -31,6 +32,7 @@ am_load_colors(){
     am_venv_color=245
     am_python_color=40
     am_ruby_color=196
+    am_java_color=178
     am_timer_color=248
   fi
 }
