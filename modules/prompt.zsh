@@ -28,8 +28,10 @@ function prompt_general_long_dir(){
 }
 
 function am_prompt_complete(){
-  PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_short_dir` '
-  zle && zle reset-prompt
+  if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
+    PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_short_dir` '
+    zle && zle reset-prompt
+  fi
   RPROMPT='`version_prompt` `am_r_prompt`'
   zle && zle reset-prompt
   async_stop_worker prompt -n
