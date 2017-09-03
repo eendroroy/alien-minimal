@@ -19,21 +19,55 @@ am_load_colors(){
     am_java_color=15
     am_timer_color=14
   else
-    am_vcs_color=248
-    am_ssh_color=226
-    am_normal_color=39
-    am_error_color=208
-    am_rev_color=248
-    am_branch_color=78
-    am_dirty_color=202
-    am_left_right_color=222
-    am_commit_since_color=244
-    am_fade_color=242
-    am_venv_color=245
-    am_python_color=40
-    am_ruby_color=196
-    am_java_color=178
-    am_timer_color=248
+    if [[ "$AM_THEME" == 'mono' ]]; then
+      am_vcs_color=242
+      am_ssh_color=244
+      am_normal_color=250
+      am_error_color=250
+      am_rev_color=240
+      am_branch_color=246
+      am_dirty_color=252
+      am_left_right_color=255
+      am_commit_since_color=242
+      am_fade_color=242
+      am_venv_color=246
+      am_python_color=243
+      am_ruby_color=240
+      am_java_color=247
+      am_timer_color=242
+    elif [[ "$AM_THEME" == 'mono_bright' ]]; then
+      am_vcs_color=247
+      am_ssh_color=249
+      am_normal_color=255
+      am_error_color=255
+      am_rev_color=245
+      am_branch_color=251
+      am_dirty_color=255
+      am_left_right_color=255
+      am_commit_since_color=247
+      am_fade_color=247
+      am_venv_color=251
+      am_python_color=248
+      am_ruby_color=245
+      am_java_color=252
+      am_timer_color=247
+    else
+      am_vcs_color=248
+      am_ssh_color=226
+      am_normal_color=39
+      am_error_color=208
+      am_rev_color=248
+      am_branch_color=78
+      am_dirty_color=202
+      am_left_right_color=222
+      am_commit_since_color=244
+      am_fade_color=242
+      am_venv_color=245
+      am_python_color=40
+      am_ruby_color=196
+      am_java_color=178
+      am_timer_color=248
+    fi
   fi
 }
 
