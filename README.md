@@ -57,6 +57,11 @@ Update left prompt asynchrononusly (initially show full directory path, update t
 
     export AM_UPDATE_L_PROMPT=1
 
+Color themes:
+
+    1. export AM_THEME=MONO
+    2. export AM_THEME=MONO_BRIGHT
+
 #### Credits
 
 Credit goes to [@chrissicool](https://github.com/chrissicool) for ['256color'](https://github.com/chrissicool/zsh-256color)
