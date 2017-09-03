@@ -19,7 +19,7 @@ am_load_colors(){
     am_java_color=15
     am_timer_color=14
   else
-    if [[ "$AM_THEME" == 'mono' ]]; then
+    if [[ "$AM_THEME" == 'MONO' ]]; then
       am_vcs_color=242
       am_ssh_color=244
       am_normal_color=250
@@ -35,7 +35,7 @@ am_load_colors(){
       am_ruby_color=240
       am_java_color=247
       am_timer_color=242
-    elif [[ "$AM_THEME" == 'mono_bright' ]]; then
+    elif [[ "$AM_THEME" == 'MONO_BRIGHT' ]]; then
       am_vcs_color=247
       am_ssh_color=249
       am_normal_color=255
