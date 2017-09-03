@@ -23,7 +23,6 @@ source "${THEME_ROOT}/modules/timer.zsh"
 
 configure
 
-
 function preexec(){
   am_preexec_executed=1
   am_timer_start
