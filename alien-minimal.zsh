@@ -35,9 +35,9 @@ function precmd(){
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
   if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
-    PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_long_dir` '
+    PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
   else
-    PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_short_dir` '
+    PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
   fi
   RPROMPT=''
   am_async_prompt

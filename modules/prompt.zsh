@@ -17,19 +17,19 @@ function am_set_tags() {
   end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
 }
 
-function prompt_general_short_dir(){
+function am_prompt_general_short_dir(){
   am_set_tags
   echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
 }
 
-function prompt_general_long_dir(){
+function am_prompt_general_long_dir(){
   am_set_tags
   echo -ne "${start_tag}%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
 }
 
 function am_prompt_complete(){
   if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
-    PROMPT='`am_ssh_st`$__time`am_venv` `prompt_general_short_dir` '
+    PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
     zle && zle reset-prompt
   fi
   RPROMPT='`version_prompt` `am_r_prompt`'

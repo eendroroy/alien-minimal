@@ -51,7 +51,9 @@ Use 8 bit color:
 
 Show time for each process:
 
-    export AM_SHOW_PROCESS_TIME=1
+    export AM_SHOW_PROCESS_TIME=0 # hide
+    export AM_SHOW_PROCESS_TIME=1 # show
+    export AM_SHOW_PROCESS_TIME=2 # show if not 0
 
 Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
 
