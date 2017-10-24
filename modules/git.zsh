@@ -21,5 +21,11 @@ am_git_left_right(){
 }
 
 am_git_commit_time(){
-    echo -n "%F{$am_commit_since_color}[`plib_git_commit_since`]%f"
+  echo -n "%F{$am_commit_since_color}[`plib_git_commit_since`]%f"
+}
+
+am_git_rebasing(){
+  if [[ `plib_is_git_rebasing` == 1 ]];
+    echo -n "%F{$am_error_color}(rebasing)%f"
+  fi
 }
