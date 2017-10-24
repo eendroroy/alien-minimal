@@ -25,7 +25,7 @@ am_git_commit_time(){
 }
 
 am_git_rebasing(){
-  if [[ `plib_is_git_rebasing` == 1 ]];
-    echo -n "%F{$am_error_color}(rebasing)%f"
+  if [[ `plib_is_git_rebasing` == 1 ]]; then
+    echo -n "%F{$am_error_color}(rebasing) %f"
   fi
 }
