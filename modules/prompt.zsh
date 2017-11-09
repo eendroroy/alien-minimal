@@ -2,11 +2,11 @@
 
 am_r_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-      echo -ne "`am_bg_count``am_git_rebasing`%F{$am_vcs_color}G%f `am_git_branch``am_git_commit_time` `am_git_rev``am_git_left_right``am_git_dirty`"
+      echo -ne "`am_bg_count``am_git_rebasing`%F{$am_vcs_color}G:%f`am_git_branch``am_git_commit_time` `am_git_rev``am_git_left_right``am_git_dirty`"
   elif [[ $(am_is_hg) == 1 ]]; then
-    echo -ne "`am_bg_count`%F{$am_vcs_color}M%f `am_hg_branch` `am_hg_rev`"
+    echo -ne "`am_bg_count`%F{$am_vcs_color}M:%f`am_hg_branch` `am_hg_rev`"
   elif [[ $(am_is_svn) == 1 ]]; then
-    echo -ne "`am_bg_count`%F{$am_vcs_color}G%f `am_svn_rev`"
+    echo -ne "`am_bg_count`%F{$am_vcs_color}S:%f`am_svn_rev`"
   else
     echo -ne "`am_bg_count`"
   fi
