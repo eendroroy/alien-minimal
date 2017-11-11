@@ -24,19 +24,25 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 #### customizations
     
-adding the following in .zshrc:
+Adding the following in .zshrc:
 
     export PROMPT_START_TAG='-->'
     export PROMPT_END_TAG=' $'
     export PROMPT_START_TAG_COLOR=81
     export PROMPT_END_TAG_COLOR=81
 
-will make the prompt look like:
+Will make the prompt look like:
 
      --> ~ $
      --> ~ $ 1
     (venv) --> python-project $
     (venv) --> python-project $ 130
+
+You can additionally show the error color on prompt start tag:
+
+    export AM_ERROR_ON_START_TAG=1
+
+Note: if `PROMPT_START_TAG` is empty, this configuration will be ignore.
 
 Show versions:
 
