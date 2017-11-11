@@ -55,9 +55,16 @@ Show time for each process:
     export AM_SHOW_PROCESS_TIME=1 # show
     export AM_SHOW_PROCESS_TIME=2 # show if not 0
 
+Configure dirname in prompt:
+
+    export AM_SHOW_FULL_DIR=1 # shows the full dir path
+    export AM_SHOW_FULL_DIR=1 # shows the current dir name
+
 Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
 
     export AM_UPDATE_L_PROMPT=1
+
+Note: this overrides `AM_SHOW_FULL_DIR` configuration
 
 Color themes:
 
