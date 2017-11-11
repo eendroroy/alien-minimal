@@ -42,7 +42,7 @@ You can additionally show the error color on prompt start tag:
 
     export AM_ERROR_ON_START_TAG=1
 
-Note: if `PROMPT_START_TAG` is empty, this configuration will be ignore.
+Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored.
 
 Show versions:
 
@@ -64,7 +64,7 @@ Show time for each process:
 Configure dirname in prompt:
 
     export AM_SHOW_FULL_DIR=1 # shows the full dir path
-    export AM_SHOW_FULL_DIR=1 # shows the current dir name
+    export AM_SHOW_FULL_DIR=0 # shows the current dir name
 
 Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
 
