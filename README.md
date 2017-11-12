@@ -24,19 +24,25 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 #### customizations
     
-adding the following in .zshrc:
+Adding the following in .zshrc:
 
     export PROMPT_START_TAG='-->'
     export PROMPT_END_TAG=' $'
     export PROMPT_START_TAG_COLOR=81
     export PROMPT_END_TAG_COLOR=81
 
-will make the prompt look like:
+Will make the prompt look like:
 
      --> ~ $
      --> ~ $ 1
     (venv) --> python-project $
     (venv) --> python-project $ 130
+
+You can additionally show the error color on prompt start tag:
+
+    export AM_ERROR_ON_START_TAG=1
+
+Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored.
 
 Show versions:
 
@@ -56,9 +62,16 @@ Show execution time for each process:
     export AM_SHOW_PROCESS_TIME=1 # show
     export AM_SHOW_PROCESS_TIME=2 # show if not 0
 
+Configure dirname in prompt:
+
+    export AM_SHOW_FULL_DIR=1 # shows the full dir path
+    export AM_SHOW_FULL_DIR=0 # shows the current dir name
+
 Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
 
     export AM_UPDATE_L_PROMPT=1
+
+Note: this overrides `AM_SHOW_FULL_DIR` configuration
 
 Color themes:
 

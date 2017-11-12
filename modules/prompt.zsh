@@ -12,19 +12,30 @@ am_r_prompt(){
   fi
 }
 
-function am_set_tags() {
-  start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
-  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
-}
-
 function am_prompt_general_short_dir(){
-  am_set_tags
-  echo -ne "${start_tag}%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
+  if [[ $AM_ERROR_ON_START_TAG == 1 && $PROMPT_START_TAG != "" ]]; then
+    start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
+    echo -ne "${start_tag}"
+    echo -ne "%F{$am_normal_color}%1~%f${end_tag}%(?.. %F{$am_fade_color}%?%f)"
+  else
+    start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
+    echo -ne "${start_tag}"
+    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+  fi
 }
 
 function am_prompt_general_long_dir(){
-  am_set_tags
-  echo -ne "${start_tag}%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
+  if [[ $AM_ERROR_ON_START_TAG == 1 && $PROMPT_START_TAG != "" ]]; then
+    start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
+    echo -ne "${start_tag}"
+    echo -ne "%F{$am_normal_color}%~%f${end_tag}%(?.. %F{$am_fade_color}%?%f)"
+  else
+    start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
+    echo -ne "${start_tag}"
+    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+  fi
 }
 
 function am_prompt_complete(){
