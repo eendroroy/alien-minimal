@@ -24,7 +24,7 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 #### customizations
     
-Adding the following in .zshrc:
+###### Adding the following in .zshrc:
 
     export PROMPT_START_TAG='-->'
     export PROMPT_END_TAG=' $'
@@ -44,7 +44,7 @@ You can additionally show the error color on prompt start tag:
 
 Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored.
 
-Show versions:
+###### Show versions:
 
 Available version are: `RUBY` `PYTHON` `JAVA`
 
@@ -52,17 +52,17 @@ Available version are: `RUBY` `PYTHON` `JAVA`
 
 Note: Prompt maintain declaration order.
 
-Use 8 bit color:
+###### Use 8 bit color:
 
     export AM_USER_TERMINAL_COLOR=1
 
-Show execution time for each process:
+###### Show execution time for each process:
 
     export AM_SHOW_PROCESS_TIME=0 # hide
     export AM_SHOW_PROCESS_TIME=1 # show
     export AM_SHOW_PROCESS_TIME=2 # show if not 0
 
-Configure dirname in prompt:
+###### Configure dirname in prompt:
 
     export AM_SHOW_FULL_DIR=1 # shows the full dir path
     export AM_SHOW_FULL_DIR=0 # shows the current dir name
@@ -73,7 +73,7 @@ Update left prompt asynchrononusly (initially show full directory path, update t
 
 Note: this overrides `AM_SHOW_FULL_DIR` configuration
 
-Color themes:
+###### Color themes:
 
     1. export AM_THEME=MONO
     2. export AM_THEME=MONO_BRIGHT
