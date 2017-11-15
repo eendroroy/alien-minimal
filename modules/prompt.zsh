@@ -34,12 +34,13 @@ function am_prompt_general_long_dir(){
   else
     start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+    echo -ne "%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
   fi
 }
 
 function am_prompt_complete(){
   if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
+    echo "update left"
     PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
     zle && zle reset-prompt
   fi
