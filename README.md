@@ -1,4 +1,22 @@
-# alien-minimal
+# alien-minimal 
+
+[![Contributors](https://img.shields.io/github/contributors/eendroroy/alien-minimal.svg)](CONTRIBUTORS.md)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/eendroroy/alien-minimal/master.svg)](https://github.com/eendroroy/alien-minimal)
+[![license](https://img.shields.io/github/license/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/blob/master/LICENSE)
+
+[![GitHub issues](https://img.shields.io/github/issues/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/pulls)
+[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/pulls?q=is%3Apr+is%3Aclosed)
+
+**alien-minimal** theme is faster than a lot other themes.
+
+**Why?** It updates part of the prompt asyncronously - the time consuming processings like git status checking, git dirty copy checking etc.
+
+**How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the terminal as you would normally.
+
+**alien-minimal** is **independent** of any library like Oh-My-Zsh or Prezto. Whatever it needs already included inside. The only exception is font.
+
 
 ### Installation
 
@@ -101,10 +119,21 @@ Apart from these default themes, custom colors can be defined:
     export am_java_color=15        # color for java version text
     export am_timer_color=14       # color for command execution time
 
-#### libs
+#### Libraries Used
 
-['256color'](https://github.com/chrissicool/zsh-256color) by **[@chrissicool](https://github.com/chrissicool)**
+- ['256color'](https://github.com/chrissicool/zsh-256color) by **[@chrissicool](https://github.com/chrissicool)**
+- ['zsh-async'](https://github.com/mafredri/zsh-async) by **[@mafredri](https://github.com/mafredri)**
+- ['promptlib-zsh'](https://github.com/eendroroy/promptlib-zsh) by **[@eendroroy](https://github.com/eendroroy)**
 
-['zsh-async'](https://github.com/mafredri/zsh-async) by **[@mafredri](https://github.com/mafredri)**
+## Contributing
 
-['promptlib-zsh'](https://github.com/eendroroy/promptlib-zsh) by **[@eendroroy](https://github.com/eendroroy)**
+Bug reports and pull requests are welcome on GitHub at [alien-minimal](https://github.com/eendroroy/alien-minimal) repository.
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Author
+
+* **Indrajit Roy** - *Owner* - [eendroroy](https://github.com/eendroroy)
+
+## License
+
+The project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
