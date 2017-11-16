@@ -52,10 +52,6 @@ Available version are: `RUBY` `PYTHON` `JAVA`
 
 Note: Prompt maintain declaration order.
 
-###### Use 8 bit color:
-
-    export AM_USER_TERMINAL_COLOR=1
-
 ###### Show execution time for each process:
 
     export AM_SHOW_PROCESS_TIME=0 # hide
@@ -72,6 +68,15 @@ Update left prompt asynchrononusly (initially show full directory path, update t
     export AM_UPDATE_L_PROMPT=1
 
 Note: this overrides `AM_SHOW_FULL_DIR` configuration
+
+###### Hide exit code:
+
+    export AM_HIDE_EXIT_CODE=1
+
+###### Use 8 bit color:
+
+    export AM_USER_TERMINAL_COLOR=1
+
 
 ###### Color themes:
 
