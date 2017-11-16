@@ -93,7 +93,7 @@ Note: this overrides `AM_SHOW_FULL_DIR` configuration
 
 ###### Use 8 bit color:
 
-    export AM_USER_TERMINAL_COLOR=1
+    export AM_USE_TERMINAL_COLOR=1
 
 
 ###### Color themes:
