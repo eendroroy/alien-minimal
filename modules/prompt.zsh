@@ -17,12 +17,13 @@ function am_prompt_general_short_dir(){
   if [[ $AM_ERROR_ON_START_TAG == 1 && $PROMPT_START_TAG != "" ]]; then
     start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%1~%f${end_tag}%(?.. %F{$am_fade_color}%?%f)"
+    echo -ne "%F{$am_normal_color}%1~%f${end_tag}"
   else
     start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag})"
   fi
+  [[ -z $AM_HIDE_EXIT_CODE ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
 function am_prompt_general_long_dir(){
@@ -30,12 +31,13 @@ function am_prompt_general_long_dir(){
   if [[ $AM_ERROR_ON_START_TAG == 1 && $PROMPT_START_TAG != "" ]]; then
     start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%~%f${end_tag}%(?.. %F{$am_fade_color}%?%f)"
+    echo -ne "%F{$am_normal_color}%~%f${end_tag}"
   else
     start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag} %F{$am_fade_color}%?%f)"
+    echo -ne "%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag}"
   fi
+  [[ -z $AM_HIDE_EXIT_CODE ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
 function am_prompt_complete(){
