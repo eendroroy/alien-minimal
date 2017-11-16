@@ -15,7 +15,7 @@
 
 **How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the terminal as you would normally.
 
-**alien-minimal** is **independent** of any library like Oh-My-Zsh or Prezto. Whatever it needs already included inside. The only exception is font.
+**alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto. Whatever it needs already included.
 
 
 ### Installation
