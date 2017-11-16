@@ -132,7 +132,7 @@ This project is intended to be a safe, welcoming space for collaboration, and co
 
 ## Author
 
-* **Indrajit Roy** - *Owner* - [eendroroy](https://github.com/eendroroy)
+* **indrajit** - *Owner* - [eendroroy](https://github.com/eendroroy)
 
 ## License
 
