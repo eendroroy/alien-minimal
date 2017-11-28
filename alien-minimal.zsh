@@ -34,7 +34,7 @@ function precmd(){
   am_load_colors
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
-  if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
+  if [[ $AM_UPDATE_L_PROMPT == 1 ]]; then
     PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
   elif [[ $AM_SHOW_FULL_DIR == 1 ]]; then
     PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
