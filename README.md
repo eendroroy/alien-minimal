@@ -78,6 +78,8 @@ Note: Prompt maintain declaration order.
 
 ###### Configure dirname in prompt:
 
+**add configurations before plugin definitions**
+
     export AM_SHOW_FULL_DIR=1 # shows the full dir path
     export AM_SHOW_FULL_DIR=0 # shows the current dir name
 
@@ -118,6 +120,12 @@ Apart from these default themes, custom colors can be defined:
     export am_ruby_color=1         # color for ruby version text
     export am_java_color=15        # color for java version text
     export am_timer_color=14       # color for command execution time
+
+###### Nerd Font:
+
+Enable Nerd Font
+
+    export USE_NERD_FONT=1
 
 #### Libraries Used
 
