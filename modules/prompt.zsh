@@ -1,5 +1,21 @@
 #!/usr/bin/env zsh
 
+version_prompt(){
+  if [[ ! -z "$AM_VERSIONS_PROMPT" ]]
+  then
+    LOOP_INDEX=0
+    for _v in $AM_VERSIONS_PROMPT
+    do
+      [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}|%f"
+      [ "$LOOP_INDEX" = "0" ] && LOOP_INDEX=$(($LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f"
+      [ "$_v" = "PYTHON" ] && echo -ne "`am_python_version`"
+      [ "$_v" = "RUBY" ] && echo -ne "`am_ruby_version`"
+      [ "$_v" = "JAVA" ] && echo -ne "`am_java_version`"
+    done
+    [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}]%f"
+  fi
+}
+
 am_r_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
     echo -ne "`am_bg_count``am_git_rebasing`%F{$am_vcs_color}${AM_GIT_SYM}:%f`am_git_branch``am_git_commit_time` `am_git_rev``am_git_left_right``am_git_dirty`"

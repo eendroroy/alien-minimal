@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-AM_GIT_SYM=G
-AM_HG_SYM=H
-AM_SVN_SYM=S
-PLIB_GIT_PUSH_SYM=↑
-PLIB_GIT_PULL_SYM=↓
