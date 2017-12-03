@@ -3,7 +3,6 @@
 [![Contributors](https://img.shields.io/github/contributors/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/graphs/contributors)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/eendroroy/alien-minimal/master.svg)](https://github.com/eendroroy/alien-minimal)
 [![license](https://img.shields.io/github/license/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/blob/master/LICENSE)
-
 [![GitHub issues](https://img.shields.io/github/issues/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/pulls)
@@ -44,14 +43,14 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 **add configurations before plugin definitions**
     
-### Adding the following in .zshrc:
+### Add start tag and end tag:
 
     export PROMPT_START_TAG='-->'
     export PROMPT_END_TAG=' $'
     export PROMPT_START_TAG_COLOR=81
     export PROMPT_END_TAG_COLOR=81
 
-Will make the prompt look like:
+**Result:**
 
      --> ~ $
      --> ~ $ 1
@@ -62,7 +61,7 @@ You can additionally show the error color on prompt start tag:
 
     export AM_ERROR_ON_START_TAG=1
 
-Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored.
+_Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 
@@ -70,7 +69,7 @@ Available version are: `RUBY` `PYTHON` `JAVA`
 
     export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA)
 
-Note: Prompt maintain declaration order.
+_Note: Prompt maintain declaration order._
 
 ### Show execution time for each process:
 
@@ -87,7 +86,7 @@ Update left prompt asynchrononusly (initially show full directory path, update t
 
     export AM_UPDATE_L_PROMPT=1
 
-Note: this overrides `AM_SHOW_FULL_DIR` configuration
+_Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
 ### Hide exit code:
 
@@ -103,7 +102,9 @@ Note: this overrides `AM_SHOW_FULL_DIR` configuration
     1. export AM_THEME=MONO
     2. export AM_THEME=MONO_BRIGHT
 
-Apart from these default themes, custom colors can be defined:
+_Note: **Unset `AM_THEME` to use default color scheme.**_
+
+**Apart from these default themes, custom colors can be defined:**
 
     export am_vcs_color=1          # color for VCS (G: M: V:)
     export am_ssh_color=11         # color for ssh indicaator
