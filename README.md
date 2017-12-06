@@ -88,6 +88,8 @@ Update left prompt asynchrononusly (initially show full directory path, update t
 
 _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
+**The effect may be un-noticable on faster CPUs.**
+
 ### Hide exit code:
 
     export AM_HIDE_EXIT_CODE=1
