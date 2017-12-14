@@ -3,7 +3,6 @@
 THEME_ROOT=${0:A:h}
 
 source "${THEME_ROOT}/modules/init.zsh"
-source "${THEME_ROOT}/modules/symbols.zsh"
 
 source "${THEME_ROOT}/libs/promptlib/activate"
 source "${THEME_ROOT}/libs/zsh-async/async.zsh"
