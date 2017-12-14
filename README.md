@@ -114,7 +114,6 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
     export am_error_color=1        # color for ERROR
     export am_rev_color=14         # color for VCS Revision number
     export am_branch_color=10      # color for VCS BRANCH name
-    export am_dirty_color=2        # color for VCS DIRTY copy indicator
     export am_left_right_color=3   # color for GIT Left-Right status
     export am_commit_since_color=6 # color for last commit time
     export am_fade_color=8         # color for fade text color
@@ -129,6 +128,24 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 Enable Nerd Font
 
     export USE_NERD_FONT=1
+
+### promptlib-zsh Configs:
+
+#### customize symbols
+
+    export PLIB_GIT_ADD_SYM=+
+    export PLIB_GIT_DEL_SYM=-
+    export PLIB_GIT_MOD_SYM=⭑
+    export PLIB_GIT_NEW_SYM=?
+    export PLIB_GIT_PUSH_SYM=↑
+    export PLIB_GIT_PULL_SYM=↓
+
+_Note: this overrides `USE_NERD_FONT` configuration._
+
+#### customize colors
+
+    export PLIB_GIT_TRACKED_COLOR=green
+    export PLIB_GIT_UNTRACKED_COLOR=red
 
 ## Libraries Used
 
