@@ -13,7 +13,7 @@ am_git_rev(){
 }
 
 am_git_dirty(){
-  echo -n "%F{$am_dirty_color}`plib_git_dirty`%f";
+  echo -n "`plib_git_dirty`";
 }
 
 am_git_left_right(){
