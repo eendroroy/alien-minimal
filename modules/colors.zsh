@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 am_load_colors(){
-  if [[ "$AM_USE_TERMINAL_COLOR" == "1" ]]
-  then
+  if [[ "$AM_USE_TERMINAL_COLOR" == "1" ]]; then
     [[ -z $am_vcs_color ]] && am_vcs_color=1
     [[ -z $am_ssh_color ]] && am_ssh_color=11
     [[ -z $am_normal_color ]] && am_normal_color=12
