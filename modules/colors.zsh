@@ -9,7 +9,6 @@ am_load_colors(){
     [[ -z $am_error_color ]] && am_error_color=1
     [[ -z $am_rev_color ]] && am_rev_color=14
     [[ -z $am_branch_color ]] && am_branch_color=10
-    [[ -z $am_dirty_color ]] && am_dirty_color=2
     [[ -z $am_left_right_color ]] && am_left_right_color=3
     [[ -z $am_commit_since_color ]] && am_commit_since_color=6
     [[ -z $am_fade_color ]] && am_fade_color=8
@@ -26,7 +25,6 @@ am_load_colors(){
       [[ -z $am_error_color ]] && am_error_color=250
       [[ -z $am_rev_color ]] && am_rev_color=240
       [[ -z $am_branch_color ]] && am_branch_color=246
-      [[ -z $am_dirty_color ]] && am_dirty_color=252
       [[ -z $am_left_right_color ]] && am_left_right_color=255
       [[ -z $am_commit_since_color ]] && am_commit_since_color=242
       [[ -z $am_fade_color ]] && am_fade_color=242
@@ -42,7 +40,6 @@ am_load_colors(){
       [[ -z $am_error_color ]] && am_error_color=255
       [[ -z $am_rev_color ]] && am_rev_color=245
       [[ -z $am_branch_color ]] && am_branch_color=251
-      [[ -z $am_dirty_color ]] && am_dirty_color=255
       [[ -z $am_left_right_color ]] && am_left_right_color=255
       [[ -z $am_commit_since_color ]] && am_commit_since_color=247
       [[ -z $am_fade_color ]] && am_fade_color=247
@@ -58,7 +55,6 @@ am_load_colors(){
       [[ -z $am_error_color ]] && am_error_color=208
       [[ -z $am_rev_color ]] && am_rev_color=248
       [[ -z $am_branch_color ]] && am_branch_color=78
-      [[ -z $am_dirty_color ]] && am_dirty_color=202
       [[ -z $am_left_right_color ]] && am_left_right_color=222
       [[ -z $am_commit_since_color ]] && am_commit_since_color=244
       [[ -z $am_fade_color ]] && am_fade_color=242
