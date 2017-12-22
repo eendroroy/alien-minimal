@@ -105,8 +105,7 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
     1. export AM_THEME=MONO
     2. export AM_THEME=MONO_BRIGHT
-
-_Note: **Unset `AM_THEME` to use default color scheme.**_
+    2. export AM_THEME=DEFAULT
 
 **Apart from these default themes, custom colors can be defined:**
 
