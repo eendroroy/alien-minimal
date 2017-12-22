@@ -17,6 +17,7 @@ am_load_colors(){
     [[ -z $am_java_color ]] && am_java_color=15
     [[ -z $am_timer_color ]] && am_timer_color=14
   else
+    [[ -z "$AM_THEME" ]] && AM_THEME='DEFAULT'
     if [[ "$AM_THEME" == 'MONO' ]]; then
       [[ -z $am_vcs_color ]] && am_vcs_color=242
       [[ -z $am_ssh_color ]] && am_ssh_color=244
@@ -47,7 +48,7 @@ am_load_colors(){
       [[ -z $am_ruby_color ]] && am_ruby_color=245
       [[ -z $am_java_color ]] && am_java_color=252
       [[ -z $am_timer_color ]] && am_timer_color=247
-    else
+    elif [[ "$AM_THEME" == 'DEFAULT' ]]; then
       [[ -z $am_vcs_color ]] && am_vcs_color=248
       [[ -z $am_ssh_color ]] && am_ssh_color=226
       [[ -z $am_normal_color ]] && am_normal_color=39
