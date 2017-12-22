@@ -79,6 +79,8 @@ _Note: Prompt maintain declaration order._
     export AM_SHOW_PROCESS_TIME=1 # show
     export AM_SHOW_PROCESS_TIME=2 # show if not 0
 
+_Note: **Unset `AM_SHOW_PROCESS_TIME` to hide process time.**_
+
 ### Configure dirname in prompt:
 
     export AM_SHOW_FULL_DIR=1 # shows the full dir path
@@ -106,6 +108,8 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
     1. export AM_THEME=MONO
     2. export AM_THEME=MONO_BRIGHT
     2. export AM_THEME=DEFAULT
+
+_Note: **Unset `AM_THEME` to use default color scheme.**_
 
 **Apart from these default themes, custom colors can be defined:**
 
