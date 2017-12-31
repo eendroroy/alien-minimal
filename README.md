@@ -131,6 +131,7 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 ### Nerd Font:
 
 **Nerd Font must be installed [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)**
+
 Enable Nerd Font
 
     export USE_NERD_FONT=1
