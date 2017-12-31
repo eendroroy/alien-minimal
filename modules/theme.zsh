@@ -53,7 +53,7 @@ am_load_mono_bright_theme(){
 
 am_load_default_theme(){
   [[ -z $am_vcs_color ]]          && am_vcs_color=248
-  [[ -z $am_ssh_color ]]          && am_ssh_color=178
+  [[ -z $am_ssh_color ]]          && am_ssh_color=143
   [[ -z $am_normal_color ]]       && am_normal_color=39
   [[ -z $am_error_color ]]        && am_error_color=208
   [[ -z $am_rev_color ]]          && am_rev_color=248
