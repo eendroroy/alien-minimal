@@ -130,6 +130,7 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 ### Nerd Font:
 
+**Nerd Font must be installed [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)**
 Enable Nerd Font
 
     export USE_NERD_FONT=1
@@ -138,6 +139,9 @@ Enable Nerd Font
 
 #### customize symbols
 
+    export AM_GIT_SYM=G
+    export AM_HG_SYM=M
+    export AM_SSH_SYM=[S]
     export PLIB_GIT_ADD_SYM=+
     export PLIB_GIT_DEL_SYM=-
     export PLIB_GIT_MOD_SYM=⭑
