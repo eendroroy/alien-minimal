@@ -140,15 +140,18 @@ Enable Nerd Font
 
 #### customize symbols
 
-    export AM_GIT_SYM=G
-    export AM_HG_SYM=M
-    export AM_SSH_SYM=[S]
-    export PLIB_GIT_ADD_SYM=+
-    export PLIB_GIT_DEL_SYM=-
-    export PLIB_GIT_MOD_SYM=⭑
-    export PLIB_GIT_NEW_SYM=?
-    export PLIB_GIT_PUSH_SYM=↑
-    export PLIB_GIT_PULL_SYM=↓
+    export AM_JAVA_SYM='J:'     # JAVA Version Symbol
+    export AM_PY_SYM='P:'       # Python Version Symbol
+    export AM_RB_SYM='R:'       # Ruby Version Symbol 
+    export AM_GIT_SYM=G         # Git Symbol
+    export AM_HG_SYM=M          # Mercurial Symbol
+    export AM_SSH_SYM=[S]       # SSH Indicator Symbol
+    export PLIB_GIT_ADD_SYM=+   # Git New Tracked File Symbol
+    export PLIB_GIT_DEL_SYM=-   # Git Deleted File Symbol
+    export PLIB_GIT_MOD_SYM=⭑   # Git Modified File Symbol
+    export PLIB_GIT_NEW_SYM=?   # Git New Untracked File Symbol
+    export PLIB_GIT_PUSH_SYM=↑  # Git Unpushed Commit Symbol
+    export PLIB_GIT_PULL_SYM=↓  # Git New Commit Symbol
 
 _Note: this overrides `USE_NERD_FONT` configuration._
 

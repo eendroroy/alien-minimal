@@ -11,5 +11,5 @@ am_venv(){
 }
 
 am_python_version(){
-  echo -ne "%F{$am_python_color}`plib_python_major_minor_version`%f"
+  echo -ne "%F{$am_python_color}${AM_PY_SYM}`plib_python_major_minor_version`%f"
 }
