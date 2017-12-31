@@ -9,11 +9,13 @@ if [[ $USE_NERD_FONT = 1 ]]; then
   [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM=
   [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM=
   [[ -z "${AM_HG_SYM}" ]]         && AM_HG_SYM=
+  [[ -z "${AM_SSH_SYM}" ]]        && AM_SSH_SYM=
 fi
 
 [[ -z "${AM_GIT_SYM}" ]] && AM_GIT_SYM=G
 [[ -z "${AM_HG_SYM}" ]]  && AM_HG_SYM=H
 [[ -z "${AM_SVN_SYM}" ]] && AM_SVN_SYM=S
+[[ -z "${AM_SSH_SYM}" ]] && AM_SSH_SYM=[S]
 
 [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM=↑
 [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM=↓
