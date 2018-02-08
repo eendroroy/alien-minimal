@@ -15,4 +15,10 @@ am_theme(){
   [[ -z $am_ruby_color ]]         && am_ruby_color=240
   [[ -z $am_java_color ]]         && am_java_color=247
   [[ -z $am_timer_color ]]        && am_timer_color=242
+
+  [[ -z "${PROMPT_START_TAG_COLOR}" ]] && PROMPT_START_TAG_COLOR=250
+  [[ -z "${PROMPT_END_TAG_COLOR}" ]]   && PROMPT_END_TAG_COLOR=250
+
+  [[ -z "${PLIB_GIT_TRACKED_COLOR}" ]]   && PLIB_GIT_TRACKED_COLOR=250
+  [[ -z "${PLIB_GIT_UNTRACKED_COLOR}" ]] && PLIB_GIT_UNTRACKED_COLOR=246
 }
