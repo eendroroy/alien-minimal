@@ -7,7 +7,7 @@ am_theme(){
   [[ -z $am_error_color ]]        && am_error_color=197
   [[ -z $am_rev_color ]]          && am_rev_color=74
   [[ -z $am_branch_color ]]       && am_branch_color=122
-  [[ -z $am_left_right_color ]]   && am_left_right_color=222
+  [[ -z $am_left_right_color ]]   && am_left_right_color=226
   [[ -z $am_commit_since_color ]] && am_commit_since_color=103
   [[ -z $am_fade_color ]]         && am_fade_color=242
   [[ -z $am_venv_color ]]         && am_venv_color=245
@@ -19,6 +19,6 @@ am_theme(){
   [[ -z "${PROMPT_START_TAG_COLOR}" ]] && PROMPT_START_TAG_COLOR=12
   [[ -z "${PROMPT_END_TAG_COLOR}" ]]   && PROMPT_END_TAG_COLOR=12
 
-  [[ -z "${PLIB_GIT_TRACKED_COLOR}" ]]   && PLIB_GIT_TRACKED_COLOR=10
-  [[ -z "${PLIB_GIT_UNTRACKED_COLOR}" ]] && PLIB_GIT_UNTRACKED_COLOR=${am_error_color}
+  [[ -z "${PLIB_GIT_TRACKED_COLOR}" ]]   && PLIB_GIT_TRACKED_COLOR=122
+  [[ -z "${PLIB_GIT_UNTRACKED_COLOR}" ]] && PLIB_GIT_UNTRACKED_COLOR=181
 }
