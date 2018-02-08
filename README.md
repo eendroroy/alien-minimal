@@ -98,35 +98,65 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
     export AM_HIDE_EXIT_CODE=1
 
-### Use 8 bit color:
-
-    export AM_USE_TERMINAL_COLOR=1
-
 
 ### Color themes:
 
-    1. export AM_THEME=MONO
-    2. export AM_THEME=MONO_BRIGHT
-    2. export AM_THEME=DEFAULT
+    1. export AM_THEME=mono
+    2. export AM_THEME=mono_bright
+    2. export AM_THEME=terminal
+    2. export AM_THEME=default
 
 _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 **Apart from these default themes, custom colors can be defined:**
 
-    export am_vcs_color=1          # color for VCS (G: M: V:)
-    export am_ssh_color=11         # color for ssh indicaator
-    export am_normal_color=12      # color for normal text
-    export am_error_color=1        # color for ERROR
-    export am_rev_color=14         # color for VCS Revision number
-    export am_branch_color=10      # color for VCS BRANCH name
-    export am_left_right_color=3   # color for GIT Left-Right status
-    export am_commit_since_color=6 # color for last commit time
-    export am_fade_color=8         # color for fade text color
-    export am_venv_color=8         # color fir python virtual env text
-    export am_python_color=2       # color for python version text
-    export am_ruby_color=1         # color for ruby version text
-    export am_java_color=15        # color for java version text
-    export am_timer_color=14       # color for command execution time
+```bash
+export am_vcs_color=1          # color for VCS (G: M: V:)
+export am_ssh_color=11         # color for ssh indicaator
+export am_normal_color=12      # color for normal text
+export am_error_color=1        # color for ERROR
+export am_rev_color=14         # color for VCS Revision number
+export am_branch_color=10      # color for VCS BRANCH name
+export am_left_right_color=3   # color for GIT Left-Right status
+export am_commit_since_color=6 # color for last commit time
+export am_fade_color=8         # color for fade text color
+export am_venv_color=8         # color fir python virtual env text
+export am_python_color=2       # color for python version text
+export am_ruby_color=1         # color for ruby version text
+export am_java_color=15        # color for java version text
+export am_timer_color=14       # color for command execution time
+```
+
+Or creating a new theme file:
+
+__/path/to/custom/theme.zsh__
+
+```bash
+#!/usr/bin/env zsh
+
+am_theme(){
+  [[ -z $am_vcs_color ]]          && am_vcs_color=248
+  [[ -z $am_ssh_color ]]          && am_ssh_color=143
+  [[ -z $am_normal_color ]]       && am_normal_color=39
+  [[ -z $am_error_color ]]        && am_error_color=208
+  [[ -z $am_rev_color ]]          && am_rev_color=248
+  [[ -z $am_branch_color ]]       && am_branch_color=78
+  [[ -z $am_left_right_color ]]   && am_left_right_color=222
+  [[ -z $am_commit_since_color ]] && am_commit_since_color=244
+  [[ -z $am_fade_color ]]         && am_fade_color=242
+  [[ -z $am_venv_color ]]         && am_venv_color=245
+  [[ -z $am_python_color ]]       && am_python_color=40
+  [[ -z $am_ruby_color ]]         && am_ruby_color=196
+  [[ -z $am_java_color ]]         && am_java_color=178
+  [[ -z $am_timer_color ]]        && am_timer_color=248
+}
+```
+
+Then activate the theme using:
+
+```
+export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
+```
 
 ### Nerd Font:
 
