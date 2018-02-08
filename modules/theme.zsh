@@ -2,7 +2,7 @@
 
 THEME_DIR="${0:A:h}/themes"
 
-AM_load_theme(){
+am_load_theme(){
   if [[ -z "${AM_CUSTOM_THEME_PATH}" ]]; then
     if [[ -z "${AM_THEME}" ]]; then
       source "${THEME_DIR}/default.zsh"

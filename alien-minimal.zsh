@@ -30,7 +30,7 @@ function preexec(){
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
-  am_load_colors
+  am_load_theme
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
   if [[ $AM_UPDATE_L_PROMPT == 1 ]]; then
