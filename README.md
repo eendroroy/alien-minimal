@@ -104,6 +104,7 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
     1. export AM_THEME=mono
     2. export AM_THEME=mono_bright
     2. export AM_THEME=terminal
+    2. export AM_THEME=soft
     2. export AM_THEME=default
 
 _Note: **Unset `AM_THEME` to use default color scheme.**_
