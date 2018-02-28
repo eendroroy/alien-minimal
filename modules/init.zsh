@@ -13,8 +13,6 @@ if [[ $USE_NERD_FONT = 1 ]]; then
   [[ -z "${AM_JAVA_SYM}" ]]       && AM_JAVA_SYM=' '
   [[ -z "${AM_PY_SYM}" ]]         && AM_PY_SYM=' '
   [[ -z "${AM_RB_SYM}" ]]         && AM_RB_SYM=' '
-
-  [[ -z "${AM_GIT_REBASING_SYMBOL}" ]]  && AM_GIT_REBASING_SYMBOL='⇋ '
 fi
 
 [[ -z "${AM_JAVA_SYM}" ]] && AM_JAVA_SYM=''
@@ -25,7 +23,7 @@ fi
 [[ -z "${AM_SVN_SYM}" ]]  && AM_SVN_SYM=S
 [[ -z "${AM_SSH_SYM}" ]]  && AM_SSH_SYM=[S]
 
-[[ -z "${AM_GIT_REBASING_SYMBOL}" ]]  && AM_GIT_REBASING_SYMBOL='(rebasing) '
+[[ -z "${AM_GIT_REBASING_SYMBOL}" ]]  && AM_GIT_REBASING_SYMBOL='⇋ '
 
 [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM=↑
 [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM=↓
