@@ -39,7 +39,7 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 ## Asciicast
 
-[![asciicast](http://asciinema.org/a/162089.png)](https://asciinema.org/a/162089)
+[![asciicast](http://asciinema.org/a/166839.png)](https://asciinema.org/a/166839)
 
 ## Customizations
 
