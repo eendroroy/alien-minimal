@@ -11,6 +11,7 @@ version_prompt(){
       [ "$_v" = "PYTHON" ] && echo -ne "`am_python_version`"
       [ "$_v" = "RUBY" ] && echo -ne "`am_ruby_version`"
       [ "$_v" = "JAVA" ] && echo -ne "`am_java_version`"
+      [ "$_v" = "GO" ] && echo -ne "`am_go_version`"
     done
     [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}]%f"
   fi

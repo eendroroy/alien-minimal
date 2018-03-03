@@ -13,6 +13,7 @@ if [[ $USE_NERD_FONT = 1 ]]; then
   [[ -z "${AM_JAVA_SYM}" ]]       && AM_JAVA_SYM=' '
   [[ -z "${AM_PY_SYM}" ]]         && AM_PY_SYM=' '
   [[ -z "${AM_RB_SYM}" ]]         && AM_RB_SYM=' '
+  [[ -z "${AM_GO_SYM}" ]]         && AM_RB_SYM=''
 fi
 
 [[ -z "${AM_JAVA_SYM}" ]] && AM_JAVA_SYM=''

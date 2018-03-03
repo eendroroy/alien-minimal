@@ -21,3 +21,7 @@ am_python_version(){
 am_java_version(){
   echo -ne "%F{$am_java_color}${AM_JAVA_SYM}`plib_java_major_version`%f"
 }
+
+am_go_version(){
+  echo -ne "%F{$am_go_color}${AM_GO_SYM}`plib_go_version`%f"
+}
