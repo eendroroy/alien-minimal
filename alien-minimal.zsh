@@ -17,9 +17,7 @@ source "${THEME_ROOT}/modules/svn.zsh"
 source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/bgjob.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
-source "${THEME_ROOT}/modules/python.zsh"
-source "${THEME_ROOT}/modules/ruby.zsh"
-source "${THEME_ROOT}/modules/java.zsh"
+source "${THEME_ROOT}/modules/versions.zsh"
 source "${THEME_ROOT}/modules/timer.zsh"
 
 function preexec(){
