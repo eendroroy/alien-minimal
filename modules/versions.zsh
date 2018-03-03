@@ -25,3 +25,7 @@ am_java_version(){
 am_go_version(){
   echo -ne "%F{$am_go_color}${AM_GO_SYM}`plib_go_version`%f"
 }
+
+am_crystal_version(){
+  echo -ne "%F{$am_crystal_color}${AM_CRYSTAL_SYM}`plib_crystal_version`%f"
+}

@@ -15,6 +15,7 @@ am_theme(){
   [[ -z $am_ruby_color ]]         && am_ruby_color=196
   [[ -z $am_java_color ]]         && am_java_color=178
   [[ -z $am_go_color ]]           && am_go_color=81
+  [[ -z $am_crystal_color ]]      && am_crystal_color=8
   [[ -z $am_timer_color ]]        && am_timer_color=248
 
   [[ -z "${PROMPT_START_TAG_COLOR}" ]] && PROMPT_START_TAG_COLOR=39
