@@ -14,6 +14,7 @@ version_prompt(){
       [ "$_v" = "GO" ] && echo -ne "`am_go_version`"
       [ "$_v" = "CRYSTAL" ] && echo -ne "`am_crystal_version`"
       [ "$_v" = "NODE" ] && echo -ne "`am_node_version`"
+      [ "$_v" = "PHP" ] && echo -ne "`am_php_version`"
     done
     [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}]%f"
   fi

@@ -6,6 +6,7 @@
 [[ -z "${AM_GO_SYM}" ]]      && AM_GO_SYM=''
 [[ -z "${AM_CRYSTAL_SYM}" ]] && AM_CRYSTAL_SYM=''
 [[ -z "${AM_NODE_SYM}" ]]    && AM_NODE_SYM='⬡ '
+[[ -z "${AM_PHP_SYM}" ]]     && AM_PHP_SYM=''
 [[ -z "${AM_GIT_SYM}" ]]     && AM_GIT_SYM=G
 [[ -z "${AM_HG_SYM}" ]]      && AM_HG_SYM=H
 [[ -z "${AM_SVN_SYM}" ]]     && AM_SVN_SYM=S
