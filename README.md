@@ -37,9 +37,9 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
-## Asciicast
+## Asciicast (1.0.6)
 
-[![asciicast](http://asciinema.org/a/166839.png)](https://asciinema.org/a/166839)
+[![asciicast](http://asciinema.org/a/175231.png)](https://asciinema.org/a/175231)
 
 ## Customizations
 
