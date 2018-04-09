@@ -35,5 +35,5 @@ am_node_version(){
 }
 
 am_php_version(){
-  echo -ne "%F{$am_php_color}${AM_PHP_SYM}`plib_php_version`%f"
+  echo -ne "%F{$am_php_color}${AM_PHP_SYM}`plib_php_major_version`%f"
 }
