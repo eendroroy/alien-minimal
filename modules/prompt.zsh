@@ -13,6 +13,7 @@ version_prompt(){
       [ "$_v" = "JAVA" ] && echo -ne "`am_java_version`"
       [ "$_v" = "GO" ] && echo -ne "`am_go_version`"
       [ "$_v" = "CRYSTAL" ] && echo -ne "`am_crystal_version`"
+      [ "$_v" = "NODE" ] && echo -ne "`am_node_version`"
     done
     [ "$LOOP_INDEX" != "0" ] && echo -ne "%F{$am_fade_color}]%f"
   fi

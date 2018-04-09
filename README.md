@@ -67,9 +67,9 @@ _Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 
-Available version are: `RUBY` `PYTHON` `JAVA` `GO` `CRYSTAL`
+Available version are: `RUBY` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE`
 
-    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL)
+    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE)
 
 _Note: Prompt maintain declaration order._
 

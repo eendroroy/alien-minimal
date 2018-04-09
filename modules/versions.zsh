@@ -29,3 +29,7 @@ am_go_version(){
 am_crystal_version(){
   echo -ne "%F{$am_crystal_color}${AM_CRYSTAL_SYM}`plib_crystal_version`%f"
 }
+
+am_node_version(){
+  echo -ne "%F{$am_node_color}${AM_NODE_SYM}`plib_node_major_version`%f"
+}
