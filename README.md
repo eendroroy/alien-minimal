@@ -25,15 +25,21 @@ Add the following line to your .zshrc depending on your zsh plugin manager
 
 ##### [antigen](https://github.com/zsh-users/antigen):
 
-    antigen theme eendroroy/alien-minimal alien-minimal
+```bash
+antigen theme eendroroy/alien-minimal alien-minimal
+```
 
 ##### [zgen](https://github.com/tarjoilija/zgen):
 
-    zgen load eendroroy/alien-minimal
+```bash
+zgen load eendroroy/alien-minimal
+```
 
 ##### [zplug](https://github.com/zplug/zplug):
 
-    zplug "eendroroy/alien-minimal"
+```bash
+zplug "eendroroy/alien-minimal"
+```
 
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
@@ -47,21 +53,27 @@ Add the following line to your .zshrc depending on your zsh plugin manager
     
 ### Add start tag and end tag:
 
-    export PROMPT_START_TAG='-->'
-    export PROMPT_END_TAG=' $'
-    export PROMPT_START_TAG_COLOR=81
-    export PROMPT_END_TAG_COLOR=81
+```bash
+export PROMPT_START_TAG='-->'
+export PROMPT_END_TAG=' $'
+export PROMPT_START_TAG_COLOR=81
+export PROMPT_END_TAG_COLOR=81
+```
 
 **Result:**
 
-     --> ~ $
-     --> ~ $ 1
-    (venv) --> python-project $
-    (venv) --> python-project $ 130
+```bash
+--> ~ $
+--> ~ $ 1
+(venv) --> python-project $
+(venv) --> python-project $ 130
+```
 
 You can additionally show the error color on prompt start tag:
 
-    export AM_ERROR_ON_START_TAG=1
+```bash
+export AM_ERROR_ON_START_TAG=1
+```
 
 _Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored._
 
@@ -69,26 +81,34 @@ _Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 Available version are: `RUBY` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE` `PHP`
 
+```bash
     export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP)
+```
 
 _Note: Prompt maintain declaration order._
 
 ### Show execution time for each process:
 
-    export AM_SHOW_PROCESS_TIME=0 # hide
-    export AM_SHOW_PROCESS_TIME=1 # show
-    export AM_SHOW_PROCESS_TIME=2 # show if not 0
+```bash
+export AM_SHOW_PROCESS_TIME=0 # hide
+export AM_SHOW_PROCESS_TIME=1 # show
+export AM_SHOW_PROCESS_TIME=2 # show if not 0
+```
 
 _Note: **Unset `AM_SHOW_PROCESS_TIME` to hide process time.**_
 
 ### Configure dirname in prompt:
 
-    export AM_SHOW_FULL_DIR=1 # shows the full dir path
-    export AM_SHOW_FULL_DIR=0 # shows the current dir name
+```bash
+export AM_SHOW_FULL_DIR=1 # shows the full dir path
+export AM_SHOW_FULL_DIR=0 # shows the current dir name
+```
 
 Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
 
-    export AM_UPDATE_L_PROMPT=1
+```bash
+export AM_UPDATE_L_PROMPT=1
+```
 
 _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
@@ -96,17 +116,19 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
 ### Hide exit code:
 
-    export AM_HIDE_EXIT_CODE=1
-
+```bash
+export AM_HIDE_EXIT_CODE=1
+```
 
 ### Color themes:
 
-    1. export AM_THEME=mono
-    2. export AM_THEME=mono_bright
-    2. export AM_THEME=terminal
-    2. export AM_THEME=soft
-    2. export AM_THEME=default
-
+```bash
+1. export AM_THEME=mono
+1. export AM_THEME=mono_bright
+1. export AM_THEME=terminal
+1. export AM_THEME=soft
+1. export AM_THEME=default
+```
 _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 **Apart from these default themes, custom colors can be defined:**
@@ -136,26 +158,26 @@ __/path/to/custom/theme.zsh__
 #!/usr/bin/env zsh
 
 am_theme(){
-  [[ -z $am_vcs_color ]]          && am_vcs_color=248
-  [[ -z $am_ssh_color ]]          && am_ssh_color=143
-  [[ -z $am_normal_color ]]       && am_normal_color=39
-  [[ -z $am_error_color ]]        && am_error_color=208
-  [[ -z $am_rev_color ]]          && am_rev_color=248
-  [[ -z $am_branch_color ]]       && am_branch_color=78
-  [[ -z $am_left_right_color ]]   && am_left_right_color=222
-  [[ -z $am_commit_since_color ]] && am_commit_since_color=244
-  [[ -z $am_fade_color ]]         && am_fade_color=242
-  [[ -z $am_venv_color ]]         && am_venv_color=245
-  [[ -z $am_python_color ]]       && am_python_color=40
-  [[ -z $am_ruby_color ]]         && am_ruby_color=196
-  [[ -z $am_java_color ]]         && am_java_color=178
-  [[ -z $am_timer_color ]]        && am_timer_color=248
+  am_vcs_color=248
+  am_ssh_color=143
+  am_normal_color=39
+  am_error_color=208
+  am_rev_color=248
+  am_branch_color=78
+  am_left_right_color=222
+  am_commit_since_color=244
+  am_fade_color=242
+  am_venv_color=245
+  am_python_color=40
+  am_ruby_color=196
+  am_java_color=178
+  am_timer_color=248
 }
 ```
 
 Then activate the theme using:
 
-```
+```bash
 export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
 ```
 
@@ -165,32 +187,36 @@ export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
 
 Enable Nerd Font
 
-    export USE_NERD_FONT=1
+```bash
+export USE_NERD_FONT=1
+```
 
 ### promptlib-zsh Configs:
 
 #### customize symbols
 
-    export AM_JAVA_SYM='J:'     # JAVA Version Symbol
-    export AM_PY_SYM='P:'       # Python Version Symbol
-    export AM_RB_SYM='R:'       # Ruby Version Symbol 
-    export AM_GIT_SYM=G         # Git Symbol
-    export AM_HG_SYM=M          # Mercurial Symbol
-    export AM_SSH_SYM=[S]       # SSH Indicator Symbol
-    export PLIB_GIT_ADD_SYM=+   # Git New Tracked File Symbol
-    export PLIB_GIT_DEL_SYM=-   # Git Deleted File Symbol
-    export PLIB_GIT_MOD_SYM=⭑   # Git Modified File Symbol
-    export PLIB_GIT_NEW_SYM=?   # Git New Untracked File Symbol
-    export PLIB_GIT_PUSH_SYM=↑  # Git Unpushed Commit Symbol
-    export PLIB_GIT_PULL_SYM=↓  # Git New Commit Symbol
-
+```bash
+export AM_JAVA_SYM='J:'     # JAVA Version Symbol
+export AM_PY_SYM='P:'       # Python Version Symbol
+export AM_RB_SYM='R:'       # Ruby Version Symbol 
+export AM_GIT_SYM=G         # Git Symbol
+export AM_HG_SYM=M          # Mercurial Symbol
+export AM_SSH_SYM=[S]       # SSH Indicator Symbol
+export PLIB_GIT_ADD_SYM=+   # Git New Tracked File Symbol
+export PLIB_GIT_DEL_SYM=-   # Git Deleted File Symbol
+export PLIB_GIT_MOD_SYM=⭑   # Git Modified File Symbol
+export PLIB_GIT_NEW_SYM=?   # Git New Untracked File Symbol
+export PLIB_GIT_PUSH_SYM=↑  # Git Unpushed Commit Symbol
+export PLIB_GIT_PULL_SYM=↓  # Git New Commit Symbol
+```
 _Note: this overrides `USE_NERD_FONT` configuration._
 
 #### customize colors
 
-    export PLIB_GIT_TRACKED_COLOR=green
-    export PLIB_GIT_UNTRACKED_COLOR=red
-
+```bash
+export PLIB_GIT_TRACKED_COLOR=green
+export PLIB_GIT_UNTRACKED_COLOR=red
+```
 ## Libraries Used
 
 - ['256color'](https://github.com/chrissicool/zsh-256color) by **[@chrissicool](https://github.com/chrissicool)**
