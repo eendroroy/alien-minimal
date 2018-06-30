@@ -43,9 +43,9 @@ zplug "eendroroy/alien-minimal"
 
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
-## Asciicast (1.0.6)
+## Asciicast (1.0.9)
 
-[![asciicast](http://asciinema.org/a/175231.png)](https://asciinema.org/a/175231)
+[![asciicast](http://asciinema.org/a/189531.png)](https://asciinema.org/a/189531)
 
 ## Customizations
 
