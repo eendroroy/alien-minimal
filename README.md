@@ -50,7 +50,23 @@ zplug "eendroroy/alien-minimal"
 ## Customizations
 
 **add configurations before plugin definitions**
-    
+
+### Show initial new line
+
+Always show a new line
+
+```bash
+AM_INITIAL_LINE_FEED=1
+```
+
+Only show new for non-empty input (pressing enter with out writing anything will not print a new line)
+
+```bash
+AM_INITIAL_LINE_FEED=2
+```
+
+Unset `AM_INITIAL_LINE_FEED` to never print a new line.
+
 ### Add start tag and end tag:
 
 ```bash

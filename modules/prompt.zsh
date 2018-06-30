@@ -62,11 +62,19 @@ function am_prompt_general_long_dir(){
 
 function am_prompt_complete(){
   if [[ $AM_UPDATE_L_PROMPT == 1 ]];then
-    PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
+    if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
+      PROMPT='
+`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
+    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && $AM_EMPTY_BUFFER == 1 ]]; then
+      PROMPT='
+`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
+    else
+      PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
+    fi
     zle && zle reset-prompt
   fi
   RPROMPT='`version_prompt` `am_r_prompt`'
   zle && zle reset-prompt
   async_stop_worker prompt -n
+  unset AM_EMPTY_BUFFER
 }
-
