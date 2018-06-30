@@ -23,4 +23,3 @@ function am_get_time_prompt(){
     fi
   fi
 }
-
