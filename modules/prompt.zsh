@@ -73,7 +73,7 @@ function am_prompt_complete(){
     fi
     zle && zle reset-prompt
   fi
-  RPROMPT='`version_prompt` `am_r_prompt`'
+  RPROMPT='`version_prompt` `am_r_prompt`${VIM_PROMPT}'
   zle && zle reset-prompt
   async_stop_worker prompt -n
   unset AM_EMPTY_BUFFER

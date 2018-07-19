@@ -18,6 +18,7 @@ source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/bgjob.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/versions.zsh"
+source "${THEME_ROOT}/modules/viprompt.zsh"
 source "${THEME_ROOT}/modules/timer.zsh"
 
 function preexec(){
@@ -63,7 +64,7 @@ function precmd(){
       PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
     fi
   fi
-  RPROMPT=''
+  RPROMPT='${VIM_PROMPT}'
   am_async_prompt
   am_timer_start
 }
