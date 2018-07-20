@@ -1,14 +1,23 @@
 #!/usr/bin/env zsh
 
-VIM_PROMPT=""
+am_prompt_symbol_ins() {
+  [[ -z $VIM_INSERT_SYM ]] && VIM_INSERT_SYM='[I]';
+  echo -ne "%B%F{$am_normal_color}${VIM_INSERT_SYM}"
+}
+
+am_prompt_symbol_nml() {
+  [[ -z $VIM_INSERT_SYM ]] && VIM_INSERT_SYM='[N]';
+  echo -ne "%B%F{$am_error_color}${VIM_INSERT_SYM}"
+}
+
 am_update_vim_prompt() {
 	zle || {
 	    print "error: pure_update_vim_prompt must be called when zle is active"
 	    return 1
 	}
-	[[ -z $VIM_INSERT ]] && VIM_INSERT='%B%F{$am_normal_color}[I]'
+	
 	[[ -z $VIM_NORMAL ]] && VIM_NORMAL='%B%F{$am_error_color}[N]'
-	VIM_PROMPT=" ${${KEYMAP/vicmd/${VIM_NORMAL}}/(main|viins)/${VIM_INSERT}}%b%f"
+	VIM_PROMPT=" ${${KEYMAP/vicmd/`am_prompt_symbol_nml`}/(main|viins)/`am_prompt_symbol_ins`}"
 	zle .reset-prompt
 }
 
