@@ -6,8 +6,8 @@ am_prompt_symbol_ins() {
 }
 
 am_prompt_symbol_nml() {
-  [[ -z $VIM_INSERT_SYM ]] && VIM_INSERT_SYM='[N]';
-  echo -ne "%B%F{$am_error_color}${VIM_INSERT_SYM}"
+  [[ -z $VIM_NORMAL_SYM ]] && VIM_NORMAL_SYM='[N]';
+  echo -ne "%B%F{$am_error_color}${VIM_NORMAL_SYM}"
 }
 
 am_update_vim_prompt() {
