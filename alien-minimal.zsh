@@ -18,8 +18,9 @@ source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/bgjob.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/versions.zsh"
-source "${THEME_ROOT}/modules/viprompt.zsh"
 source "${THEME_ROOT}/modules/timer.zsh"
+
+[[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && source "${THEME_ROOT}/modules/viprompt.zsh"
 
 function preexec(){
   am_preexec_executed=1
