@@ -51,6 +51,14 @@ zplug "eendroroy/alien-minimal"
 
 **add configurations before plugin definitions**
 
+### VI prompt
+
+Enable VI prompt (vi-mode is enabbled by `bindkey -v`)
+
+```bash
+export AM_ENABLE_VI_PROMPT=1
+```
+
 ### Show initial new line
 
 Always show a new line
@@ -164,6 +172,8 @@ export am_python_color=2       # color for python version text
 export am_ruby_color=1         # color for ruby version text
 export am_java_color=15        # color for java version text
 export am_timer_color=14       # color for command execution time
+export am_viins_color=39       # color for viins mode
+export am_vicmd_color=208      # color vicmd mode
 ```
 
 Or creating a new theme file:
@@ -188,6 +198,8 @@ am_theme(){
   am_ruby_color=196
   am_java_color=178
   am_timer_color=248
+  am_viins_color=39
+  am_vicmd_color=208
 }
 ```
 
@@ -218,6 +230,9 @@ export AM_RB_SYM='R:'       # Ruby Version Symbol
 export AM_GIT_SYM=G         # Git Symbol
 export AM_HG_SYM=M          # Mercurial Symbol
 export AM_SSH_SYM=[S]       # SSH Indicator Symbol
+export VIM_INSERT_SYM='[I]' # VI mode symbol
+export VIM_NORMAL_SYM='[N]' # VI mode symbol
+
 export PLIB_GIT_ADD_SYM=+   # Git New Tracked File Symbol
 export PLIB_GIT_DEL_SYM=-   # Git Deleted File Symbol
 export PLIB_GIT_MOD_SYM=⭑   # Git Modified File Symbol

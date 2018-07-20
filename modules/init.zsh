@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+VIM_PROMPT=""
+
 if [[ $USE_NERD_FONT = 1 ]]; then
   [[ -z "${AM_GIT_SYM}" ]]        && AM_GIT_SYM=
   [[ -z "${AM_HG_SYM}" ]]         && AM_HG_SYM=
