@@ -2,12 +2,12 @@
 
 am_prompt_symbol_ins() {
   [[ -z $VIM_INSERT_SYM ]] && VIM_INSERT_SYM='[I]';
-  echo -ne "%B%F{$am_normal_color}${VIM_INSERT_SYM}"
+  echo -ne "%B%F{$am_viins_color}${VIM_INSERT_SYM}"
 }
 
 am_prompt_symbol_nml() {
   [[ -z $VIM_NORMAL_SYM ]] && VIM_NORMAL_SYM='[N]';
-  echo -ne "%B%F{$am_error_color}${VIM_NORMAL_SYM}"
+  echo -ne "%B%F{$am_vicmd_color}${VIM_NORMAL_SYM}"
 }
 
 am_update_vim_prompt() {

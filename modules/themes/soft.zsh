@@ -19,6 +19,8 @@ am_theme(){
   [[ -z $am_node_color ]]                && am_node_color=41
   [[ -z $am_php_color ]]                 && am_php_color=57
   [[ -z $am_timer_color ]]               && am_timer_color=248
+  [[ -z $am_viins_color ]]               && am_viins_color=31
+  [[ -z $am_vicmd_color ]]               && am_vicmd_color=197
 
   [[ -z "${PROMPT_START_TAG_COLOR}" ]]   && PROMPT_START_TAG_COLOR=12
   [[ -z "${PROMPT_END_TAG_COLOR}" ]]     && PROMPT_END_TAG_COLOR=12
