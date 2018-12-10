@@ -2,6 +2,8 @@
 
 VIM_PROMPT=""
 
+[[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM=@
+
 if [[ $USE_NERD_FONT = 1 ]]; then
   [[ -z "${AM_GIT_SYM}" ]]        && AM_GIT_SYM=
   [[ -z "${AM_HG_SYM}" ]]         && AM_HG_SYM=

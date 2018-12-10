@@ -224,6 +224,7 @@ export USE_NERD_FONT=1
 #### customize symbols
 
 ```bash
+export AM_GIT_STASH_SYM=@   # Git Stash Count Symbbol
 export AM_JAVA_SYM='J:'     # JAVA Version Symbol
 export AM_PY_SYM='P:'       # Python Version Symbol
 export AM_RB_SYM='R:'       # Ruby Version Symbol 

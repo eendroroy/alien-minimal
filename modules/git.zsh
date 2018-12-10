@@ -20,6 +20,13 @@ am_git_left_right(){
   echo -n "%F{$am_left_right_color}`plib_git_left_right`%f";
 }
 
+am_git_stash(){
+  __stash=$(plib_git_stash)
+  if [[ "$__stash" != "0" ]]; then
+    echo -n " %F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f";
+  fi
+}
+
 am_git_commit_time(){
   echo -n "%F{$am_commit_since_color}[`plib_git_commit_since`]%f"
 }
