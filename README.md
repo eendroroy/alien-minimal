@@ -157,6 +157,14 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 export AM_HIDE_EXIT_CODE=1
 ```
 
+### Keep previous RPROMPT
+
+```bash
+export AM_KEEP_PROMPT=1
+```
+
+This will keep previous right prompt while new right prompt is being rendered.
+
 ### Color themes:
 
 ```bash

@@ -65,7 +65,11 @@ function precmd(){
     fi
   fi
 
-  RPROMPT="`am_vim_prompt`"
+  if [[ ${AM_KEEP_PROMPT} == 1 ]]; then
+    [[ ${RPROMPT} == "" ]] && RPROMPT="`am_vim_prompt`"
+  else
+    RPROMPT="`am_vim_prompt`"
+  fi
 
   am_async_prompt
   am_timer_start
