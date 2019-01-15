@@ -43,6 +43,19 @@ zplug "eendroroy/alien-minimal"
 
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
+```bash
+# if using git 2.13 or higher
+git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git $ZSH_CUSTOM/themes/alien-minimal
+
+# if lower version use
+cd $ZSH_CUSTOM/themes/alien-minimal
+git clone https://github.com/eendroroy/alien-minimal.git
+git submodule update --init --recursive
+```
+
+Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
+
+
 ## Asciicast (1.1.1)
 
 [![asciicast](http://asciinema.org/a/216110.svg)](https://asciinema.org/a/216110)
