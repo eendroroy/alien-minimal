@@ -25,7 +25,7 @@ source "${THEME_ROOT}/modules/timer.zsh"
 function preexec(){
   am_preexec_executed=1
   am_timer_start
-  [[ $BUFFER == "" ]] && AM_EMPTY_BUFFER=1
+  [[ ${BUFFER} == "" ]] && AM_EMPTY_BUFFER=1
 }
 
 function precmd(){
@@ -34,21 +34,21 @@ function precmd(){
   am_load_theme
   __time="`am_get_time_prompt`"
   am_preexec_executed=0
-  if [[ $AM_UPDATE_L_PROMPT == 1 ]]; then
+  if [[ ${AM_UPDATE_L_PROMPT} == 1 ]]; then
     if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
-    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && $AM_EMPTY_BUFFER == 1 ]]; then
+    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
     else
       PROMPT='`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
     fi
-  elif [[ $AM_SHOW_FULL_DIR == 1 ]]; then
+  elif [[ ${AM_SHOW_FULL_DIR} == 1 ]]; then
     if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
-    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && $AM_EMPTY_BUFFER == 1 ]]; then
+    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` '
     else
@@ -58,7 +58,7 @@ function precmd(){
     if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
-    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && $AM_EMPTY_BUFFER == 1 ]]; then
+    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
       PROMPT='
 `am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` '
     else

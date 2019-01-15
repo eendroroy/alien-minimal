@@ -9,4 +9,3 @@ am_async_prompt(){
   async_register_callback prompt am_prompt_complete
   async_job prompt ap_dummy
 }
-

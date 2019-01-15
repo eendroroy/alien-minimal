@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-
 am_is_hg(){
   echo -ne `plib_is_hg`
 }
