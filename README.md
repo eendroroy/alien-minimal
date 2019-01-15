@@ -157,7 +157,7 @@ _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 export AM_HIDE_EXIT_CODE=1
 ```
 
-### Keep previous RPROMPT
+### Keep previous RPROMPT:
 
 ```bash
 export AM_KEEP_PROMPT=1
