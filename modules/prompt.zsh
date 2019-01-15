@@ -4,7 +4,7 @@ version_prompt(){
   if [[ ! -z "$AM_VERSIONS_PROMPT" ]]
   then
     LOOP_INDEX=0
-    for _v in $AM_VERSIONS_PROMPT
+    for _v in ${AM_VERSIONS_PROMPT}
     do
       [[ "$LOOP_INDEX" != "0" ]] && echo -ne "%F{$am_fade_color}|%f"
       [[ "$LOOP_INDEX" == "0" ]] && LOOP_INDEX=$(($LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f"
@@ -73,7 +73,7 @@ function am_prompt_complete(){
     fi
     zle && zle reset-prompt
   fi
-  RPROMPT='`version_prompt` `am_r_prompt`${VIM_PROMPT}'
+  RPROMPT="`version_prompt` `am_r_prompt``am_vim_prompt`"
   zle && zle reset-prompt
   async_stop_worker prompt -n
   unset AM_EMPTY_BUFFER
