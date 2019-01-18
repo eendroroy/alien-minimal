@@ -66,9 +66,9 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
 **add configurations before plugin definitions**
 
-### VI prompt
+### VI prompt (Not properly working at the moment)
 
-Enable VI prompt (vi-mode is enabbled by `bindkey -v`)
+Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 
 ```bash
 export AM_ENABLE_VI_PROMPT=1
@@ -151,7 +151,7 @@ export AM_UPDATE_L_PROMPT=1
 
 _Note: this overrides `AM_SHOW_FULL_DIR` configuration._
 
-**The effect may be un-noticable on faster CPUs.**
+**The effect may be un-noticeable on faster CPUs.**
 
 ### Hide exit code:
 
