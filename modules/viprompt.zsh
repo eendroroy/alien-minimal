@@ -21,13 +21,15 @@ am_update_vim_prompt() {
 	zle && zle reset-prompt
 }
 
-zle-line-init() {
-  am_update_vim_prompt
-}
-zle-keymap-select() {
-  am_update_vim_prompt
-}
+if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
+  zle-line-init() {
+    am_update_vim_prompt
+  }
+  zle-keymap-select() {
+    am_update_vim_prompt
+  }
 
-export KEYTIMEOUT=1
-zle -N zle-line-init
-zle -N zle-keymap-select
+  export KEYTIMEOUT=1
+  zle -N zle-line-init
+  zle -N zle-keymap-select
+fi
