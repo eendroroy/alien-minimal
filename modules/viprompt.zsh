@@ -12,6 +12,6 @@ am_prompt_symbol_nml(){
 
 am_vim_prompt(){
   if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
-    echo -n " ${${KEYMAP/vicmd/`am_prompt_symbol_nml`}/(main|viins)/`am_prompt_symbol_ins`}"
+    echo -n " ${${KEYMAP/vicmd/$(am_prompt_symbol_nml)}/(main|viins)/$(am_prompt_symbol_ins)}"
   fi
 }

@@ -12,9 +12,11 @@
 
 **alien-minimal** theme is faster than a lot other themes.
 
-**Why?** It updates part of the prompt asyncronously - the time consuming processings like git status checking, git dirty copy checking etc.
+**Why?** It updates part of the prompt asyncronously - the time consuming processings like git status checking,
+git dirty copy checking etc.
 
-**How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the terminal as you would normally.
+**How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the
+terminal as you would normally.
 
 **alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto. Whatever it needs already included.
 
@@ -45,10 +47,10 @@ zplug "eendroroy/alien-minimal"
 
 ```bash
 # if using git 2.13 or higher
-git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git $ZSH_CUSTOM/themes/alien-minimal
+git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git ${ZSH_CUSTOM}/themes/alien-minimal
 
 # if lower version use
-cd $ZSH_CUSTOM/themes/alien-minimal
+cd ${ZSH_CUSTOM}/themes/alien-minimal
 git clone https://github.com/eendroroy/alien-minimal.git
 git submodule update --init --recursive
 ```
@@ -163,7 +165,13 @@ export AM_HIDE_EXIT_CODE=1
 export AM_KEEP_PROMPT=1
 ```
 
-This will keep previous right prompt while new right prompt is being rendered.
+### Update RPROMPT segments one by one:
+
+```bash
+export AM_SEGMENT_UPDATE=1
+```
+
+This will update right prompt segment by segment (ie. at first version info, then background job count, and then ...).
 
 ### Color themes:
 
@@ -245,22 +253,22 @@ export USE_NERD_FONT=1
 #### customize symbols
 
 ```bash
-export AM_GIT_STASH_SYM=@   # Git Stash Count Symbbol
-export AM_JAVA_SYM='J:'     # JAVA Version Symbol
-export AM_PY_SYM='P:'       # Python Version Symbol
-export AM_RB_SYM='R:'       # Ruby Version Symbol 
-export AM_GIT_SYM=G         # Git Symbol
-export AM_HG_SYM=M          # Mercurial Symbol
-export AM_SSH_SYM=[S]       # SSH Indicator Symbol
-export VIM_INSERT_SYM='[I]' # VI mode symbol
-export VIM_NORMAL_SYM='[N]' # VI mode symbol
-
-export PLIB_GIT_ADD_SYM=+   # Git New Tracked File Symbol
-export PLIB_GIT_DEL_SYM=-   # Git Deleted File Symbol
-export PLIB_GIT_MOD_SYM=⭑   # Git Modified File Symbol
-export PLIB_GIT_NEW_SYM=?   # Git New Untracked File Symbol
-export PLIB_GIT_PUSH_SYM=↑  # Git Unpushed Commit Symbol
-export PLIB_GIT_PULL_SYM=↓  # Git New Commit Symbol
+export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbbol
+export AM_JAVA_SYM='J:'      # JAVA Version Symbol
+export AM_PY_SYM='P:'        # Python Version Symbol
+export AM_RB_SYM='R:'        # Ruby Version Symbol 
+export AM_GIT_SYM=G          # Git Symbol
+export AM_HG_SYM=M           # Mercurial Symbol
+export AM_SSH_SYM=[S]        # SSH Indicator Symbol
+export VIM_INSERT_SYM='[I]'  # VI mode symbol
+export VIM_NORMAL_SYM='[N]'  # VI mode symbol
+ 
+export PLIB_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
+export PLIB_GIT_DEL_SYM='-'  # Git Deleted File Symbol
+export PLIB_GIT_MOD_SYM='*'  # Git Modified File Symbol
+export PLIB_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
+export PLIB_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
+export PLIB_GIT_PULL_SYM='↓' # Git New Commit Symbol
 ```
 _Note: this overrides `USE_NERD_FONT` configuration._
 
@@ -278,8 +286,9 @@ export PLIB_GIT_UNTRACKED_COLOR=red
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [alien-minimal](https://github.com/eendroroy/alien-minimal) repository.
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [alien-minimal](https://github.com/eendroroy/alien-minimal)
+repository. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to
+adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
   1. Fork it ( https://github.com/eendroroy/alien-minimal/fork )
   1. Create your feature branch (`git checkout -b my-new-feature`)
