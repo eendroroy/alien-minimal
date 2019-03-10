@@ -194,6 +194,8 @@ export am_error_color=1        # color for ERROR
 export am_rev_color=14         # color for VCS Revision number
 export am_branch_color=10      # color for VCS BRANCH name
 export am_left_right_color=3   # color for GIT Left-Right status
+export am_stash_color=3        # color for GIT stash count
+export am_bare_color=3         # color for GIT bare repo indicator
 export am_commit_since_color=6 # color for last commit time
 export am_fade_color=8         # color for fade text color
 export am_venv_color=8         # color fir python virtual env text
@@ -220,6 +222,8 @@ am_theme(){
   am_rev_color=248
   am_branch_color=78
   am_left_right_color=222
+  am_stash_color=222
+  am_bare_color=222
   am_commit_since_color=244
   am_fade_color=242
   am_venv_color=245
@@ -254,6 +258,7 @@ export USE_NERD_FONT=1
 
 ```bash
 export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbbol
+export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbbol
 export AM_JAVA_SYM='J:'      # JAVA Version Symbol
 export AM_PY_SYM='P:'        # Python Version Symbol
 export AM_RB_SYM='R:'        # Ruby Version Symbol 
