@@ -3,6 +3,7 @@
 VIM_PROMPT=""
 
 [[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM=@
+[[ -z "${AM_GIT_BARE_SYM}" ]]  && AM_GIT_BARE_SYM=☢
 
 if [[ ${USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_GIT_SYM}" ]]        && AM_GIT_SYM=''

@@ -9,6 +9,7 @@ am_theme(){
   [[ -z ${am_branch_color} ]]          && am_branch_color=10
   [[ -z ${am_left_right_color} ]]      && am_left_right_color=3
   [[ -z ${am_stash_color} ]]           && am_stash_color=${am_left_right_color}
+  [[ -z ${am_bare_color} ]]            && am_bare_color=${am_left_right_color}
   [[ -z ${am_commit_since_color} ]]    && am_commit_since_color=6
   [[ -z ${am_fade_color} ]]            && am_fade_color=8
   [[ -z ${am_venv_color} ]]            && am_venv_color=8

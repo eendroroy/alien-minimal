@@ -21,9 +21,13 @@ am_git_left_right(){
 }
 
 am_git_stash(){
-  __stash=$(plib_git_stash)
-  if [[ "$__stash" != "0" ]]; then
-    echo -ne " %F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f"
+  if [[ "$(plib_git_is_bare)" == 1 ]]; then
+    echo -ne " %F{$am_bare_color}${AM_GIT_BARE_SYM}${__stash}%f"
+  else
+    __stash=$(plib_git_stash)
+    if [[ "$__stash" != "0" ]]; then
+      echo -ne " %F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f"
+    fi
   fi
 }
 
