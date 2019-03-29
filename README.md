@@ -10,20 +10,20 @@
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/pulls)
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/eendroroy/alien-minimal.svg)](https://github.com/eendroroy/alien-minimal/pulls?q=is%3Apr+is%3Aclosed)
 
-**alien-minimal** theme is faster than a lot other themes.
+**alien-minimal** theme is faster than many other themes.
 
-**Why?** It updates part of the prompt asyncronously - the time consuming processings like git status checking,
+**Why?** It updates part of the prompt asynchronously - the time consuming processing like git status checking,
 git dirty copy checking etc.
 
 **How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the
 terminal as you would normally.
 
-**alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto. Whatever it needs already included.
+**alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto.
 
 
 ## Installation
 
-Add the following line to your .zshrc depending on your zsh plugin manager
+Add the following line in `~/.zshrc` depending on zsh plugin manager
 
 ##### [antigen](https://github.com/zsh-users/antigen):
 
@@ -143,7 +143,7 @@ export AM_SHOW_FULL_DIR=1 # shows the full dir path
 export AM_SHOW_FULL_DIR=0 # shows the current dir name
 ```
 
-Update left prompt asynchrononusly (initially show full directory path, update to short form later, this is just a fancy option)
+Update left prompt asynchronously (initially show full directory path, update to short form later, this is just a fancy option)
 
 ```bash
 export AM_UPDATE_L_PROMPT=1
@@ -249,7 +249,7 @@ export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
 Enable Nerd Font
 
 ```bash
-export USE_NERD_FONT=1
+export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ```
 
 ### promptlib-zsh Configs:
@@ -275,7 +275,7 @@ export PLIB_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
 export PLIB_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
 export PLIB_GIT_PULL_SYM='↓' # Git New Commit Symbol
 ```
-_Note: this overrides `USE_NERD_FONT` configuration._
+_Note: this overrides `AM_USE_NERD_FONT` configuration._
 
 #### customize colors
 
