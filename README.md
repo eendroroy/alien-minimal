@@ -93,10 +93,10 @@ Unset `AM_INITIAL_LINE_FEED` to never print a new line.
 ### Add start tag and end tag:
 
 ```bash
-export PROMPT_START_TAG='-->'
-export PROMPT_END_TAG=' $'
-export PROMPT_START_TAG_COLOR=81
-export PROMPT_END_TAG_COLOR=81
+export AM_PROMPT_START_TAG='-->'     # previpusly `PROMPT_START_TAG`     
+export AM_PROMPT_END_TAG=' $'        # previpusly `PROMPT_END_TAG`       
+export AM_PROMPT_START_TAG_COLOR=81  # previpusly `PROMPT_START_TAG_COLOR`  
+export AM_PROMPT_END_TAG_COLOR=81    # previpusly `PROMPT_END_TAG_COLOR`    
 ```
 
 **Result:**
@@ -114,7 +114,7 @@ You can additionally show the error color on prompt start tag:
 export AM_ERROR_ON_START_TAG=1
 ```
 
-_Note: if `PROMPT_START_TAG` is empty, this configuration will be ignored._
+_Note: if `AM_PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 

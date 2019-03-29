@@ -29,13 +29,13 @@ am_vcs_prompt(){
 }
 
 function am_prompt_general_short_dir(){
-  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
-  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${PROMPT_START_TAG} != "" ]]; then
-    start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
+  end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
+  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
+    start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
     echo -ne "%F{$am_normal_color}%1~%f${end_tag}"
   else
-    start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
+    start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
     echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag})"
   fi
@@ -43,13 +43,13 @@ function am_prompt_general_short_dir(){
 }
 
 function am_prompt_general_long_dir(){
-  end_tag="%F{$PROMPT_END_TAG_COLOR}${PROMPT_END_TAG}%f"
-  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${PROMPT_START_TAG} != "" ]]; then
-    start_tag="%(?.%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
+  end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
+  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
+    start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
     echo -ne "%F{$am_normal_color}%~%f${end_tag}"
   else
-    start_tag="%F{$PROMPT_START_TAG_COLOR}${PROMPT_START_TAG}%f"
+    start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
     echo -ne "%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag})"
   fi
