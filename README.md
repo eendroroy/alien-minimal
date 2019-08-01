@@ -93,10 +93,10 @@ Unset `AM_INITIAL_LINE_FEED` to never print a new line.
 ### Add start tag and end tag:
 
 ```bash
-export AM_PROMPT_START_TAG='-->'     # previpusly `PROMPT_START_TAG`     
-export AM_PROMPT_END_TAG=' $'        # previpusly `PROMPT_END_TAG`       
-export AM_PROMPT_START_TAG_COLOR=81  # previpusly `PROMPT_START_TAG_COLOR`  
-export AM_PROMPT_END_TAG_COLOR=81    # previpusly `PROMPT_END_TAG_COLOR`    
+export AM_PROMPT_START_TAG='-->'     # previously `PROMPT_START_TAG`     
+export AM_PROMPT_END_TAG=' $'        # previously `PROMPT_END_TAG`       
+export AM_PROMPT_START_TAG_COLOR=81  # previously `PROMPT_START_TAG_COLOR`  
+export AM_PROMPT_END_TAG_COLOR=81    # previously `PROMPT_END_TAG_COLOR`    
 ```
 
 **Result:**
@@ -188,7 +188,7 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 ```bash
 export am_vcs_color=1          # color for VCS (G: M: V:)
-export am_ssh_color=11         # color for ssh indicaator
+export am_ssh_color=11         # color for ssh indicator
 export am_normal_color=12      # color for normal text
 export am_error_color=1        # color for ERROR
 export am_rev_color=14         # color for VCS Revision number
