@@ -13,7 +13,35 @@ am_git_rev(){
 }
 
 am_git_dirty(){
-  echo -ne "$(plib_git_dirty)"
+  [[ -z "${PLIB_GIT_TRACKED_COLOR}" ]] && PLIB_GIT_TRACKED_COLOR=green
+  [[ -z "${PLIB_GIT_UNTRACKED_COLOR}" ]] && PLIB_GIT_UNTRACKED_COLOR=red
+
+  [[ -z "${PLIB_GIT_ADD_SYM}" ]] && PLIB_GIT_ADD_SYM=+
+  [[ -z "${PLIB_GIT_DEL_SYM}" ]] && PLIB_GIT_DEL_SYM=-
+  [[ -z "${PLIB_GIT_MOD_SYM}" ]] && PLIB_GIT_MOD_SYM=⭑
+  [[ -z "${PLIB_GIT_NEW_SYM}" ]] && PLIB_GIT_NEW_SYM=?
+
+  __git_status=$(plib_git_status)
+
+  __mod_t=$(plib_git_staged_mod "$__git_status")
+  __add_t=$(plib_git_staged_add "$__git_status")
+  __del_t=$(plib_git_staged_del "$__git_status")
+  
+  __mod_ut=$(plib_git_unstaged_mod "$__git_status")
+  __add_ut=$(plib_git_unstaged_add "$__git_status")
+  __del_ut=$(plib_git_unstaged_del "$__git_status")
+  
+  __new=$(plib_git_status_new "$__git_status")
+
+  [[ "$__add_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f"
+  [[ "$__add_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f"
+  [[ "$__mod_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f"
+  [[ "$__mod_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f"
+  [[ "$__del_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f"
+  [[ "$__del_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f"
+  [[ "$__new" != "0" ]]    && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_NEW_SYM}%f"
+
+  unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del
 }
 
 am_git_left_right(){
