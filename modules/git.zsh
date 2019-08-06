@@ -45,7 +45,21 @@ am_git_dirty(){
 }
 
 am_git_left_right(){
-  echo -ne "%F{$am_left_right_color}$(plib_git_left_right)%f"
+  [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM='↑'
+  [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM='↓'
+
+  __git_left_right=$(plib_git_left_right)
+
+  __pull=$(echo "$__git_left_right" | awk '{print $2}' | tr -d ' \n')
+  __push=$(echo "$__git_left_right" | awk '{print $1}' | tr -d ' \n')
+
+  [[ "$__pull" != 0 ]] && [[ "$__pull" != '' ]] && __pushpull="${__pull}${PLIB_GIT_PULL_SYM}"
+  [[ -n "$__pushpull" ]] && __pushpull+=' '
+  [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __pushpull+="${__push}${PLIB_GIT_PUSH_SYM}"
+
+  if [[ "$__pushpull" != '' ]]; then
+    echo -ne "%F{$am_left_right_color}${__pushpull}%f"
+  fi
 }
 
 am_git_stash(){
