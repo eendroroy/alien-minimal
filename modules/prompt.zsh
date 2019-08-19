@@ -18,9 +18,38 @@ version_prompt(){
   fi
 }
 
+am_echo_git_prompt() {
+  GIT_REBASING=$(am_git_rebasing)
+  if [[ "$GIT_REBASING" != '' ]]; then
+    GIT_PROMPT+="$GIT_REBASING "
+  fi
+
+  GIT_PROMPT+="%F{$am_vcs_color}${AM_GIT_SYM}:%f$(am_git_branch)$(am_git_commit_time) $(am_git_rev) "
+
+  STASH=$(am_git_stash)
+  if [[ "$STASH" != '' ]]; then
+    GIT_PROMPT+="$STASH "
+  fi
+
+  LEFT_RIGHT=$(am_git_left_right)
+  if [[ "$LEFT_RIGHT" != '' ]]; then
+    GIT_PROMPT+="$LEFT_RIGHT "
+  fi
+
+  DIRTY=$(am_git_dirty)
+  if [[ "$DIRTY" != '' ]]; then
+    GIT_PROMPT+="$DIRTY "
+  fi
+
+  # Echo prompt without trailing space.
+  echo -ne "${GIT_PROMPT%?}"
+
+  unset GIT_PROMPT
+}
+
 am_vcs_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-    echo -ne "$(am_git_rebasing)%F{$am_vcs_color} ${AM_GIT_SYM}:%f$(am_git_branch)$(am_git_commit_time) $(am_git_rev)$(am_git_stash)$(am_git_left_right)$(am_git_dirty)"
+    am_echo_git_prompt
   elif [[ $(am_is_hg) == 1 ]]; then
     echo -ne "%F{$am_vcs_color} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
   elif [[ $(am_is_svn) == 1 ]]; then
@@ -67,16 +96,69 @@ function am_prompt_complete(){
     zle && zle reset-prompt
   fi
   if [[ ${AM_SEGMENT_UPDATE} == 1 ]]; then
-    RPROMPT="$(version_prompt)"
-    zle && zle reset-prompt
-    RPROMPT="${RPROMPT}$(am_bg_count)"
-    zle && zle reset-prompt
-    RPROMPT="${RPROMPT}$(am_vcs_prompt)"
-    zle && zle reset-prompt
-    RPROMPT="${RPROMPT}$(am_vim_prompt)"
-    zle && zle reset-prompt
+    RPROMPT=''
+
+    VERSION_PROMPT=$(version_prompt)
+    if [[ "$VERSION_PROMPT" != '' ]]; then
+      RPROMPT+="$VERSION_PROMPT"
+      zle && zle reset-prompt
+    fi
+
+    BG_COUNT=$(am_bg_count)
+    if [[ "$BG_COUNT" != '' ]]; then
+      if [[ "$RPROMPT" != '' ]]; then
+        RPROMPT+=' '
+      fi
+      
+      RPROMPT+="$BG_COUNT"
+      zle && zle reset-prompt
+    fi
+
+    VCS_PROMPT=$(am_vcs_prompt)
+    if [[ "$VCS_PROMPT" != '' ]]; then
+      if [[ "$RPROMPT" != '' ]]; then
+        RPROMPT+=' '
+      fi
+      
+      RPROMPT+="VCS_PROMPT"
+      zle && zle reset-prompt
+    fi
+
+    VIM_PROMPT=$(am_vim_prompt)
+    if [[ "$VIM_PROMPT" != '' ]]; then
+      if [[ "$RPROMPT" != '' ]]; then
+        RPROMPT+=' '
+      fi
+      
+      RPROMPT+="$VIM_PROMPT"
+      zle && zle reset-prompt
+    fi
   else
-    RPROMPT="$(version_prompt)$(am_bg_count)$(am_vcs_prompt)$(am_vim_prompt)"
+    RPROMPT=''
+
+    VERSION_PROMPT=$(version_prompt)
+    if [[ "$VERSION_PROMPT" != '' ]]; then
+      RPROMPT+="$VERSION_PROMPT "
+    fi
+
+    BG_COUNT=$(am_bg_count)
+    if [[ "$BG_COUNT" != '' ]]; then
+      RPROMPT+="$BG_COUNT "
+    fi
+
+    VCS_PROMPT=$(am_vcs_prompt)
+    if [[ "$VCS_PROMPT" != '' ]]; then
+      RPROMPT+="$VCS_PROMPT "
+    fi
+
+    VIM_PROMPT=$(am_vim_prompt)
+    if [[ "$VIM_PROMPT" != '' ]]; then
+      RPROMPT+="$VIM_PROMPT "
+    fi
+    
+    # Remove trailing space.
+    RPROMPT="${RPROMPT%?}"
+
     zle && zle reset-prompt
   fi
   async_stop_worker prompt -n

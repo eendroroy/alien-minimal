@@ -33,15 +33,19 @@ am_git_dirty(){
   
   __new=$(plib_git_status_new "$__git_status")
 
-  [[ "$__add_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f"
-  [[ "$__add_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f"
-  [[ "$__mod_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f"
-  [[ "$__mod_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f"
-  [[ "$__del_t" != "0" ]]  && echo -n " %F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f"
-  [[ "$__del_ut" != "0" ]] && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f"
-  [[ "$__new" != "0" ]]    && echo -n " %F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_NEW_SYM}%f"
+  DIRTY=''
+  [[ "$__add_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f "
+  [[ "$__add_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f "
+  [[ "$__mod_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f "
+  [[ "$__mod_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f "
+  [[ "$__del_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f "
+  [[ "$__del_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f "
+  [[ "$__new" != "0" ]]    && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_NEW_SYM}%f "
 
-  unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del
+  # Echo the git dirty section without the trailing space.
+  echo "${DIRTY%?}"
+
+  unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del DIRTY
 }
 
 am_git_left_right(){
@@ -64,11 +68,11 @@ am_git_left_right(){
 
 am_git_stash(){
   if [[ "$(plib_git_is_bare)" == 1 ]]; then
-    echo -ne " %F{$am_bare_color}${AM_GIT_BARE_SYM}${__stash}%f"
+    echo -ne "%F{$am_bare_color}${AM_GIT_BARE_SYM}${__stash}%f"
   else
     __stash=$(plib_git_stash)
     if [[ "$__stash" != "0" ]]; then
-      echo -ne " %F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f"
+      echo -ne "%F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f"
     fi
   fi
 }
@@ -79,6 +83,6 @@ am_git_commit_time(){
 
 am_git_rebasing(){
   if [[ $(plib_is_git_rebasing) == 1 ]]; then
-    echo -ne "%F{$am_error_color}${AM_GIT_REBASING_SYMBOL} %f"
+    echo -ne "%F{$am_error_color}${AM_GIT_REBASING_SYMBOL}%f"
   fi
 }
