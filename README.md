@@ -252,9 +252,7 @@ Enable Nerd Font
 export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ```
 
-### promptlib-zsh Configs:
-
-#### customize symbols
+### customize symbols
 
 ```bash
 export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbbol
@@ -271,13 +269,13 @@ export AM_VIM_NORMAL_SYM='[N]'  # VI mode symbol
 export AM_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
 export AM_GIT_DEL_SYM='-'  # Git Deleted File Symbol
 export AM_GIT_MOD_SYM='*'  # Git Modified File Symbol
-export AM_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
-export AM_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
+export AM_GIT_NEW_SYM='?'  # Git New Un-tracked File Symbol
+export AM_GIT_PUSH_SYM='↑' # Git Un-pushed Commit Symbol
 export AM_GIT_PULL_SYM='↓' # Git New Commit Symbol
 ```
 _Note: this overrides `AM_USE_NERD_FONT` configuration._
 
-#### customize colors
+### customize colors
 
 ```bash
 export AM_GIT_TRACKED_COLOR=green
