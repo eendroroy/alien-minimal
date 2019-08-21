@@ -13,13 +13,13 @@ am_git_rev(){
 }
 
 am_git_dirty(){
-  [[ -z "${PLIB_GIT_TRACKED_COLOR}" ]] && PLIB_GIT_TRACKED_COLOR=green
-  [[ -z "${PLIB_GIT_UNTRACKED_COLOR}" ]] && PLIB_GIT_UNTRACKED_COLOR=red
+  [[ -z "${AM_GIT_TRACKED_COLOR}" ]]    && AM_GIT_TRACKED_COLOR=green
+  [[ -z "${AM_GIT_UN_TRACKED_COLOR}" ]] && AM_GIT_UN_TRACKED_COLOR=red
 
-  [[ -z "${PLIB_GIT_ADD_SYM}" ]] && PLIB_GIT_ADD_SYM=+
-  [[ -z "${PLIB_GIT_DEL_SYM}" ]] && PLIB_GIT_DEL_SYM=-
-  [[ -z "${PLIB_GIT_MOD_SYM}" ]] && PLIB_GIT_MOD_SYM=⭑
-  [[ -z "${PLIB_GIT_NEW_SYM}" ]] && PLIB_GIT_NEW_SYM=?
+  [[ -z "${AM_GIT_ADD_SYM}" ]] && AM_GIT_ADD_SYM=+
+  [[ -z "${AM_GIT_DEL_SYM}" ]] && AM_GIT_DEL_SYM=-
+  [[ -z "${AM_GIT_MOD_SYM}" ]] && AM_GIT_MOD_SYM=⭑
+  [[ -z "${AM_GIT_NEW_SYM}" ]] && AM_GIT_NEW_SYM=?
 
   __git_status=$(plib_git_status)
 
@@ -34,13 +34,13 @@ am_git_dirty(){
   __new=$(plib_git_status_new "$__git_status")
 
   DIRTY=''
-  [[ "$__add_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f "
-  [[ "$__add_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_ADD_SYM}%f "
-  [[ "$__mod_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f "
-  [[ "$__mod_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_MOD_SYM}%f "
-  [[ "$__del_t" != "0" ]]  && DIRTY+="%F{$PLIB_GIT_TRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f "
-  [[ "$__del_ut" != "0" ]] && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_DEL_SYM}%f "
-  [[ "$__new" != "0" ]]    && DIRTY+="%F{$PLIB_GIT_UNTRACKED_COLOR}${PLIB_GIT_NEW_SYM}%f "
+  [[ "$__add_t" != "0" ]]  && DIRTY+="%F{$AM_GIT_TRACKED_COLOR}${AM_GIT_ADD_SYM}%f "
+  [[ "$__add_ut" != "0" ]] && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_ADD_SYM}%f "
+  [[ "$__mod_t" != "0" ]]  && DIRTY+="%F{$AM_GIT_TRACKED_COLOR}${AM_GIT_MOD_SYM}%f "
+  [[ "$__mod_ut" != "0" ]] && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_MOD_SYM}%f "
+  [[ "$__del_t" != "0" ]]  && DIRTY+="%F{$AM_GIT_TRACKED_COLOR}${AM_GIT_DEL_SYM}%f "
+  [[ "$__del_ut" != "0" ]] && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_DEL_SYM}%f "
+  [[ "$__new" != "0" ]]    && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_NEW_SYM}%f "
 
   # Echo the git dirty section without the trailing space.
   echo "${DIRTY%?}"
@@ -49,17 +49,17 @@ am_git_dirty(){
 }
 
 am_git_left_right(){
-  [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM='↑'
-  [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM='↓'
+  [[ -z "${AM_GIT_PUSH_SYM}" ]] && AM_GIT_PUSH_SYM='↑'
+  [[ -z "${AM_GIT_PULL_SYM}" ]] && AM_GIT_PULL_SYM='↓'
 
   __git_left_right=$(plib_git_left_right)
 
   __pull=$(echo "$__git_left_right" | awk '{print $2}' | tr -d ' \n')
   __push=$(echo "$__git_left_right" | awk '{print $1}' | tr -d ' \n')
 
-  [[ "$__pull" != 0 ]] && [[ "$__pull" != '' ]] && __pushpull="${__pull}${PLIB_GIT_PULL_SYM}"
+  [[ "$__pull" != 0 ]] && [[ "$__pull" != '' ]] && __pushpull="${__pull}${AM_GIT_PULL_SYM}"
   [[ -n "$__pushpull" ]] && __pushpull+=' '
-  [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __pushpull+="${__push}${PLIB_GIT_PUSH_SYM}"
+  [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __pushpull+="${__push}${AM_GIT_PUSH_SYM}"
 
   if [[ "$__pushpull" != '' ]]; then
     echo -ne "%F{$am_left_right_color}${__pushpull}%f"

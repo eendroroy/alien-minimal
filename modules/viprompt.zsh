@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
 am_prompt_symbol_ins(){
-  [[ -z ${VIM_INSERT_SYM} ]] && VIM_INSERT_SYM='[I]';
-  echo -ne "%B%F{$am_viins_color}${VIM_INSERT_SYM}"
+  [[ -z ${AM_VIM_INSERT_SYM} ]] && AM_VIM_INSERT_SYM='[I]';
+  echo -ne "%B%F{$am_viins_color}${AM_VIM_INSERT_SYM}"
 }
 
 am_prompt_symbol_nml(){
-  [[ -z ${VIM_NORMAL_SYM} ]] && VIM_NORMAL_SYM='[N]';
-  echo -ne "%B%F{$am_vicmd_color}${VIM_NORMAL_SYM}"
+  [[ -z ${AM_VIM_NORMAL_SYM} ]] && AM_VIM_NORMAL_SYM='[N]';
+  echo -ne "%B%F{$am_vicmd_color}${AM_VIM_NORMAL_SYM}"
 }
 
 am_vim_prompt(){

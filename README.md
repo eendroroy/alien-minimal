@@ -265,23 +265,23 @@ export AM_RB_SYM='R:'        # Ruby Version Symbol
 export AM_GIT_SYM=G          # Git Symbol
 export AM_HG_SYM=M           # Mercurial Symbol
 export AM_SSH_SYM=[S]        # SSH Indicator Symbol
-export VIM_INSERT_SYM='[I]'  # VI mode symbol
-export VIM_NORMAL_SYM='[N]'  # VI mode symbol
+export AM_VIM_INSERT_SYM='[I]'  # VI mode symbol
+export AM_VIM_NORMAL_SYM='[N]'  # VI mode symbol
  
-export PLIB_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
-export PLIB_GIT_DEL_SYM='-'  # Git Deleted File Symbol
-export PLIB_GIT_MOD_SYM='*'  # Git Modified File Symbol
-export PLIB_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
-export PLIB_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
-export PLIB_GIT_PULL_SYM='↓' # Git New Commit Symbol
+export AM_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
+export AM_GIT_DEL_SYM='-'  # Git Deleted File Symbol
+export AM_GIT_MOD_SYM='*'  # Git Modified File Symbol
+export AM_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
+export AM_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
+export AM_GIT_PULL_SYM='↓' # Git New Commit Symbol
 ```
 _Note: this overrides `AM_USE_NERD_FONT` configuration._
 
 #### customize colors
 
 ```bash
-export PLIB_GIT_TRACKED_COLOR=green
-export PLIB_GIT_UNTRACKED_COLOR=red
+export AM_GIT_TRACKED_COLOR=green
+export AM_GIT_UN_TRACKED_COLOR=red
 ```
 ## Libraries Used
 
