@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 
 am_ruby_version(){
+  echo -ne "%F{$am_ruby_color}${AM_RB_SYM}$(plib_ruby_version)%f"
+}
+
+am_ruby_short_version(){
   echo -ne "%F{$am_ruby_color}${AM_RB_SYM}$(plib_ruby_short_version)%f"
 }
 
@@ -23,6 +27,10 @@ am_java_version(){
 
 am_go_version(){
   echo -ne "%F{$am_go_color}${AM_GO_SYM}$(plib_go_version)%f"
+}
+
+am_elixir_version(){
+  echo -ne "%F{$am_elixir_color}${AM_ELIXIR_SYM}$(plib_elixir_version)%f"
 }
 
 am_crystal_version(){

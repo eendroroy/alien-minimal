@@ -118,10 +118,10 @@ _Note: if `AM_PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 
-Available version are: `RUBY` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE` `PHP`
+Available version are: `RUBY` `RUBY_S` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE` `PHP` `ELIXIR`
 
 ```bash
-    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP)
+    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
 ```
 
 _Note: Prompt maintain declaration order._
@@ -257,11 +257,17 @@ export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 #### customize symbols
 
 ```bash
+export AM_JAVA_SYM='JAVA:'  # JAVA Version Symbol
+export AM_PY_SYM='PY:'      # Python Version Symbol
+export AM_RB_SYM='RB:'      # Ruby Version Symbol 
+export AM_GO_SYM='GO:'      # Go Version Symbol 
+export AM_ELIXIR_SYM='EX:'  # Elixir Version Symbol 
+export AM_CRYSTAL_SYM='CR:' # Crystal Version Symbol 
+export AM_NODE_SYM='NODE:'  # Node Version Symbol 
+export AM_PHP_SYM='PHP:'    # PHP Version Symbol 
+
 export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbbol
 export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbbol
-export AM_JAVA_SYM='J:'      # JAVA Version Symbol
-export AM_PY_SYM='P:'        # Python Version Symbol
-export AM_RB_SYM='R:'        # Ruby Version Symbol 
 export AM_GIT_SYM=G          # Git Symbol
 export AM_HG_SYM=M           # Mercurial Symbol
 export AM_SSH_SYM=[S]        # SSH Indicator Symbol

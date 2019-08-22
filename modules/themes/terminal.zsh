@@ -17,6 +17,7 @@ am_theme(){
   [[ -z ${am_ruby_color} ]]             && am_ruby_color=1
   [[ -z ${am_java_color} ]]             && am_java_color=15
   [[ -z ${am_go_color} ]]               && am_go_color=6
+  [[ -z ${am_elixir_color} ]]           && am_elixir_color=13
   [[ -z ${am_crystal_color} ]]          && am_crystal_color=8
   [[ -z ${am_node_color} ]]             && am_node_color=2
   [[ -z ${am_php_color} ]]              && am_php_color=5
