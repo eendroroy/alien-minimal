@@ -26,6 +26,6 @@ am_theme(){
   [[ -z ${am_vicmd_color} ]]            && am_vicmd_color=255
   [[ -z ${AM_PROMPT_START_TAG_COLOR} ]] && AM_PROMPT_START_TAG_COLOR=255
   [[ -z ${AM_PROMPT_END_TAG_COLOR} ]]   && AM_PROMPT_END_TAG_COLOR=255
-  [[ -z ${PLIB_GIT_TRACKED_COLOR} ]]    && PLIB_GIT_TRACKED_COLOR=255
-  [[ -z ${PLIB_GIT_UNTRACKED_COLOR} ]]  && PLIB_GIT_UNTRACKED_COLOR=251
+  [[ -z ${AM_GIT_TRACKED_COLOR} ]]      && AM_GIT_TRACKED_COLOR=255
+  [[ -z ${AM_GIT_UN_TRACKED_COLOR} ]]   && AM_GIT_UN_TRACKED_COLOR=251
 }

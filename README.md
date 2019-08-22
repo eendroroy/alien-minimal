@@ -93,10 +93,10 @@ Unset `AM_INITIAL_LINE_FEED` to never print a new line.
 ### Add start tag and end tag:
 
 ```bash
-export AM_PROMPT_START_TAG='-->'     # previpusly `PROMPT_START_TAG`     
-export AM_PROMPT_END_TAG=' $'        # previpusly `PROMPT_END_TAG`       
-export AM_PROMPT_START_TAG_COLOR=81  # previpusly `PROMPT_START_TAG_COLOR`  
-export AM_PROMPT_END_TAG_COLOR=81    # previpusly `PROMPT_END_TAG_COLOR`    
+export AM_PROMPT_START_TAG='-->'     # previously `PROMPT_START_TAG`     
+export AM_PROMPT_END_TAG=' $'        # previously `PROMPT_END_TAG`       
+export AM_PROMPT_START_TAG_COLOR=81  # previously `PROMPT_START_TAG_COLOR`  
+export AM_PROMPT_END_TAG_COLOR=81    # previously `PROMPT_END_TAG_COLOR`    
 ```
 
 **Result:**
@@ -188,7 +188,7 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 ```bash
 export am_vcs_color=1          # color for VCS (G: M: V:)
-export am_ssh_color=11         # color for ssh indicaator
+export am_ssh_color=11         # color for ssh indicator
 export am_normal_color=12      # color for normal text
 export am_error_color=1        # color for ERROR
 export am_rev_color=14         # color for VCS Revision number
@@ -252,9 +252,7 @@ Enable Nerd Font
 export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ```
 
-### promptlib-zsh Configs:
-
-#### customize symbols
+### customize symbols
 
 ```bash
 export AM_JAVA_SYM='JAVA:'  # JAVA Version Symbol
@@ -271,23 +269,23 @@ export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbbol
 export AM_GIT_SYM=G          # Git Symbol
 export AM_HG_SYM=M           # Mercurial Symbol
 export AM_SSH_SYM=[S]        # SSH Indicator Symbol
-export VIM_INSERT_SYM='[I]'  # VI mode symbol
-export VIM_NORMAL_SYM='[N]'  # VI mode symbol
+export AM_VIM_INSERT_SYM='[I]'  # VI mode symbol
+export AM_VIM_NORMAL_SYM='[N]'  # VI mode symbol
  
-export PLIB_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
-export PLIB_GIT_DEL_SYM='-'  # Git Deleted File Symbol
-export PLIB_GIT_MOD_SYM='*'  # Git Modified File Symbol
-export PLIB_GIT_NEW_SYM='?'  # Git New Untracked File Symbol
-export PLIB_GIT_PUSH_SYM='↑' # Git Unpushed Commit Symbol
-export PLIB_GIT_PULL_SYM='↓' # Git New Commit Symbol
+export AM_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
+export AM_GIT_DEL_SYM='-'  # Git Deleted File Symbol
+export AM_GIT_MOD_SYM='*'  # Git Modified File Symbol
+export AM_GIT_NEW_SYM='?'  # Git New Un-tracked File Symbol
+export AM_GIT_PUSH_SYM='↑' # Git Un-pushed Commit Symbol
+export AM_GIT_PULL_SYM='↓' # Git New Commit Symbol
 ```
 _Note: this overrides `AM_USE_NERD_FONT` configuration._
 
-#### customize colors
+### customize colors
 
 ```bash
-export PLIB_GIT_TRACKED_COLOR=green
-export PLIB_GIT_UNTRACKED_COLOR=red
+export AM_GIT_TRACKED_COLOR=green
+export AM_GIT_UN_TRACKED_COLOR=red
 ```
 ## Libraries Used
 

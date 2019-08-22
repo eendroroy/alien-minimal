@@ -15,12 +15,12 @@ if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_NODE_SYM}" ]]       && AM_NODE_SYM=' '
   [[ -z "${AM_ELIXIR_SYM}" ]]     && AM_ELIXIR_SYM=' '
 
-  [[ -z "${PLIB_GIT_ADD_SYM}" ]]  && PLIB_GIT_ADD_SYM=''
-  [[ -z "${PLIB_GIT_DEL_SYM}" ]]  && PLIB_GIT_DEL_SYM=''
-  [[ -z "${PLIB_GIT_MOD_SYM}" ]]  && PLIB_GIT_MOD_SYM=''
-  [[ -z "${PLIB_GIT_NEW_SYM}" ]]  && PLIB_GIT_NEW_SYM=''
-  [[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM=''
-  [[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM=''
+  [[ -z "${AM_GIT_ADD_SYM}" ]]  && AM_GIT_ADD_SYM=''
+  [[ -z "${AM_GIT_DEL_SYM}" ]]  && AM_GIT_DEL_SYM=''
+  [[ -z "${AM_GIT_MOD_SYM}" ]]  && AM_GIT_MOD_SYM=''
+  [[ -z "${AM_GIT_NEW_SYM}" ]]  && AM_GIT_NEW_SYM=''
+  [[ -z "${AM_GIT_PUSH_SYM}" ]] && AM_GIT_PUSH_SYM=''
+  [[ -z "${AM_GIT_PULL_SYM}" ]] && AM_GIT_PULL_SYM=''
 fi
 
 [[ -z "${AM_JAVA_SYM}" ]]    && AM_JAVA_SYM='JAVA:'
@@ -37,10 +37,8 @@ fi
 [[ -z "${AM_SVN_SYM}" ]]     && AM_SVN_SYM='S'
 [[ -z "${AM_SSH_SYM}" ]]     && AM_SSH_SYM='[S]'
 
-[[ -z "${AM_GIT_REBASING_SYMBOL}" ]] && AM_GIT_REBASING_SYMBOL='⇋ '
-
-[[ -z "${PLIB_GIT_PUSH_SYM}" ]] && PLIB_GIT_PUSH_SYM='↑'
-[[ -z "${PLIB_GIT_PULL_SYM}" ]] && PLIB_GIT_PULL_SYM='↓'
-
-[[ -z "${AM_PROMPT_START_TAG}" ]] && AM_PROMPT_START_TAG=''
-[[ -z "${AM_PROMPT_END_TAG}" ]]   && AM_PROMPT_END_TAG=''
+[[ -z "${AM_GIT_REBASING_SYMBOL}" ]] && AM_GIT_REBASING_SYMBOL='⇋'
+[[ -z "${AM_GIT_PUSH_SYM}" ]]        && AM_GIT_PUSH_SYM='↑'
+[[ -z "${AM_GIT_PULL_SYM}" ]]        && AM_GIT_PULL_SYM='↓'
+[[ -z "${AM_PROMPT_START_TAG}" ]]    && AM_PROMPT_START_TAG=''
+[[ -z "${AM_PROMPT_END_TAG}" ]]      && AM_PROMPT_END_TAG=''
