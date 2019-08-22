@@ -58,9 +58,9 @@ git submodule update --init --recursive
 Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
 
-## Asciicast (1.1.1)
+## Asciicast (1.4.0)
 
-[![asciicast](http://asciinema.org/a/216110.svg)](https://asciinema.org/a/216110)
+[![asciicast](http://asciinema.org/a/263774.svg)](https://asciinema.org/a/263774)
 
 ## Customizations
 
