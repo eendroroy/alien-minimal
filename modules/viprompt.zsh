@@ -12,12 +12,12 @@ am_prompt_symbol_nml(){
 
 am_vim_prompt(){
   if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
-    echo -ne ${AM_VI_MODE_IND}
+    echo -ne "${AM_VI_MODE_IND}"
   fi
 }
 
 am_update_vim_prompt() {
-	AM_VI_MODE_IND=" ${${KEYMAP/vicmd/`am_prompt_symbol_nml`}/(main|viins)/`am_prompt_symbol_ins`}"
+	AM_VI_MODE_IND=" ${${KEYMAP/vicmd/$(am_prompt_symbol_nml)}/(main|viins)/$(am_prompt_symbol_ins)}"
 	zle && zle reset-prompt
 }
 

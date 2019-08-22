@@ -1,20 +1,20 @@
 #!/usr/bin/env zsh
 
 version_prompt(){
-  if [[ ! -z ${AM_VERSIONS_PROMPT} ]]; then
+  if [[ -n ${AM_VERSIONS_PROMPT} ]]; then
     LOOP_INDEX=0
     for _v in ${AM_VERSIONS_PROMPT}; do
       [[ ${LOOP_INDEX} != "0" ]] && echo -ne "%F{$am_fade_color}|%f"
-      [[ ${LOOP_INDEX} == "0" ]] && LOOP_INDEX=$((${LOOP_INDEX} + 1)) && echo -ne "%F{$am_fade_color}[%f"
-      [[ ${_v} == "PYTHON" ]] && echo -ne $(am_python_version)
-      [[ ${_v} == "RUBY" ]] && echo -ne $(am_ruby_version)
-      [[ ${_v} == "RUBY_S" ]] && echo -ne $(am_ruby_short_version)
-      [[ ${_v} == "JAVA" ]] && echo -ne $(am_java_version)
-      [[ ${_v} == "GO" ]] && echo -ne $(am_go_version)
-      [[ ${_v} == "ELIXIR" ]] && echo -ne $(am_elixir_version)
-      [[ ${_v} == "CRYSTAL" ]] && echo -ne $(am_crystal_version)
-      [[ ${_v} == "NODE" ]] && echo -ne $(am_node_version)
-      [[ ${_v} == "PHP" ]] && echo -ne $(am_php_version)
+      [[ ${LOOP_INDEX} == "0" ]] && LOOP_INDEX=$((LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f"
+      [[ ${_v} == "PYTHON" ]] && echo -ne "$(am_python_version)"
+      [[ ${_v} == "RUBY" ]] && echo -ne "$(am_ruby_version)"
+      [[ ${_v} == "RUBY_S" ]] && echo -ne "$(am_ruby_short_version)"
+      [[ ${_v} == "JAVA" ]] && echo -ne "$(am_java_version)"
+      [[ ${_v} == "GO" ]] && echo -ne "$(am_go_version)"
+      [[ ${_v} == "ELIXIR" ]] && echo -ne "$(am_elixir_version)"
+      [[ ${_v} == "CRYSTAL" ]] && echo -ne "$(am_crystal_version)"
+      [[ ${_v} == "NODE" ]] && echo -ne "$(am_node_version)"
+      [[ ${_v} == "PHP" ]] && echo -ne "$(am_php_version)"
     done
     [[ "$LOOP_INDEX" != "0" ]] && echo -ne "%F{$am_fade_color}]%f"
   fi

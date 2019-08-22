@@ -13,7 +13,7 @@ am_load_theme(){
     if [[ -f "${AM_CUSTOM_THEME_PATH}" ]]; then
       source "${AM_CUSTOM_THEME_PATH}"
     else
-      echo "\n  --> (WARN) theme ${AM_CUSTOM_THEME_PATH} not found. Loading default ..."
+      printf "\n  ==> (WARN) Theme file at '%s' not found. Loading default ...\n" "$AM_CUSTOM_THEME_PATH"
       source "${THEME_DIR}/default.zsh"
     fi
   fi

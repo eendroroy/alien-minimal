@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function am_timer_start(){
-  if [[ ! -z ${AM_SHOW_PROCESS_TIME} ]]
+  if [[ -n ${AM_SHOW_PROCESS_TIME} ]]
   then
     am_timer=${SECONDS}
   fi
@@ -16,7 +16,7 @@ function am_get_time_prompt(){
     else
       __seconds=0
     fi
-    if [[ ${AM_SHOW_PROCESS_TIME} == 1 ]] || ([[ ${AM_SHOW_PROCESS_TIME} == 2 ]] && [[ ${__seconds} != 0 ]]); then
+    if [[ ${AM_SHOW_PROCESS_TIME} == 1 ]] || { [[ ${AM_SHOW_PROCESS_TIME} == 2 ]] && [[ ${__seconds} != 0 ]]; }; then
       echo -ne "%F{$am_timer_color}${__seconds}%f"
     else
       echo -ne ""
