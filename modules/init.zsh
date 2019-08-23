@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# shellcheck disable=SC2034
 VIM_PROMPT=""
 
 [[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM=@

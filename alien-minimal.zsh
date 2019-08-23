@@ -32,30 +32,32 @@ function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_theme
-  __time="`am_get_time_prompt`"
+  __time="$(am_get_time_prompt)"
+  # shellcheck disable=SC2034
   am_preexec_executed=0
   if [[ ${AM_SHOW_FULL_DIR} == 1 ]]; then
     if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
-      PROMPT=$'\n'"`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` "
+      PROMPT=$'\n'"$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_long_dir) "
     elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
-      PROMPT=$'\n'"`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` "
+      PROMPT=$'\n'"$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_long_dir) "
     else
-      PROMPT="`am_ssh_st`$__time`am_venv` `am_prompt_general_long_dir` "
+      PROMPT="$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_long_dir) "
     fi
   else
     if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
-      PROMPT=$'\n'"`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` "
+      PROMPT=$'\n'"$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_short_dir) "
     elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
-      PROMPT=$'\n'"`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` "
+      PROMPT=$'\n'"$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_short_dir) "
     else
-      PROMPT="`am_ssh_st`$__time`am_venv` `am_prompt_general_short_dir` "
+      # shellcheck disable=SC2034
+      PROMPT="$(am_ssh_st)$__time$(am_venv) $(am_prompt_general_short_dir) "
     fi
   fi
 
   if [[ ${AM_KEEP_PROMPT} == 1 ]]; then
-    [[ ${RPROMPT} == "" ]] && RPROMPT="`am_vim_prompt`"
+    [[ ${RPROMPT} == "" ]] && RPROMPT="$(am_vim_prompt)"
   else
-    RPROMPT="`am_vim_prompt`"
+    RPROMPT="$(am_vim_prompt)"
   fi
 
   am_async_prompt

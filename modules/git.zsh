@@ -16,10 +16,10 @@ am_git_dirty(){
   [[ -z "${AM_GIT_TRACKED_COLOR}" ]]    && AM_GIT_TRACKED_COLOR=green
   [[ -z "${AM_GIT_UN_TRACKED_COLOR}" ]] && AM_GIT_UN_TRACKED_COLOR=red
 
-  [[ -z "${AM_GIT_ADD_SYM}" ]] && AM_GIT_ADD_SYM=+
-  [[ -z "${AM_GIT_DEL_SYM}" ]] && AM_GIT_DEL_SYM=-
-  [[ -z "${AM_GIT_MOD_SYM}" ]] && AM_GIT_MOD_SYM=⭑
-  [[ -z "${AM_GIT_NEW_SYM}" ]] && AM_GIT_NEW_SYM=?
+  [[ -z "${AM_GIT_ADD_SYM}" ]] && AM_GIT_ADD_SYM='+'
+  [[ -z "${AM_GIT_DEL_SYM}" ]] && AM_GIT_DEL_SYM='-'
+  [[ -z "${AM_GIT_MOD_SYM}" ]] && AM_GIT_MOD_SYM='⭑'
+  [[ -z "${AM_GIT_NEW_SYM}" ]] && AM_GIT_NEW_SYM='?'
 
   __git_status=$(plib_git_status)
 
