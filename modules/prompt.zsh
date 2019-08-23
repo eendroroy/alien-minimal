@@ -1,65 +1,64 @@
 #!/usr/bin/env zsh
 
 version_prompt(){
-  if [[ -n ${AM_VERSIONS_PROMPT} ]]; then
+  if [[ -n ${1} ]]; then
     LOOP_INDEX=0
-    for _v in ${AM_VERSIONS_PROMPT}; do
-      [[ ${LOOP_INDEX} != "0" ]] && echo -ne "%F{$am_fade_color}|%f"
-      [[ ${LOOP_INDEX} == "0" ]] && LOOP_INDEX=$((LOOP_INDEX + 1)) && echo -ne "%F{$am_fade_color}[%f"
-      [[ ${_v} == "PYTHON" ]] && echo -ne "$(am_python_version)"
-      [[ ${_v} == "RUBY" ]] && echo -ne "$(am_ruby_version)"
-      [[ ${_v} == "RUBY_S" ]] && echo -ne "$(am_ruby_short_version)"
-      [[ ${_v} == "JAVA" ]] && echo -ne "$(am_java_version)"
-      [[ ${_v} == "GO" ]] && echo -ne "$(am_go_version)"
-      [[ ${_v} == "ELIXIR" ]] && echo -ne "$(am_elixir_version)"
-      [[ ${_v} == "CRYSTAL" ]] && echo -ne "$(am_crystal_version)"
-      [[ ${_v} == "NODE" ]] && echo -ne "$(am_node_version)"
-      [[ ${_v} == "PHP" ]] && echo -ne "$(am_php_version)"
+    # shellcheck disable=SC2116
+    for _v in $(echo "${1}"); do
+      if [[ ${LOOP_INDEX} != "0" ]]; then
+        version_prompt_val+="%F{$am_fade_color}|%f"
+      fi
+      if [[ ${LOOP_INDEX} == "0" ]]; then
+        LOOP_INDEX=$((LOOP_INDEX + 1))
+        version_prompt_val+="%F{$am_fade_color}[%f"
+      fi
+      if [[ ${_v} == "PYTHON" ]]; then
+         version_prompt_val+="$(am_python_version)"
+      fi
+      if [[ ${_v} == "RUBY" ]]; then
+         version_prompt_val+="$(am_ruby_version)"
+      fi
+      if [[ ${_v} == "RUBY_S" ]]; then
+         version_prompt_val+="$(am_ruby_short_version)"
+      fi
+      if [[ ${_v} == "JAVA" ]]; then
+         version_prompt_val+="$(am_java_version)"
+      fi
+      if [[ ${_v} == "GO" ]]; then
+         version_prompt_val+="$(am_go_version)"
+      fi
+      if [[ ${_v} == "ELIXIR" ]]; then
+         version_prompt_val+="$(am_elixir_version)"
+      fi
+      if [[ ${_v} == "CRYSTAL" ]]; then
+         version_prompt_val+="$(am_crystal_version)"
+      fi
+      if [[ ${_v} == "NODE" ]]; then
+         version_prompt_val+="$(am_node_version)"
+      fi
+      if [[ ${_v} == "PHP" ]]; then
+         version_prompt_val+="$(am_php_version)"
+      fi
     done
-    [[ "$LOOP_INDEX" != "0" ]] && echo -ne "%F{$am_fade_color}]%f"
+    if [[ "$LOOP_INDEX" != "0" ]]; then
+      version_prompt_val+="%F{$am_fade_color}]%f"
+    fi
   fi
-}
-
-am_echo_git_prompt() {
-  GIT_REBASING=$(am_git_rebasing)
-  if [[ "$GIT_REBASING" != '' ]]; then
-    GIT_PROMPT+="$GIT_REBASING "
-  fi
-
-  GIT_PROMPT+="%F{$am_vcs_color}${AM_GIT_SYM}:%f$(am_git_branch)$(am_git_commit_time) $(am_git_rev) "
-
-  STASH=$(am_git_stash)
-  if [[ "$STASH" != '' ]]; then
-    GIT_PROMPT+="$STASH "
-  fi
-
-  LEFT_RIGHT=$(am_git_left_right)
-  if [[ "$LEFT_RIGHT" != '' ]]; then
-    GIT_PROMPT+="$LEFT_RIGHT "
-  fi
-
-  DIRTY=$(am_git_dirty)
-  if [[ "$DIRTY" != '' ]]; then
-    GIT_PROMPT+="$DIRTY "
-  fi
-
-  # Echo prompt without trailing space.
-  echo -ne "${GIT_PROMPT%?}"
-
-  unset GIT_PROMPT
+  echo -n "${version_prompt_val}"
 }
 
 am_vcs_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-    am_echo_git_prompt
+    am_vcs_prompt_val="$(am_git_rebasing)%F{$am_vcs_color}${AM_GIT_SYM}:%f$(am_git_branch)$(am_git_commit_time) $(am_git_rev) $(am_git_stash)$(am_git_left_right)$(am_git_dirty)"
   elif [[ $(am_is_hg) == 1 ]]; then
-    echo -ne "%F{$am_vcs_color} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
+    am_vcs_prompt_val="%F{$am_vcs_color} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
   elif [[ $(am_is_svn) == 1 ]]; then
-    echo -ne "%F{$am_vcs_color} ${AM_SVN_SYM}:%f$(am_svn_rev)"
+    am_vcs_prompt_val="%F{$am_vcs_color} ${AM_SVN_SYM}:%f$(am_svn_rev)"
   fi
+  echo -n "${am_vcs_prompt_val}"
 }
 
-function am_prompt_general_short_dir(){
+am_prompt_general_short_dir(){
   end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
   if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
     start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
@@ -73,7 +72,7 @@ function am_prompt_general_short_dir(){
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
-function am_prompt_general_long_dir(){
+am_prompt_general_long_dir(){
   end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
   if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
     start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
@@ -87,82 +86,11 @@ function am_prompt_general_long_dir(){
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
-function am_prompt_complete(){
-  if [[ ${AM_UPDATE_L_PROMPT} == 1 ]];then
-    PROMPT="$(am_ssh_st)${__time}$(am_venv) $(am_prompt_general_short_dir) "
-    if [[ ${AM_INITIAL_LINE_FEED} == 1 ]]; then
-      PROMPT=$'\n'"${PROMPT}"
-    elif [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
-      PROMPT=$'\n'"${PROMPT}"
-    fi
-    zle && zle reset-prompt
-  fi
-  if [[ ${AM_SEGMENT_UPDATE} == 1 ]]; then
-    RPROMPT=''
-
-    VERSION_PROMPT=$(version_prompt)
-    if [[ "$VERSION_PROMPT" != '' ]]; then
-      RPROMPT+="$VERSION_PROMPT"
-      zle && zle reset-prompt
-    fi
-
-    BG_COUNT=$(am_bg_count)
-    if [[ "$BG_COUNT" != '' ]]; then
-      if [[ "$RPROMPT" != '' ]]; then
-        RPROMPT+=' '
-      fi
-      
-      RPROMPT+="$BG_COUNT"
-      zle && zle reset-prompt
-    fi
-
-    VCS_PROMPT=$(am_vcs_prompt)
-    if [[ "$VCS_PROMPT" != '' ]]; then
-      if [[ "$RPROMPT" != '' ]]; then
-        RPROMPT+=' '
-      fi
-      
-      RPROMPT+="VCS_PROMPT"
-      zle && zle reset-prompt
-    fi
-
-    VIM_PROMPT=$(am_vim_prompt)
-    if [[ "$VIM_PROMPT" != '' ]]; then
-      if [[ "$RPROMPT" != '' ]]; then
-        RPROMPT+=' '
-      fi
-      
-      RPROMPT+="$VIM_PROMPT"
-      zle && zle reset-prompt
-    fi
-  else
-    RPROMPT=''
-
-    VERSION_PROMPT=$(version_prompt)
-    if [[ "$VERSION_PROMPT" != '' ]]; then
-      RPROMPT+="$VERSION_PROMPT "
-    fi
-
-    BG_COUNT=$(am_bg_count)
-    if [[ "$BG_COUNT" != '' ]]; then
-      RPROMPT+="$BG_COUNT "
-    fi
-
-    VCS_PROMPT=$(am_vcs_prompt)
-    if [[ "$VCS_PROMPT" != '' ]]; then
-      RPROMPT+="$VCS_PROMPT "
-    fi
-
-    VIM_PROMPT=$(am_vim_prompt)
-    if [[ "$VIM_PROMPT" != '' ]]; then
-      RPROMPT+="$VIM_PROMPT "
-    fi
-    
-    # Remove trailing space.
-    RPROMPT="${RPROMPT%?}"
-
-    zle && zle reset-prompt
-  fi
-  async_stop_worker prompt -n
+am_prompt_complete(){
+  cd "$1" || return
+  r_prompt_val="$(version_prompt "${2}") $(am_vcs_prompt)$(am_vim_prompt)"
+  r_prompt_val="${r_prompt_val%?}"
   unset AM_EMPTY_BUFFER
+
+  echo -n "${r_prompt_val}"
 }

@@ -143,14 +143,6 @@ export AM_SHOW_FULL_DIR=1 # shows the full dir path
 export AM_SHOW_FULL_DIR=0 # shows the current dir name
 ```
 
-Update left prompt asynchronously (initially show full directory path, update to short form later, this is just a fancy option)
-
-```bash
-export AM_UPDATE_L_PROMPT=1
-```
-
-_Note: this overrides `AM_SHOW_FULL_DIR` configuration._
-
 **The effect may be un-noticeable on faster CPUs.**
 
 ### Hide exit code:
@@ -164,14 +156,6 @@ export AM_HIDE_EXIT_CODE=1
 ```bash
 export AM_KEEP_PROMPT=1
 ```
-
-### Update RPROMPT segments one by one:
-
-```bash
-export AM_SEGMENT_UPDATE=1
-```
-
-This will update right prompt segment by segment (ie. at first version info, then background job count, and then ...).
 
 ### Color themes:
 
