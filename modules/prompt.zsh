@@ -89,8 +89,6 @@ am_prompt_general_long_dir(){
 am_prompt_complete(){
   cd "$1" || return
   r_prompt_val="$(version_prompt "${2}") $(am_vcs_prompt)$(am_vim_prompt)"
-  r_prompt_val="${r_prompt_val%?}"
   unset AM_EMPTY_BUFFER
-
   echo -n "${r_prompt_val}"
 }

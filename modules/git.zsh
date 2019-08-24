@@ -42,8 +42,7 @@ am_git_dirty(){
   [[ "$__del_ut" != "0" ]] && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_DEL_SYM}%f "
   [[ "$__new" != "0" ]]    && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_NEW_SYM}%f "
 
-  # Echo the git dirty section without the trailing space.
-  echo "${DIRTY%?}"
+  echo "${DIRTY}"
 
   unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del DIRTY
 }

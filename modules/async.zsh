@@ -2,7 +2,7 @@
 
 prompt_completed(){
   # shellcheck disable=SC2034
-  RPROMPT=$3
+  RPROMPT=$(echo "$3" | tr -s ' ')
   zle && zle reset-prompt
 }
 
