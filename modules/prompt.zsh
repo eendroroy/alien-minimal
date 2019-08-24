@@ -65,18 +65,26 @@ am_prompt_dir(){
   if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
     start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%${1}~%f${end_tag}"
+    echo -ne "%F{$am_normal_color}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}"
   else
     start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%${1}~%f${end_tag}.%F{$am_error_color}%B%${1}~%b%f${end_tag})"
+    echo -ne "%(?.%F{$am_normal_color}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}.%F{$am_error_color}%B%${AM_DIR_EXPANSION_LEVEL}~%b%f${end_tag})"
   fi
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
-am_prompt_complete(){
+am_r_prompt_complete(){
   cd "$1" || return
   r_prompt_val="$(version_prompt "${2}") $(am_vcs_prompt)$(am_vim_prompt)"
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
+}
+
+am_l_prompt_complete(){
+  cd "$1" || return
+  l_prompt_val="$(am_ssh_st) $(am_venv) $(am_prompt_dir) "
+  [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
+  unset AM_EMPTY_BUFFER
+  echo -n "${l_prompt_val}"
 }

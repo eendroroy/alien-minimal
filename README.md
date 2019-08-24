@@ -57,7 +57,6 @@ git submodule update --init --recursive
 
 Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
-
 ## Asciicast (1.4.1)
 
 [![asciicast](http://asciinema.org/a/264037.svg)](https://asciinema.org/a/264037)
@@ -66,7 +65,7 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
 **add configurations before plugin definitions**
 
-### VI prompt (Not properly working at the moment)
+### VI prompt (Experimental feature. Not properly working at the moment)
 
 Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 
@@ -74,21 +73,21 @@ Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 export AM_ENABLE_VI_PROMPT=1
 ```
 
+### Update left prompt asynchronously
+
+```bash
+export AM_ASYNC_L_PROMPT=1
+```
+
 ### Show initial new line
 
 Always show a new line
 
 ```bash
-AM_INITIAL_LINE_FEED=1
+export AM_INITIAL_LINE_FEED=1
 ```
 
-Only show new for non-empty input (pressing enter with out writing anything will not print a new line)
-
-```bash
-AM_INITIAL_LINE_FEED=2
-```
-
-Unset `AM_INITIAL_LINE_FEED` to never print a new line.
+Unset `AM_INITIAL_LINE_FEED` to stop printing a new line.
 
 ### Add start tag and end tag:
 

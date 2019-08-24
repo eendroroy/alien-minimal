@@ -23,18 +23,16 @@ source "${THEME_ROOT}/modules/versions.zsh"
 
 source "${THEME_ROOT}/modules/viprompt.zsh"
 
-function preexec(){
-  [[ ${BUFFER} == "" ]] && AM_EMPTY_BUFFER=1
-}
-
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_theme
 
-  PROMPT="$(am_ssh_st) $(am_venv) $(am_prompt_dir "${AM_DIR_EXPANSION_LEVEL}") "
-  if [[ ${AM_INITIAL_LINE_FEED} == 1 ]] || [[ ${AM_INITIAL_LINE_FEED} == 2 && ${AM_EMPTY_BUFFER} == 1 ]]; then
-    PROMPT=$'\n'"${PROMPT}"
+  if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
+    am_async_l_prompt
+  else
+    PROMPT="$(am_l_prompt_complete "$(pwd)")"
+    PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
   fi
 
   if [[ ${AM_KEEP_PROMPT} == 1 ]]; then
@@ -43,5 +41,5 @@ function precmd(){
     RPROMPT="$(am_vim_prompt)"
   fi
 
-  am_async_prompt
+  am_async_r_prompt
 }
