@@ -3,6 +3,8 @@
 # shellcheck disable=SC2034
 VIM_PROMPT=""
 
+[[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1
+
 [[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM=@
 [[ -z "${AM_GIT_BARE_SYM}" ]]  && AM_GIT_BARE_SYM=☢
 

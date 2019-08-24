@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# shellcheck disable=SC2154
+
 version_prompt(){
   if [[ -n ${1} ]]; then
     LOOP_INDEX=0
@@ -58,30 +60,16 @@ am_vcs_prompt(){
   echo -n "${am_vcs_prompt_val}"
 }
 
-am_prompt_general_short_dir(){
+am_prompt_dir(){
   end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
   if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
     start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%1~%f${end_tag}"
+    echo -ne "%F{$am_normal_color}%${1}~%f${end_tag}"
   else
     start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%1~%f${end_tag}.%F{$am_error_color}%B%1~%b%f${end_tag})"
-  fi
-  [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
-}
-
-am_prompt_general_long_dir(){
-  end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
-  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
-    start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
-    echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%~%f${end_tag}"
-  else
-    start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
-    echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%~%f${end_tag}.%F{$am_error_color}%B%~%b%f${end_tag})"
+    echo -ne "%(?.%F{$am_normal_color}%${1}~%f${end_tag}.%F{$am_error_color}%B%${1}~%b%f${end_tag})"
   fi
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }

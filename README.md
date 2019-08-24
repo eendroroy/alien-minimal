@@ -126,21 +126,10 @@ Available version are: `RUBY` `RUBY_S` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE` `PH
 
 _Note: Prompt maintain declaration order._
 
-### Show execution time for each process:
-
-```bash
-export AM_SHOW_PROCESS_TIME=0 # hide
-export AM_SHOW_PROCESS_TIME=1 # show
-export AM_SHOW_PROCESS_TIME=2 # show if not 0
-```
-
-_Note: **Unset `AM_SHOW_PROCESS_TIME` to hide process time.**_
-
 ### Configure dirname in prompt:
 
 ```bash
-export AM_SHOW_FULL_DIR=1 # shows the full dir path
-export AM_SHOW_FULL_DIR=0 # shows the current dir name
+export AM_DIR_EXPANSION_LEVEL=2
 ```
 
 **The effect may be un-noticeable on faster CPUs.**
