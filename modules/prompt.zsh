@@ -17,6 +17,9 @@ version_prompt(){
       if [[ ${_v} == "PYTHON" ]]; then
          version_prompt_val+="$(am_python_version)"
       fi
+      if [[ ${_v} == "PYTHON_S" ]]; then
+         version_prompt_val+="$(am_python_short_version)"
+      fi
       if [[ ${_v} == "RUBY" ]]; then
          version_prompt_val+="$(am_ruby_version)"
       fi
@@ -26,20 +29,38 @@ version_prompt(){
       if [[ ${_v} == "JAVA" ]]; then
          version_prompt_val+="$(am_java_version)"
       fi
+      if [[ ${_v} == "JAVA_S" ]]; then
+         version_prompt_val+="$(am_java_short_version)"
+      fi
       if [[ ${_v} == "GO" ]]; then
          version_prompt_val+="$(am_go_version)"
+      fi
+      if [[ ${_v} == "GO_S" ]]; then
+         version_prompt_val+="$(am_go_short_version)"
       fi
       if [[ ${_v} == "ELIXIR" ]]; then
          version_prompt_val+="$(am_elixir_version)"
       fi
+      if [[ ${_v} == "ELIXIR_S" ]]; then
+         version_prompt_val+="$(am_elixir_short_version)"
+      fi
       if [[ ${_v} == "CRYSTAL" ]]; then
          version_prompt_val+="$(am_crystal_version)"
+      fi
+      if [[ ${_v} == "CRYSTAL_S" ]]; then
+         version_prompt_val+="$(am_crystal_short_version)"
       fi
       if [[ ${_v} == "NODE" ]]; then
          version_prompt_val+="$(am_node_version)"
       fi
+      if [[ ${_v} == "NODE_S" ]]; then
+         version_prompt_val+="$(am_node_short_version)"
+      fi
       if [[ ${_v} == "PHP" ]]; then
          version_prompt_val+="$(am_php_version)"
+      fi
+      if [[ ${_v} == "PHP_S" ]]; then
+         version_prompt_val+="$(am_php_short_version)"
       fi
     done
     if [[ "$LOOP_INDEX" != "0" ]]; then

@@ -15,8 +15,10 @@ if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_JAVA_SYM}" ]]       && AM_JAVA_SYM=' '
   [[ -z "${AM_PY_SYM}" ]]         && AM_PY_SYM=' '
   [[ -z "${AM_RB_SYM}" ]]         && AM_RB_SYM=' '
+  [[ -z "${AM_GO_SYM}" ]]         && AM_GO_SYM='豈'
   [[ -z "${AM_NODE_SYM}" ]]       && AM_NODE_SYM=' '
   [[ -z "${AM_ELIXIR_SYM}" ]]     && AM_ELIXIR_SYM=' '
+  [[ -z "${AM_CRYSTAL_SYM}" ]]    && AM_CRYSTAL_SYM='ﲹ '
 
   [[ -z "${AM_GIT_ADD_SYM}" ]]  && AM_GIT_ADD_SYM=''
   [[ -z "${AM_GIT_DEL_SYM}" ]]  && AM_GIT_DEL_SYM=''

@@ -117,10 +117,12 @@ _Note: if `AM_PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 
-Available version are: `RUBY` `RUBY_S` `PYTHON` `JAVA` `GO` `CRYSTAL` `NODE` `PHP` `ELIXIR`
+Available version are: 
+`PYTHON` `PYTHON_S` `RUBY` `RUBY_S` `JAVA` `JAVA_S`
+`GO` `GO_S` `ELIXIR` `ELIXIR_S` `CRYSTAL` `CRYSTAL_S` `NODE` `NODE_S` `PHP` `PHP_S`
 
 ```bash
-    export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
+export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
 ```
 
 _Note: Prompt maintain declaration order._
