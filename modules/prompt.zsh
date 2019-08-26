@@ -1,11 +1,12 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2154
+# shellcheck disable=SC2034
+# shellcheck disable=SC2116
 
 version_prompt(){
   if [[ -n ${1} ]]; then
     LOOP_INDEX=0
-    # shellcheck disable=SC2116
     for _v in $(echo "${1}"); do
       if [[ ${LOOP_INDEX} != "0" ]]; then
         version_prompt_val+="%F{$am_fade_color}|%f"
@@ -96,14 +97,18 @@ am_prompt_dir(){
 }
 
 am_r_prompt_complete(){
-  cd "$1" || return
-  r_prompt_val="$(version_prompt "${2}") $(am_vcs_prompt)$(am_vim_prompt)"
+  cd "${1}" || return
+  VIRTUAL_ENV=$2
+  SSH_CLIENT=$3
+  r_prompt_val="$(version_prompt "${4}") $(am_vcs_prompt)$(am_vim_prompt)"
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
 }
 
 am_l_prompt_complete(){
-  cd "$1" || return
+  cd "${1}" || return
+  VIRTUAL_ENV=$2
+  SSH_CLIENT=$3
   l_prompt_val="$(am_ssh_st) $(am_venv) $(am_prompt_dir) "
   [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
   unset AM_EMPTY_BUFFER
