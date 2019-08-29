@@ -96,7 +96,7 @@ am_prompt_dir(){
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
 }
 
-am_r_prompt_complete(){
+am_r_prompt_render(){
   cd "${1}" || return
   VIRTUAL_ENV=$2
   SSH_CLIENT=$3
@@ -105,7 +105,7 @@ am_r_prompt_complete(){
   echo -n "${r_prompt_val}"
 }
 
-am_l_prompt_complete(){
+am_l_prompt_render(){
   cd "${1}" || return
   VIRTUAL_ENV=$2
   SSH_CLIENT=$3

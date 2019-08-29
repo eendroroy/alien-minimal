@@ -30,7 +30,7 @@ function precmd(){
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
     am_async_l_prompt
   else
-    PROMPT="$(am_l_prompt_complete "$(pwd)")"
+    PROMPT="$(am_l_prompt_render "$(pwd)")"
     PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
   fi
 
