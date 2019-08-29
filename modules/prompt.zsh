@@ -4,6 +4,12 @@
 # shellcheck disable=SC2034
 # shellcheck disable=SC2116
 
+__import_env() {
+  echo "${1}" | while read -r line; do
+    eval "export ${line}"
+  done
+}
+
 version_prompt(){
   if [[ -n ${1} ]]; then
     LOOP_INDEX=0
@@ -98,17 +104,15 @@ am_prompt_dir(){
 
 am_r_prompt_render(){
   cd "${1}" || return
-  VIRTUAL_ENV=$2
-  SSH_CLIENT=$3
-  r_prompt_val="$(version_prompt "${4}") $(am_vcs_prompt)$(am_vim_prompt)"
+  __import_env "${2}"
+  r_prompt_val="$(version_prompt "${3}") $(am_vcs_prompt)$(am_vim_prompt)"
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
 }
 
 am_l_prompt_render(){
   cd "${1}" || return
-  VIRTUAL_ENV=$2
-  SSH_CLIENT=$3
+  __import_env "${2}"
   l_prompt_val="$(am_ssh_st) $(am_venv) $(am_prompt_dir) "
   [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
   unset AM_EMPTY_BUFFER
