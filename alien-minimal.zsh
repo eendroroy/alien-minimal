@@ -30,7 +30,7 @@ function precmd(){
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
     am_async_l_prompt
   else
-    __AM_ENVS="$(env | grep "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
+    __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
     PROMPT="$(am_l_prompt_render "${PWD}" "${__AM_ENVS}")"
     PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
   fi
