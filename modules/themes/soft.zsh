@@ -2,7 +2,7 @@
 
 am_theme(){
   [[ -z ${am_vcs_color} ]]              && am_vcs_color=248
-  [[ -z ${am_ssh_color} ]]              && am_ssh_color=143
+  [[ -z ${am_ssh_color} ]]              && am_ssh_color=154
   [[ -z ${am_normal_color} ]]           && am_normal_color=81
   [[ -z ${am_error_color} ]]            && am_error_color=197
   [[ -z ${am_rev_color} ]]              && am_rev_color=74
