@@ -32,8 +32,6 @@ function zle-keymap-select {
   zle && zle reset-prompt
 }
 
-bindkey -v
-
 zle -N zle-line-init
 zle -N zle-keymap-select
 
