@@ -23,12 +23,12 @@ am_get_vi_mode(){
 
 function zle-line-init {
   __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
-  PROMPT="$(echo "$(am_get_vi_mode) $(am_l_prompt_render "${PWD}" "${__AM_ENVS}")" | tr -s ' ')"
+  PROMPT="$(echo "$(am_l_prompt_render "${PWD}" "${__AM_ENVS}") $(am_get_vi_mode)" | tr -s ' ')"
   zle && zle reset-prompt
 }
 function zle-keymap-select {
   __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
-  PROMPT="$(echo "$(am_get_vi_mode) $(am_l_prompt_render "${PWD}" "${__AM_ENVS}")" | tr -s ' ')"
+  PROMPT="$(echo "$(am_l_prompt_render "${PWD}" "${__AM_ENVS}") $(am_get_vi_mode)" | tr -s ' ')"
   zle && zle reset-prompt
 }
 
