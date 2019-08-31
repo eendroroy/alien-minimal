@@ -1,12 +1,14 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2034
-VIM_PROMPT=""
+
+[[ -z "${AM_VIM_INSERT_SYM}" ]] && AM_VIM_INSERT_SYM='(i)'
+[[ -z "${AM_VIM_NORMAL_SYM}" ]] && AM_VIM_NORMAL_SYM='(n)'
 
 [[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1
 
-[[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM=@
-[[ -z "${AM_GIT_BARE_SYM}" ]]  && AM_GIT_BARE_SYM=☢
+[[ -z "${AM_GIT_STASH_SYM}" ]] && AM_GIT_STASH_SYM='@'
+[[ -z "${AM_GIT_BARE_SYM}" ]]  && AM_GIT_BARE_SYM='☢'
 
 if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_GIT_SYM}" ]]        && AM_GIT_SYM=''

@@ -105,7 +105,7 @@ am_prompt_dir(){
 am_r_prompt_render(){
   cd "${1}" || return
   __import_env "${2}"
-  r_prompt_val="$(version_prompt "${3}") $(am_vcs_prompt)$(am_vim_prompt)"
+  r_prompt_val="$(version_prompt "${3}") $(am_vcs_prompt)"
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
 }

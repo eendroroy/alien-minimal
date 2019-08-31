@@ -66,17 +66,12 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 **add configurations before plugin definitions**
 
 ### VI prompt (Experimental feature. Not properly working at the moment)
+Made some improvements!!
 
 Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 
 ```bash
 export AM_ENABLE_VI_PROMPT=1
-```
-
-### Update left prompt asynchronously
-
-```bash
-export AM_ASYNC_L_PROMPT=1
 ```
 
 ### Show initial new line

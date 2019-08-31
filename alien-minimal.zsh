@@ -20,26 +20,18 @@ source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/versions.zsh"
 
-source "${THEME_ROOT}/modules/viprompt.zsh"
+[[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && source "${THEME_ROOT}/modules/viprompt.zsh"
 
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_theme
 
-  if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
-    am_async_l_prompt
-  else
-    __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
-    PROMPT="$(am_l_prompt_render "${PWD}" "${__AM_ENVS}")"
-    PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
-  fi
+  __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
+  PROMPT="$(am_l_prompt_render "${PWD}" "${__AM_ENVS}")"
+  PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
 
-  if [[ ${AM_KEEP_PROMPT} == 1 ]]; then
-    [[ ${RPROMPT} == "" ]] && RPROMPT="$(am_vim_prompt)"
-  else
-    RPROMPT="$(am_vim_prompt)"
-  fi
+  [[ ${AM_KEEP_PROMPT} != 1 ]] && RPROMPT=""
 
   am_async_r_prompt
 }
