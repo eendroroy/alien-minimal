@@ -74,6 +74,28 @@ Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 export AM_ENABLE_VI_PROMPT=1
 ```
 
+#### Set vi prompt position
+```bash
+
+export AM_VI_PROMPT_POS=left_start
+# (i) am-demo       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
+
+export AM_VI_PROMPT_POS=left_end
+# am-demo (i)       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
+
+export AM_VI_PROMPT_POS=right_start
+# am-demo       (i) G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
+
+export AM_VI_PROMPT_POS=right_end
+# am-demo       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ? (i)
+```
+
+### Update left prompt asynchronously
+
+```bash
+export AM_ASYNC_L_PROMPT=1
+```
+
 ### Show initial new line
 
 Always show a new line

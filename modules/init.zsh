@@ -4,6 +4,7 @@
 
 [[ -z "${AM_VIM_INSERT_SYM}" ]] && AM_VIM_INSERT_SYM='(i)'
 [[ -z "${AM_VIM_NORMAL_SYM}" ]] && AM_VIM_NORMAL_SYM='(n)'
+[[ -z "${AM_VI_PROMPT_POS}" ]]  && AM_VI_PROMPT_POS='left_end'
 
 [[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1
 

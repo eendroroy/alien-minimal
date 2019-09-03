@@ -21,14 +21,17 @@ am_get_vi_mode(){
   esac
 }
 
+am_render_vi_mode(){
+  AM_VI_PROMPT_VAL="$(am_get_vi_mode)"
+  export AM_VI_PROMPT_VAL
+}
+
 function zle-line-init {
-  __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
-  PROMPT="$(echo "$(am_l_prompt_render "${PWD}" "${__AM_ENVS}") $(am_get_vi_mode) " | tr -s ' ')"
+  am_render_vi_mode
   zle && zle reset-prompt
 }
 function zle-keymap-select {
-  __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
-  PROMPT="$(echo "$(am_l_prompt_render "${PWD}" "${__AM_ENVS}") $(am_get_vi_mode) " | tr -s ' ')"
+  am_render_vi_mode
   zle && zle reset-prompt
 }
 
