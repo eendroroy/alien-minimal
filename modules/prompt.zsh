@@ -6,7 +6,7 @@
 
 __import_env() {
   echo "${1}" | while read -r line; do
-    eval "export ${line}"
+    eval "export ${line}" > /dev/null
   done
 }
 
