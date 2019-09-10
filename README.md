@@ -65,8 +65,7 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
 **add configurations before plugin definitions**
 
-### VI prompt (Experimental feature)
-Made some improvements!!
+### VI prompt
 
 Enable VI prompt (vi-mode is enabled by `bindkey -v`)
 
@@ -110,7 +109,7 @@ Unset `AM_INITIAL_LINE_FEED` to stop printing a new line.
 
 ```bash
 export AM_PROMPT_START_TAG='-->'     # previously `PROMPT_START_TAG`     
-export AM_PROMPT_END_TAG=' $'        # previously `PROMPT_END_TAG`       
+export AM_PROMPT_END_TAG='\ $'       # previously `PROMPT_END_TAG`       
 export AM_PROMPT_START_TAG_COLOR=81  # previously `PROMPT_START_TAG_COLOR`  
 export AM_PROMPT_END_TAG_COLOR=81    # previously `PROMPT_END_TAG_COLOR`    
 ```
@@ -178,24 +177,24 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 **Apart from these default themes, custom colors can be defined:**
 
 ```bash
-export am_vcs_color=1          # color for VCS (G: M: V:)
-export am_ssh_color=11         # color for ssh indicator
-export am_normal_color=12      # color for normal text
-export am_error_color=1        # color for ERROR
-export am_rev_color=14         # color for VCS Revision number
-export am_branch_color=10      # color for VCS BRANCH name
-export am_left_right_color=3   # color for GIT Left-Right status
-export am_stash_color=3        # color for GIT stash count
-export am_bare_color=3         # color for GIT bare repo indicator
-export am_commit_since_color=6 # color for last commit time
-export am_fade_color=8         # color for fade text color
-export am_venv_color=8         # color fir python virtual env text
-export am_python_color=2       # color for python version text
-export am_ruby_color=1         # color for ruby version text
-export am_java_color=15        # color for java version text
-export am_timer_color=14       # color for command execution time
-export am_viins_color=39       # color for viins mode
-export am_vicmd_color=208      # color vicmd mode
+export AM_VCS_COLOR=1          # color for VCS (G: M: V:)
+export AM_SSH_COLOR=11         # color for ssh indicator
+export AM_NORMAL_COLOR=12      # color for normal text
+export AM_ERROR_COLOR=1        # color for ERROR
+export AM_REV_COLOR=14         # color for VCS Revision number
+export AM_BRANCH_COLOR=10      # color for VCS BRANCH name
+export AM_LEFT_RIGHT_COLOR=3   # color for GIT Left-Right status
+export AM_STASH_COLOR=3        # color for GIT stash count
+export AM_BARE_COLOR=3         # color for GIT bare repo indicator
+export AM_COMMIT_SINCE_COLOR=6 # color for last commit time
+export AM_FADE_COLOR=8         # color for fade text color
+export AM_VENV_COLOR=8         # color fir python virtual env text
+export AM_PYTHON_COLOR=2       # color for python version text
+export AM_RUBY_COLOR=1         # color for ruby version text
+export AM_JAVA_COLOR=15        # color for java version text
+export AM_TIMER_COLOR=14       # color for command execution time
+export AM_VIINS_COLOR=39       # color for viins mode
+export AM_VICMD_COLOR=208      # color vicmd mode
 ```
 
 Or creating a new theme file:
@@ -206,24 +205,24 @@ __/path/to/custom/theme.zsh__
 #!/usr/bin/env zsh
 
 am_theme(){
-  am_vcs_color=248
-  am_ssh_color=143
-  am_normal_color=39
-  am_error_color=208
-  am_rev_color=248
-  am_branch_color=78
-  am_left_right_color=222
-  am_stash_color=222
-  am_bare_color=222
-  am_commit_since_color=244
-  am_fade_color=242
-  am_venv_color=245
-  am_python_color=40
-  am_ruby_color=196
-  am_java_color=178
-  am_timer_color=248
-  am_viins_color=39
-  am_vicmd_color=208
+  AM_VCS_COLOR=248
+  AM_SSH_COLOR=143
+  AM_NORMAL_COLOR=39
+  AM_ERROR_COLOR=208
+  AM_REV_COLOR=248
+  AM_BRANCH_COLOR=78
+  AM_LEFT_RIGHT_COLOR=222
+  AM_STASH_COLOR=222
+  AM_BARE_COLOR=222
+  AM_COMMIT_SINCE_COLOR=244
+  AM_FADE_COLOR=242
+  AM_VENV_COLOR=245
+  AM_PYTHON_COLOR=40
+  AM_RUBY_COLOR=196
+  AM_JAVA_COLOR=178
+  AM_TIMER_COLOR=248
+  AM_VIINS_COLOR=39
+  AM_VICMD_COLOR=208
 }
 ```
 

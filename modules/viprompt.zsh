@@ -3,11 +3,11 @@
 # shellcheck disable=SC2034
 
 am_prompt_symbol_ins(){
-  echo -ne "%B%F{$am_viins_color}${AM_VIM_INSERT_SYM}%f%b"
+  echo -ne "%B%F{$AM_VIINS_COLOR}${AM_VIM_INSERT_SYM}%f%b"
 }
 
 am_prompt_symbol_nml(){
-  echo -ne "%B%F{$am_vicmd_color}${AM_VIM_NORMAL_SYM}%f%b"
+  echo -ne "%B%F{$AM_VICMD_COLOR}${AM_VIM_NORMAL_SYM}%f%b"
 }
 
 am_get_vi_mode(){

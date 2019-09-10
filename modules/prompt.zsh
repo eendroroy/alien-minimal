@@ -15,11 +15,11 @@ version_prompt(){
     LOOP_INDEX=0
     for _v in $(echo "${1}"); do
       if [[ ${LOOP_INDEX} != "0" ]]; then
-        version_prompt_val+="%F{$am_fade_color}|%f"
+        version_prompt_val+="%F{$AM_FADE_COLOR}|%f"
       fi
       if [[ ${LOOP_INDEX} == "0" ]]; then
         LOOP_INDEX=$((LOOP_INDEX + 1))
-        version_prompt_val+="%F{$am_fade_color}[%f"
+        version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
       fi
       if [[ ${_v} == "PYTHON" ]]; then
          version_prompt_val+="$(am_python_version)"
@@ -71,7 +71,7 @@ version_prompt(){
       fi
     done
     if [[ "$LOOP_INDEX" != "0" ]]; then
-      version_prompt_val+="%F{$am_fade_color}]%f"
+      version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
     fi
   fi
   echo -n "${version_prompt_val}"
@@ -79,11 +79,11 @@ version_prompt(){
 
 am_vcs_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-    am_vcs_prompt_val="$(am_git_rebasing) %F{$am_vcs_color}${AM_GIT_SYM}:%f$(am_git_branch) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
+    am_vcs_prompt_val="$(am_git_rebasing) %F{$AM_VCS_COLOR}${AM_GIT_SYM}:%f$(am_git_branch) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
   elif [[ $(am_is_hg) == 1 ]]; then
-    am_vcs_prompt_val="%F{$am_vcs_color} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
+    am_vcs_prompt_val="%F{$AM_VCS_COLOR} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
   elif [[ $(am_is_svn) == 1 ]]; then
-    am_vcs_prompt_val="%F{$am_vcs_color} ${AM_SVN_SYM}:%f$(am_svn_rev)"
+    am_vcs_prompt_val="%F{$AM_VCS_COLOR} ${AM_SVN_SYM}:%f$(am_svn_rev)"
   fi
   echo -n "${am_vcs_prompt_val}"
 }
@@ -91,15 +91,15 @@ am_vcs_prompt(){
 am_prompt_dir(){
   end_tag="%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
   if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
-    start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$am_error_color}${PROMPT_START_TAG}%f)"
+    start_tag="%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$AM_ERROR_COLOR}${PROMPT_START_TAG}%f)"
     echo -ne "${start_tag}"
-    echo -ne "%F{$am_normal_color}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}"
+    echo -ne "%F{$AM_NORMAL_COLOR}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}"
   else
     start_tag="%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
     echo -ne "${start_tag}"
-    echo -ne "%(?.%F{$am_normal_color}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}.%F{$am_error_color}%B%${AM_DIR_EXPANSION_LEVEL}~%b%f${end_tag})"
+    echo -ne "%(?.%F{$AM_NORMAL_COLOR}%${AM_DIR_EXPANSION_LEVEL}~%f${end_tag}.%F{$AM_ERROR_COLOR}%B%${AM_DIR_EXPANSION_LEVEL}~%b%f${end_tag})"
   fi
-  [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$am_fade_color}%?%f)"
+  [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$AM_FADE_COLOR}%?%f)"
 }
 
 am_r_prompt_render(){

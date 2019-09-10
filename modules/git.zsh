@@ -5,11 +5,11 @@ am_is_git(){
 }
 
 am_git_branch(){
-  echo -ne "%B%F{$am_branch_color}$(plib_git_branch)%f%b"
+  echo -ne "%B%F{$AM_BRANCH_COLOR}$(plib_git_branch)%f%b"
 }
 
 am_git_rev(){
-  echo -ne "%F{$am_rev_color}$(plib_git_rev)%f"
+  echo -ne "%F{$AM_REV_COLOR}$(plib_git_rev)%f"
 }
 
 am_git_dirty(){
@@ -61,27 +61,27 @@ am_git_left_right(){
   [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __pushpull+="${__push}${AM_GIT_PUSH_SYM}"
 
   if [[ "$__pushpull" != '' ]]; then
-    echo -ne "%F{$am_left_right_color}${__pushpull}%f"
+    echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__pushpull}%f"
   fi
 }
 
 am_git_stash(){
   if [[ "$(plib_git_is_bare)" == 1 ]]; then
-    echo -ne "%F{$am_bare_color}${AM_GIT_BARE_SYM}${__stash}%f"
+    echo -ne "%F{$AM_BARE_COLOR}${AM_GIT_BARE_SYM}${__stash}%f"
   else
     __stash=$(plib_git_stash)
     if [[ "$__stash" != "0" ]]; then
-      echo -ne "%F{$am_stash_color}${AM_GIT_STASH_SYM}${__stash}%f"
+      echo -ne "%F{$AM_STASH_COLOR}${AM_GIT_STASH_SYM}${__stash}%f"
     fi
   fi
 }
 
 am_git_commit_time(){
-  echo -ne "%F{$am_commit_since_color}[$(plib_git_commit_since)]%f"
+  echo -ne "%F{$AM_COMMIT_SINCE_COLOR}[$(plib_git_commit_since)]%f"
 }
 
 am_git_rebasing(){
   if [[ $(plib_is_git_rebasing) == 1 ]]; then
-    echo -ne "%F{$am_error_color}${AM_GIT_REBASING_SYMBOL}%f"
+    echo -ne "%F{$AM_ERROR_COLOR}${AM_GIT_REBASING_SYMBOL}%f"
   fi
 }
