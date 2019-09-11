@@ -1,6 +1,16 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2034
+# shellcheck disable=SC2088
+
+if [[ -f ~/.amrc ]]; then
+  source ~/.amrc
+else
+  echo
+  print -P "%F{red}    ===> '~/.amrc' file not found, creating dummy '~/.amrc' file ... %f"
+  echo
+  cp "${0:A:h}/amrc.zsh" ~/.amrc
+fi
 
 THEME_ROOT=${0:A:h}
 
