@@ -141,6 +141,11 @@ Available version are:
 export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
 ```
 
+Customize Separator:
+```bash
+export AM_VERSION_PROMPT_SEP='|'
+```
+
 _Note: Prompt maintain declaration order._
 
 ### Configure dirname in prompt:

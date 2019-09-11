@@ -14,65 +14,28 @@ version_prompt(){
   if [[ -n ${1} ]]; then
     LOOP_INDEX=0
     for _v in $(echo "${1}"); do
-      if [[ ${LOOP_INDEX} != "0" ]]; then
-        version_prompt_val+="%F{$AM_FADE_COLOR}|%f"
-      fi
-      if [[ ${LOOP_INDEX} == "0" ]]; then
-        LOOP_INDEX=$((LOOP_INDEX + 1))
-        version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
-      fi
-      if [[ ${_v} == "PYTHON" ]]; then
-         version_prompt_val+="$(am_python_version)"
-      fi
-      if [[ ${_v} == "PYTHON_S" ]]; then
-         version_prompt_val+="$(am_python_short_version)"
-      fi
-      if [[ ${_v} == "RUBY" ]]; then
-         version_prompt_val+="$(am_ruby_version)"
-      fi
-      if [[ ${_v} == "RUBY_S" ]]; then
-         version_prompt_val+="$(am_ruby_short_version)"
-      fi
-      if [[ ${_v} == "JAVA" ]]; then
-         version_prompt_val+="$(am_java_version)"
-      fi
-      if [[ ${_v} == "JAVA_S" ]]; then
-         version_prompt_val+="$(am_java_short_version)"
-      fi
-      if [[ ${_v} == "GO" ]]; then
-         version_prompt_val+="$(am_go_version)"
-      fi
-      if [[ ${_v} == "GO_S" ]]; then
-         version_prompt_val+="$(am_go_short_version)"
-      fi
-      if [[ ${_v} == "ELIXIR" ]]; then
-         version_prompt_val+="$(am_elixir_version)"
-      fi
-      if [[ ${_v} == "ELIXIR_S" ]]; then
-         version_prompt_val+="$(am_elixir_short_version)"
-      fi
-      if [[ ${_v} == "CRYSTAL" ]]; then
-         version_prompt_val+="$(am_crystal_version)"
-      fi
-      if [[ ${_v} == "CRYSTAL_S" ]]; then
-         version_prompt_val+="$(am_crystal_short_version)"
-      fi
-      if [[ ${_v} == "NODE" ]]; then
-         version_prompt_val+="$(am_node_version)"
-      fi
-      if [[ ${_v} == "NODE_S" ]]; then
-         version_prompt_val+="$(am_node_short_version)"
-      fi
-      if [[ ${_v} == "PHP" ]]; then
-         version_prompt_val+="$(am_php_version)"
-      fi
-      if [[ ${_v} == "PHP_S" ]]; then
-         version_prompt_val+="$(am_php_short_version)"
-      fi
+      [[ ${LOOP_INDEX} != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}${AM_VERSION_PROMPT_SEP}%f"
+      [[ ${LOOP_INDEX} == "0" ]] && LOOP_INDEX=$((LOOP_INDEX + 1)) && version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
+
+      [[ ${_v} == "PYTHON" ]]    && version_prompt_val+="$(am_python_version)"
+      [[ ${_v} == "PYTHON_S" ]]  && version_prompt_val+="$(am_python_short_version)"
+      [[ ${_v} == "RUBY" ]]      && version_prompt_val+="$(am_ruby_version)"
+      [[ ${_v} == "RUBY_S" ]]    && version_prompt_val+="$(am_ruby_short_version)"
+      [[ ${_v} == "JAVA" ]]      && version_prompt_val+="$(am_java_version)"
+      [[ ${_v} == "JAVA_S" ]]    && version_prompt_val+="$(am_java_short_version)"
+      [[ ${_v} == "GO" ]]        && version_prompt_val+="$(am_go_version)"
+      [[ ${_v} == "GO_S" ]]      && version_prompt_val+="$(am_go_short_version)"
+      [[ ${_v} == "ELIXIR" ]]    && version_prompt_val+="$(am_elixir_version)"
+      [[ ${_v} == "ELIXIR_S" ]]  && version_prompt_val+="$(am_elixir_short_version)"
+      [[ ${_v} == "CRYSTAL" ]]   && version_prompt_val+="$(am_crystal_version)"
+      [[ ${_v} == "CRYSTAL_S" ]] && version_prompt_val+="$(am_crystal_short_version)"
+      [[ ${_v} == "NODE" ]]      && version_prompt_val+="$(am_node_version)"
+      [[ ${_v} == "NODE_S" ]]    && version_prompt_val+="$(am_node_short_version)"
+      [[ ${_v} == "PHP" ]]       && version_prompt_val+="$(am_php_version)"
+      [[ ${_v} == "PHP_S" ]]     && version_prompt_val+="$(am_php_short_version)"
     done
-    if [[ "$LOOP_INDEX" != "0" ]]; then
-      version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
-    fi
+
+    [[ "$LOOP_INDEX" != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
   fi
   echo -n "${version_prompt_val}"
 }
