@@ -63,7 +63,7 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
 ## Customizations
 
-**add configurations before plugin definitions**
+**add configurations in `~/.amrc`**
 
 ### VI prompt
 
