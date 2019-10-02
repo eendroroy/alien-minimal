@@ -10,6 +10,23 @@ __import_env() {
   done
 }
 
+envvar_value(){
+  echo `echo | awk -v VAR="\\$${1}" '{print VAR}'`
+}
+
+envvar_prompt(){
+  if [[ -n ${1} ]]; then
+    LOOP_INDEX=0
+    for _var in $(echo "${1}"); do
+        [[ ${LOOP_INDEX} != "0" ]] && envvar_prompt_val+="%F{$AM_FADE_COLOR}${AM_VERSION_PROMPT_SEP}%f"
+        [[ ${LOOP_INDEX} == "0" ]] && LOOP_INDEX=$((LOOP_INDEX + 1)) && envvar_prompt_val+="%F{$AM_FADE_COLOR}[%f"
+        [[ ${_var} != "" ]] && envvar_prompt_val+="${_var}:$(envvar_value "${_var}")"
+    done
+    [[ "$LOOP_INDEX" != "0" ]] && envvar_prompt_val+="%F{$AM_FADE_COLOR}]%f"
+  fi
+  echo -n "${envvar_prompt_val}"
+}
+
 version_prompt(){
   if [[ -n ${1} ]]; then
     LOOP_INDEX=0
@@ -68,11 +85,12 @@ am_prompt_dir(){
 am_r_prompt_render(){
   cd "${1}" || return
   __import_env "${2}"
-  r_prompt_val="$(version_prompt "${3}") $(am_vcs_prompt)"
+  r_prompt_val=" $(envvar_prompt "${4}") $(version_prompt "${3}") $(am_vcs_prompt)"
   if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
     [[ ${AM_VI_PROMPT_POS} == 'right_start' ]] && r_prompt_val='${AM_VI_PROMPT_VAL}'"${r_prompt_val}"
     [[ ${AM_VI_PROMPT_POS} == 'right_end' ]] && r_prompt_val="${r_prompt_val}"'${AM_VI_PROMPT_VAL}'
   fi
+  [[ "${AM_INITIAL_LINE_FEED}" == 1 && "${AM_TWO_LINES}" == 1 ]] && r_prompt_val=$'\n'"${r_prompt_val}"
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
 }
@@ -85,7 +103,7 @@ am_l_prompt_render(){
     [[ ${AM_VI_PROMPT_POS} == 'left_start' ]] && l_prompt_val='${AM_VI_PROMPT_VAL}'"${l_prompt_val}"
     [[ ${AM_VI_PROMPT_POS} == 'left_end' ]] && l_prompt_val="${l_prompt_val}"'${AM_VI_PROMPT_VAL} '
   fi
-  [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
+  [[ "${AM_INITIAL_LINE_FEED}" == 1 && "${AM_TWO_LINES}" == 0 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
   unset AM_EMPTY_BUFFER
   echo -n "${l_prompt_val}"
 }

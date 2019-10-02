@@ -3,7 +3,11 @@
 # shellcheck disable=SC2034
 
 r_prompt_completed(){
-  RPROMPT=$(echo "${3}" | tr -s ' ')
+  if [[ ${AM_TWO_LINES} == 0  ]]; then
+    RPROMPT=$(echo "${3}" | tr -s ' ')
+  else
+    PROMPT=$(echo "${3}" | tr -s ' ')$'\n'${PROMPT}
+  fi
   zle && zle reset-prompt
 }
 
@@ -12,7 +16,7 @@ am_async_r_prompt(){
   async_init
   async_start_worker right_prompt -n
   async_register_callback right_prompt r_prompt_completed
-  async_job right_prompt am_r_prompt_render "${PWD}" "${__AM_ENVS}" "${AM_VERSIONS_PROMPT}"
+  async_job right_prompt am_r_prompt_render "${PWD}" "${__AM_ENVS}" "${AM_VERSIONS_PROMPT}" "${AM_ENVVAR_PROMPT}"
 }
 
 l_prompt_completed(){
