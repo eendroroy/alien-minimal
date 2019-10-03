@@ -105,6 +105,14 @@ export AM_INITIAL_LINE_FEED=1
 
 Unset `AM_INITIAL_LINE_FEED` to stop printing a new line.
 
+### Two lines layout
+
+Shows contextual info on the superior line
+
+```bash
+export AM_TWO_LINES=1
+```
+
 ### Add start tag and end tag:
 
 ```bash
@@ -144,6 +152,20 @@ export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
 Customize Separator:
 ```bash
 export AM_VERSION_PROMPT_SEP='|'
+
+```
+
+_Note: Prompt maintain declaration order._
+
+### Show environment variables:
+
+```bash
+export AM_ENVVAR_PROMPT=(AWS_PROFILE)
+```
+
+Customize Separator:
+```bash
+export AM_VERSION_PROMPT_SEP='|'
 ```
 
 _Note: Prompt maintain declaration order._
@@ -172,10 +194,10 @@ export AM_KEEP_PROMPT=1
 
 ```bash
 1. export AM_THEME=mono
-1. export AM_THEME=mono_bright
-1. export AM_THEME=terminal
-1. export AM_THEME=soft
-1. export AM_THEME=default
+2. export AM_THEME=mono_bright
+3. export AM_THEME=terminal
+4. export AM_THEME=soft
+5. export AM_THEME=default
 ```
 _Note: **Unset `AM_THEME` to use default color scheme.**_
 
