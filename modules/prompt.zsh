@@ -90,7 +90,7 @@ am_r_prompt_render(){
     [[ ${AM_VI_PROMPT_POS} == 'right_start' ]] && r_prompt_val='${AM_VI_PROMPT_VAL}'"${r_prompt_val}"
     [[ ${AM_VI_PROMPT_POS} == 'right_end' ]] && r_prompt_val="${r_prompt_val}"'${AM_VI_PROMPT_VAL}'
   fi
-  [[ "${AM_INITIAL_LINE_FEED}" == 1 && "${AM_TWO_LINES}" == 1 ]] && r_prompt_val=$'\n'"${r_prompt_val}"
+
   unset AM_EMPTY_BUFFER
   echo -n "${r_prompt_val}"
 }
@@ -103,7 +103,7 @@ am_l_prompt_render(){
     [[ ${AM_VI_PROMPT_POS} == 'left_start' ]] && l_prompt_val='${AM_VI_PROMPT_VAL}'"${l_prompt_val}"
     [[ ${AM_VI_PROMPT_POS} == 'left_end' ]] && l_prompt_val="${l_prompt_val}"'${AM_VI_PROMPT_VAL} '
   fi
-  [[ "${AM_INITIAL_LINE_FEED}" == 1 && "${AM_TWO_LINES}" == 0 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
+  
   unset AM_EMPTY_BUFFER
   echo -n "${l_prompt_val}"
 }

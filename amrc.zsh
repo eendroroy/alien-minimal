@@ -8,6 +8,7 @@
 #  export AM_INITIAL_LINE_FEED=0
 #  export AM_USE_NERD_FONT=1
 #  export AM_DIR_EXPANSION_LEVEL=1
+#  export AM_TWO_LINES=0
 
 ## ===> VI PROMPT
 #  export AM_ENABLE_VI_PROMPT=1

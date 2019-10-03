@@ -38,6 +38,8 @@ function precmd(){
   am_load_theme
   [[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && am_render_vi_mode
 
+  [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && echo
+
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
     am_async_l_prompt
   else

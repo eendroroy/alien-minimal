@@ -3,7 +3,7 @@
 # shellcheck disable=SC2034
 
 r_prompt_completed(){
-  if [[ ${AM_TWO_LINES} == 0  ]]; then
+  if [[ ! "${AM_TWO_LINES}" == 1 ]]; then
     RPROMPT=$(echo "${3}" | tr -s ' ')
   else
     PROMPT=$(echo "${3}" | tr -s ' ')$'\n'${PROMPT}
