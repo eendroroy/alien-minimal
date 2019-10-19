@@ -2,6 +2,8 @@
 
 # shellcheck disable=SC2034
 
+[[ -z "${AM_VERSIONS_REGEX}" ]] && AM_VERSIONS_REGEX="ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_"
+
 [[ -z "${AM_VIM_INSERT_SYM}" ]] && AM_VIM_INSERT_SYM='(i)'
 [[ -z "${AM_VIM_NORMAL_SYM}" ]] && AM_VIM_NORMAL_SYM='(n)'
 [[ -z "${AM_VI_PROMPT_POS}" ]]  && AM_VI_PROMPT_POS='left_end'

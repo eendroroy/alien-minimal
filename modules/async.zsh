@@ -8,7 +8,7 @@ r_prompt_completed(){
 }
 
 am_async_r_prompt(){
-  __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
+  __AM_ENVS="$(env | grep --color=never "${AM_VERSIONS_REGEX}")"
   async_init
   async_start_worker right_prompt -n
   async_register_callback right_prompt r_prompt_completed
@@ -21,7 +21,7 @@ l_prompt_completed(){
 }
 
 am_async_l_prompt(){
-  __AM_ENVS="$(env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_")"
+  __AM_ENVS="$(env | grep --color=never "${AM_VERSIONS_REGEX}")"
   async_init
   async_start_worker left_prompt -n
   async_register_callback left_prompt l_prompt_completed
