@@ -6,7 +6,7 @@
 
 __import_env() {
   echo "${1}" | while read -r line; do
-    eval "export ${line}" > /dev/null
+    eval "export $(echo "${line}" | awk -F'=' '{print $1"=\""$2"\""}')" > /dev/null
   done
 }
 
