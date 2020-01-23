@@ -70,7 +70,9 @@ am_r_prompt_render(){
   __import_env "${2}"
   r_prompt_val="$(version_prompt "${3}") $(am_vcs_prompt)"
   if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
+    # shellcheck disable=SC2016
     [[ ${AM_VI_PROMPT_POS} == 'right_start' ]] && r_prompt_val='${AM_VI_PROMPT_VAL}'"${r_prompt_val}"
+    # shellcheck disable=SC2016
     [[ ${AM_VI_PROMPT_POS} == 'right_end' ]] && r_prompt_val="${r_prompt_val}"'${AM_VI_PROMPT_VAL}'
   fi
   unset AM_EMPTY_BUFFER
@@ -82,7 +84,9 @@ am_l_prompt_render(){
   __import_env "${2}"
   l_prompt_val="$(am_ssh_st) $(am_venv) $(am_prompt_dir) "
   if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
+    # shellcheck disable=SC2016
     [[ ${AM_VI_PROMPT_POS} == 'left_start' ]] && l_prompt_val='${AM_VI_PROMPT_VAL}'"${l_prompt_val}"
+    # shellcheck disable=SC2016
     [[ ${AM_VI_PROMPT_POS} == 'left_end' ]] && l_prompt_val="${l_prompt_val}"'${AM_VI_PROMPT_VAL} '
   fi
   [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && l_prompt_val=$'\n'"${l_prompt_val}"
