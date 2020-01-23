@@ -10,9 +10,9 @@ r_prompt_completed(){
 am_async_r_prompt(){
   __AM_ENVS="$(env | grep --color=never "${AM_VERSIONS_REGEX}")"
   async_init
-  async_start_worker right_prompt -n
-  async_register_callback right_prompt r_prompt_completed
-  async_job right_prompt am_r_prompt_render "${PWD}" "${__AM_ENVS}" "${AM_VERSIONS_PROMPT}"
+  async_start_worker "right_prompt_$$" -n
+  async_register_callback "right_prompt_$$" r_prompt_completed
+  async_job "right_prompt_$$" am_r_prompt_render "${PWD}" "${__AM_ENVS}" "${AM_VERSIONS_PROMPT}"
 }
 
 l_prompt_completed(){
@@ -23,7 +23,7 @@ l_prompt_completed(){
 am_async_l_prompt(){
   __AM_ENVS="$(env | grep --color=never "${AM_VERSIONS_REGEX}")"
   async_init
-  async_start_worker left_prompt -n
-  async_register_callback left_prompt l_prompt_completed
-  async_job left_prompt am_l_prompt_render "${PWD}" "${__AM_ENVS}"
+  async_start_worker "left_prompt_$$" -n
+  async_register_callback "left_prompt_$$" l_prompt_completed
+  async_job "left_prompt_$$" am_l_prompt_render "${PWD}" "${__AM_ENVS}"
 }
