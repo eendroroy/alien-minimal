@@ -3,7 +3,7 @@
 # shellcheck disable=SC2034
 
 r_prompt_completed(){
-  exec &>/dev/tty
+#  exec &>/dev/tty
   RPROMPT=$(echo "${3}" | tr -s ' ')
   zle && zle reset-prompt
 }
@@ -18,7 +18,7 @@ am_async_r_prompt(){
 }
 
 l_prompt_completed(){
-  exec &>/dev/tty
+#  exec &>/dev/tty
   PROMPT=$(echo "${3}" | tr -s ' ')
   zle && zle reset-prompt
 }
