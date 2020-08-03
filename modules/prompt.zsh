@@ -5,7 +5,10 @@
 # shellcheck disable=SC2116
 
 __import_env() {
-  echo "${1}" | while read -r line; do
+  if [[ -z "${1}" ]]; then
+    return
+  fi
+  echo "${1}" | while IFS='\n' read -r line; do
     eval "export $(echo "${line}" | awk -F'=' '{print $1"=\""$2"\""}')" > /dev/null
   done
 }
