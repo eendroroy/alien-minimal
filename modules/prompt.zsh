@@ -36,6 +36,7 @@ version_prompt(){
       [[ ${_v} == "NODE_S" ]]    && version_prompt_val+="$(am_node_short_version)"
       [[ ${_v} == "PHP" ]]       && version_prompt_val+="$(am_php_version)"
       [[ ${_v} == "PHP_S" ]]     && version_prompt_val+="$(am_php_short_version)"
+      [[ ${_v} == "GRADLE" ]]    && version_prompt_val+="$(am_gradle_version)"
     done
 
     [[ "$LOOP_INDEX" != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
@@ -45,7 +46,7 @@ version_prompt(){
 
 am_vcs_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-    am_vcs_prompt_val="$(am_git_rebasing) %F{$AM_VCS_COLOR}${AM_GIT_SYM}:%f$(am_git_branch) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
+    am_vcs_prompt_val="$(am_git_rebasing) %F{$AM_VCS_COLOR}${AM_GIT_SYM} %f$(am_git_branch) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
   elif [[ $(am_is_hg) == 1 ]]; then
     am_vcs_prompt_val="%F{$AM_VCS_COLOR} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
   elif [[ $(am_is_svn) == 1 ]]; then

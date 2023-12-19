@@ -58,6 +58,7 @@
 #  export AM_CRYSTAL_COLOR=8
 #  export AM_NODE_COLOR=2
 #  export AM_PHP_COLOR=5
+#  export AM_GRADLE_COLOR=5
 #  export AM_TIMER_COLOR=248
 #  export AM_VIINS_COLOR=39
 #  export AM_VICMD_COLOR=208

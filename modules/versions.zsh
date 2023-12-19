@@ -74,3 +74,7 @@ am_php_version(){
 am_php_short_version(){
   echo -ne "%F{$AM_PHP_COLOR}${AM_PHP_SYM}$(plib_php_major_minor_version)%f"
 }
+
+am_gradle_version(){
+  echo -ne "%F{$AM_GRADLE_COLOR}${AM_GRADLE_SYM}$(plib_gradle_version)%f"
+}
