@@ -138,7 +138,7 @@ Available version are:
 `GO` `GO_S` `ELIXIR` `ELIXIR_S` `CRYSTAL` `CRYSTAL_S` `NODE` `NODE_S` `PHP` `PHP_S`
 
 ```bash
-export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR)
+export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR GRADLE)
 ```
 
 Customize Separator:
@@ -225,9 +225,19 @@ am_theme(){
   AM_PYTHON_COLOR=40
   AM_RUBY_COLOR=196
   AM_JAVA_COLOR=178
+  AM_GO_COLOR=81
+  AM_ELIXIR_COLOR=81
+  AM_CRYSTAL_COLOR=8
+  AM_NODE_COLOR=2
+  AM_PHP_COLOR=5
+  AM_GRADLE_COLOR=2
   AM_TIMER_COLOR=248
   AM_VIINS_COLOR=39
   AM_VICMD_COLOR=208
+  AM_PROMPT_START_TAG_COLOR=39
+  AM_PROMPT_END_TAG_COLOR=39
+  AM_GIT_TRACKED_COLOR=78
+  AM_GIT_UN_TRACKED_COLOR=208
 }
 ```
 
@@ -259,8 +269,8 @@ export AM_CRYSTAL_SYM='CR:' # Crystal Version Symbol
 export AM_NODE_SYM='NODE:'  # Node Version Symbol 
 export AM_PHP_SYM='PHP:'    # PHP Version Symbol 
 
-export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbbol
-export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbbol
+export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbol
+export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbol
 export AM_GIT_SYM=G          # Git Symbol
 export AM_HG_SYM=M           # Mercurial Symbol
 export AM_SSH_SYM=[S]        # SSH Indicator Symbol
