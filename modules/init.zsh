@@ -56,5 +56,6 @@ fi
 [[ -z "${AM_GIT_REBASING_SYMBOL}" ]] && AM_GIT_REBASING_SYMBOL='⇋'
 [[ -z "${AM_GIT_PUSH_SYM}" ]]        && AM_GIT_PUSH_SYM='↑'
 [[ -z "${AM_GIT_PULL_SYM}" ]]        && AM_GIT_PULL_SYM='↓'
+[[ -z "${AM_LEFT_RIGHT_SEP}" ]]      && AM_LEFT_RIGHT_SEP='|'
 [[ -z "${AM_PROMPT_START_TAG}" ]]    && AM_PROMPT_START_TAG=''
 [[ -z "${AM_PROMPT_END_TAG}" ]]      && AM_PROMPT_END_TAG=''

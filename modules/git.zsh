@@ -65,6 +65,17 @@ am_git_left_right(){
   fi
 }
 
+am_git_left_right_master(){
+  [[ -z "${AM_LEFT_RIGHT_SEP}" ]] && AM_LEFT_RIGHT_SEP='|'
+
+  __git_left_right=$(plib_git_left_right_master)
+
+  __left=$(echo "$__git_left_right" | awk '{print $1}' | tr -d ' \n')
+  __right=$(echo "$__git_left_right" | awk '{print $2}' | tr -d ' \n')
+
+  echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__left}${AM_LEFT_RIGHT_SEP}${__right}%f"
+}
+
 am_git_stash(){
   if [[ "$(plib_git_is_bare)" == 1 ]]; then
     echo -ne "%F{$AM_BARE_COLOR}${AM_GIT_BARE_SYM}${__stash}%f"
