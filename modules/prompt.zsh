@@ -46,7 +46,7 @@ version_prompt(){
 
 am_vcs_prompt(){
   if [[ $(am_is_git) == 1 ]]; then
-    am_vcs_prompt_val="$(am_git_rebasing) %F{$AM_VCS_COLOR}${AM_GIT_SYM} %f$(am_git_branch) ($(am_git_left_right_master)) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
+    am_vcs_prompt_val="$(am_git_rebasing) %F{$AM_VCS_COLOR}${AM_GIT_SYM} %f$(am_git_branch) $(am_git_left_right_master) $(am_git_commit_time) $(am_git_rev) $(am_git_stash) $(am_git_left_right) $(am_git_dirty)"
   elif [[ $(am_is_hg) == 1 ]]; then
     am_vcs_prompt_val="%F{$AM_VCS_COLOR} ${AM_HG_SYM}:%f$(am_hg_branch) $(am_hg_rev)"
   elif [[ $(am_is_svn) == 1 ]]; then

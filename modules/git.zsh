@@ -73,7 +73,11 @@ am_git_left_right_master(){
   __left=$(echo "$__git_left_right" | awk '{print $1}' | tr -d ' \n')
   __right=$(echo "$__git_left_right" | awk '{print $2}' | tr -d ' \n')
 
-  echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__left}${AM_LEFT_RIGHT_SEP}${__right}%f"
+  __left_right="${__left}${AM_LEFT_RIGHT_SEP}${__right}"
+
+  if [[ "$__left_right" != '0|0' ]]; then
+    echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__left}${AM_LEFT_RIGHT_SEP}${__right}%f"
+  fi
 }
 
 am_git_stash(){
