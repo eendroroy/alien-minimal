@@ -42,7 +42,7 @@ git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git ${
 # if lower version use
 cd ${ZSH_CUSTOM}/themes/alien-minimal
 git clone https://github.com/eendroroy/alien-minimal.git
-git submodule update --init --recursive --remote
+git submodule update --init --recursive # --remote
 ```
 
 Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
@@ -221,6 +221,7 @@ am_theme(){
   AM_NODE_COLOR=2
   AM_PHP_COLOR=5
   AM_GRADLE_COLOR=2
+  AM_MAVEN_COLOR=3
   AM_TIMER_COLOR=248
   AM_VIINS_COLOR=39
   AM_VICMD_COLOR=208
@@ -228,6 +229,7 @@ am_theme(){
   AM_PROMPT_END_TAG_COLOR=39
   AM_GIT_TRACKED_COLOR=78
   AM_GIT_UN_TRACKED_COLOR=208
+  AM_LEFT_RIGHT_COLOR=252
 }
 ```
 
@@ -250,38 +252,32 @@ export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ### customize symbols
 
 ```bash
-export AM_JAVA_SYM='JAVA:'  # JAVA Version Symbol
-export AM_PY_SYM='PY:'      # Python Version Symbol
-export AM_RB_SYM='RB:'      # Ruby Version Symbol 
-export AM_GO_SYM='GO:'      # Go Version Symbol 
-export AM_ELIXIR_SYM='EX:'  # Elixir Version Symbol 
-export AM_CRYSTAL_SYM='CR:' # Crystal Version Symbol 
-export AM_NODE_SYM='NODE:'  # Node Version Symbol 
-export AM_PHP_SYM='PHP:'    # PHP Version Symbol 
-
-export AM_GIT_STASH_SYM='@'  # Git Stash Count Symbol
-export AM_GIT_BARE_SYM='☢'   # Git bare repo Symbol
-export AM_GIT_SYM=G          # Git Symbol
-export AM_HG_SYM=M           # Mercurial Symbol
-export AM_SSH_SYM=[S]        # SSH Indicator Symbol
-export AM_VIM_INSERT_SYM='[I]'  # VI mode symbol
-export AM_VIM_NORMAL_SYM='[N]'  # VI mode symbol
- 
-export AM_GIT_ADD_SYM='+'  # Git New Tracked File Symbol
-export AM_GIT_DEL_SYM='-'  # Git Deleted File Symbol
-export AM_GIT_MOD_SYM='*'  # Git Modified File Symbol
-export AM_GIT_NEW_SYM='?'  # Git New Un-tracked File Symbol
-export AM_GIT_PUSH_SYM='↑' # Git Un-pushed Commit Symbol
-export AM_GIT_PULL_SYM='↓' # Git New Commit Symbol
+export AM_VIM_INSERT_SYM='(i)'
+export AM_VIM_NORMAL_SYM='(n)'
+export AM_GIT_STASH_SYM='@'
+export AM_GIT_BARE_SYM='☢'
+export AM_GIT_SYM='G'
+export AM_HG_SYM='H'
+export AM_SVN_SYM='S'
+export AM_SSH_SYM='[S]'
+export AM_JAVA_SYM='JAVA:'
+export AM_PY_SYM='PY:'
+export AM_RB_SYM='RB:'
+export AM_GO_SYM='GO:'
+export AM_ELIXIR_SYM='EX:'
+export AM_CRYSTAL_SYM='CR:'
+export AM_NODE_SYM='⬡ '
+export AM_PHP_SYM='PHP:'
+export AM_GRADLE_SYM='GRADLE:'
+export AM_MAVEN_SYM='MVN:'
+export AM_GIT_REBASING_SYMBOL='⇋'
+export AM_GIT_PUSH_SYM='↑'
+export AM_GIT_PULL_SYM='↓'
+export AM_LEFT_RIGHT_SEP='|'
 ```
+
 _Note: this overrides `AM_USE_NERD_FONT` configuration._
 
-### customize colors
-
-```bash
-export AM_GIT_TRACKED_COLOR=green
-export AM_GIT_UN_TRACKED_COLOR=red
-```
 ## Libraries Used
 
 - ['256color'](https://github.com/chrissicool/zsh-256color) by **[@chrissicool](https://github.com/chrissicool)**
@@ -299,10 +295,6 @@ adhere to the [Contributor Covenant](http://contributor-covenant.org) code of co
   3. Commit your changes (`git commit -am 'Add some feature'`)
   4. Push to the branch (`git push origin my-new-feature`)
   5. Create a new Pull Request
-
-## Author
-
-* **indrajit** - *Owner* - [eendroroy](https://github.com/eendroroy)
 
 ## License
 

@@ -37,6 +37,7 @@ version_prompt(){
       [[ ${_v} == "PHP" ]]       && version_prompt_val+="$(am_php_version)"
       [[ ${_v} == "PHP_S" ]]     && version_prompt_val+="$(am_php_short_version)"
       [[ ${_v} == "GRADLE" ]]    && version_prompt_val+="$(am_gradle_version)"
+      [[ ${_v} == "MAVEN" ]]    && version_prompt_val+="$(am_maven_version)"
     done
 
     [[ "$LOOP_INDEX" != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}]%f"

@@ -78,3 +78,7 @@ am_php_short_version(){
 am_gradle_version(){
   echo -ne "%F{$AM_GRADLE_COLOR}${AM_GRADLE_SYM}$(plib_gradle_version)%f"
 }
+
+am_maven_version(){
+  echo -ne "%F{$AM_MAVEN_COLOR}${AM_MAVEN_SYM}$(plib_maven_version)%f"
+}

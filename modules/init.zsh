@@ -29,6 +29,7 @@ if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_NODE_SYM}" ]]          && AM_NODE_SYM='󰎙 '
   [[ -z "${AM_PHP_SYM}" ]]           && AM_PHP_SYM=' '
   [[ -z "${AM_GRADLE_SYM}" ]]        && AM_GRADLE_SYM=' '
+  [[ -z "${AM_MAVEN_SYM}" ]]         && AM_MAVEN_SYM=' '
 
   [[ -z "${AM_GIT_ADD_SYM}" ]]       && AM_GIT_ADD_SYM=''
   [[ -z "${AM_GIT_DEL_SYM}" ]]       && AM_GIT_DEL_SYM=''
@@ -52,6 +53,7 @@ fi
 [[ -z "${AM_NODE_SYM}" ]]            && AM_NODE_SYM='⬡ '
 [[ -z "${AM_PHP_SYM}" ]]             && AM_PHP_SYM='PHP:'
 [[ -z "${AM_GRADLE_SYM}" ]]          && AM_GRADLE_SYM='GRADLE:'
+[[ -z "${AM_MAVEN_SYM}" ]]           && AM_MAVEN_SYM='MVN:'
 
 [[ -z "${AM_GIT_REBASING_SYMBOL}" ]] && AM_GIT_REBASING_SYMBOL='⇋'
 [[ -z "${AM_GIT_PUSH_SYM}" ]]        && AM_GIT_PUSH_SYM='↑'

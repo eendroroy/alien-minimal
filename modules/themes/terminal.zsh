@@ -22,6 +22,7 @@ am_theme(){
   [[ -z ${AM_NODE_COLOR} ]]             && AM_NODE_COLOR=2
   [[ -z ${AM_PHP_COLOR} ]]              && AM_PHP_COLOR=5
   [[ -z ${AM_GRADLE_COLOR} ]]           && AM_GRADLE_COLOR=2
+  [[ -z ${AM_MAVEN_COLOR} ]]            && AM_MAVEN_COLOR=3
   [[ -z ${AM_TIMER_COLOR} ]]            && AM_TIMER_COLOR=14
   [[ -z ${AM_VIINS_COLOR} ]]            && AM_VIINS_COLOR=12
   [[ -z ${AM_VICMD_COLOR} ]]            && AM_VICMD_COLOR=1
