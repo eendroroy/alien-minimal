@@ -1,4 +1,4 @@
-# alien-minimal 
+# alien-minimal
 
 **alien-minimal** theme is faster than many other themes.
 
@@ -9,7 +9,6 @@ git dirty copy checking etc.
 terminal as you would normally.
 
 **alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto.
-
 
 ## Installation
 
@@ -64,6 +63,7 @@ export AM_ENABLE_VI_PROMPT=1
 ```
 
 #### Set vi prompt position
+
 ```bash
 
 export AM_VI_PROMPT_POS=left_start
@@ -123,15 +123,16 @@ _Note: if `AM_PROMPT_START_TAG` is empty, this configuration will be ignored._
 
 ### Show versions:
 
-Available version are: 
-`PYTHON` `PYTHON_S` `RUBY` `RUBY_S` `JAVA` `JAVA_S`
-`GO` `GO_S` `ELIXIR` `ELIXIR_S` `CRYSTAL` `CRYSTAL_S` `NODE` `NODE_S` `PHP` `PHP_S`
+Available version are:
+`PYTHON`,`PYTHON_S`,`RUBY`,`RUBY_S`,`JAVA`,`JAVA_S`,`GO`,`GO_S`,`ELIXIR`,`ELIXIR_S`,
+`CRYSTAL`,`CRYSTAL_S`,`NODE`,`NODE_S`,`PHP`,`PHP_S`,`GRADLE`,`MAVEN`
 
 ```bash
 export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR GRADLE)
 ```
 
 Customize Separator:
+
 ```bash
 export AM_VERSION_PROMPT_SEP='|'
 ```
@@ -167,6 +168,7 @@ export AM_KEEP_PROMPT=1
 1. export AM_THEME=soft
 1. export AM_THEME=default
 ```
+
 _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 **Apart from these default themes, custom colors can be defined:**
@@ -290,11 +292,11 @@ Bug reports and pull requests are welcome on GitHub at [alien-minimal](https://g
 repository. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to
 adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-  1. Fork it ( https://github.com/eendroroy/alien-minimal/fork )
-  2. Create your feature branch (`git checkout -b my-new-feature`)
-  3. Commit your changes (`git commit -am 'Add some feature'`)
-  4. Push to the branch (`git push origin my-new-feature`)
-  5. Create a new Pull Request
+1. Fork it ( https://github.com/eendroroy/alien-minimal/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 
