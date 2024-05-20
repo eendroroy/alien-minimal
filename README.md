@@ -42,7 +42,7 @@ git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git ${
 # if lower version use
 cd ${ZSH_CUSTOM}/themes/alien-minimal
 git clone https://github.com/eendroroy/alien-minimal.git
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 
 Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
