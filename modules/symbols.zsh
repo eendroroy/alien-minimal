@@ -1,10 +1,6 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2034
-[[ -z "${AM_VIM_INSERT_SYM}" ]]      && AM_VIM_INSERT_SYM='(i)'
-[[ -z "${AM_VIM_NORMAL_SYM}" ]]      && AM_VIM_NORMAL_SYM='(n)'
-[[ -z "${AM_VI_PROMPT_POS}" ]]       && AM_VI_PROMPT_POS='left_end'
-
 [[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1
 
 [[ -z "${AM_GIT_STASH_SYM}" ]]       && AM_GIT_STASH_SYM='@'
@@ -12,7 +8,7 @@
 
 [[ -z "${AM_VERSION_PROMPT_SEP}" ]]  && AM_VERSION_PROMPT_SEP='|'
 
-[[ -z "${AM_PROMPT_START_TAG}" ]]    && AM_PROMPT_START_TAG='>'
+[[ -z "${AM_PROMPT_START_TAG}" ]]    && AM_PROMPT_START_TAG='_'
 [[ -z "${AM_PROMPT_END_TAG}" ]]      && AM_PROMPT_END_TAG='$'
 
 if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
@@ -49,7 +45,7 @@ else
   [[ -z "${AM_GO_SYM}" ]]              && AM_GO_SYM='GO:'
   [[ -z "${AM_ELIXIR_SYM}" ]]          && AM_ELIXIR_SYM='EX:'
   [[ -z "${AM_CRYSTAL_SYM}" ]]         && AM_CRYSTAL_SYM='CR:'
-  [[ -z "${AM_NODE_SYM}" ]]            && AM_NODE_SYM='⬡ '
+  [[ -z "${AM_NODE_SYM}" ]]            && AM_NODE_SYM='NODE:'
   [[ -z "${AM_PHP_SYM}" ]]             && AM_PHP_SYM='PHP:'
   [[ -z "${AM_GRADLE_SYM}" ]]          && AM_GRADLE_SYM='GRADLE:'
   [[ -z "${AM_MAVEN_SYM}" ]]           && AM_MAVEN_SYM='MVN:'

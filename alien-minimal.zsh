@@ -27,7 +27,6 @@ source "${THEME_ROOT}/modules/svn.zsh"
 source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/versions.zsh"
-source "${THEME_ROOT}/modules/viprompt.zsh"
 
 source "${THEME_ROOT}/modules/sections.zsh"
 source "${THEME_ROOT}/modules/prompt.zsh"
@@ -38,7 +37,6 @@ function precmd(){
   setopt prompt_subst
   am_load_theme
   __import_env
-  [[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && am_render_vi_mode
 
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
     am_async_l_prompt "${PWD}"

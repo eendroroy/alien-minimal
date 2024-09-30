@@ -129,31 +129,6 @@ AM_RIGHT_SECTION=(
 )
 ```
 
-### VI prompt
-
-Enable VI prompt (vi-mode is enabled by `bindkey -v`)
-
-```bash
-export AM_ENABLE_VI_PROMPT=1
-```
-
-#### Set vi prompt position
-
-```bash
-
-export AM_VI_PROMPT_POS=left_start
-# (i) am-demo       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
-
-export AM_VI_PROMPT_POS=left_end
-# am-demo (i)       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
-
-export AM_VI_PROMPT_POS=right_start
-# am-demo       (i) G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ?
-
-export AM_VI_PROMPT_POS=right_end
-# am-demo       G:master [1Y,9M] 6fd4c14 @1 + ⭑ ⭑ - - ? (i)
-```
-
 ### Update left prompt asynchronously
 
 ```bash
@@ -331,8 +306,6 @@ export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ### customize symbols
 
 ```bash
-export AM_VIM_INSERT_SYM='(i)'
-export AM_VIM_NORMAL_SYM='(n)'
 export AM_GIT_STASH_SYM='@'
 export AM_GIT_BARE_SYM='☢'
 export AM_GIT_SYM='G'

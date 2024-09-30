@@ -9,12 +9,6 @@
 #  export AM_USE_NERD_FONT=1
 #  export AM_DIR_EXPANSION_LEVEL=1
 
-## ===> VI PROMPT
-#  export AM_ENABLE_VI_PROMPT=1
-#  export AM_VIM_INSERT_SYM='(i)'
-#  export AM_VIM_NORMAL_SYM='(n)'
-#  export AM_VI_PROMPT_POS='left_end'
-
 ## ===> SYMBOLS
 #  export AM_VERSION_PROMPT_SEP='|'
 #  export AM_JAVA_SYM='JAVA:'
@@ -60,8 +54,6 @@
 #  export AM_PHP_COLOR=5
 #  export AM_GRADLE_COLOR=5
 #  export AM_TIMER_COLOR=248
-#  export AM_VIINS_COLOR=39
-#  export AM_VICMD_COLOR=208
 #  export AM_PROMPT_START_TAG_COLOR=39
 #  export AM_PROMPT_END_TAG_COLOR=39
 #  export AM_GIT_TRACKED_COLOR=78

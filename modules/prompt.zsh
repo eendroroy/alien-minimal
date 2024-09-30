@@ -109,10 +109,6 @@ am_r_prompt_render(){
         LOOP_INDEX=$((LOOP_INDEX + 1))
       done
     fi
-  if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
-    [[ ${AM_VI_PROMPT_POS} == 'right_start' ]] && __r_prompt_val="${AM_VI_PROMPT_VAL}${__r_prompt_val}"
-    [[ ${AM_VI_PROMPT_POS} == 'right_end' ]] && __r_prompt_val="${__r_prompt_val}${AM_VI_PROMPT_VAL}"
-  fi
   echo -ne "${__r_prompt_val}" | tr -s ' '
 }
 
@@ -127,10 +123,6 @@ am_l_prompt_render(){
     done
   fi
 
-  if [[ ${AM_ENABLE_VI_PROMPT} == 1 ]]; then
-    [[ ${AM_VI_PROMPT_POS} == 'left_start' ]] && __l_prompt_val="${AM_VI_PROMPT_VAL}${__l_prompt_val}"
-    [[ ${AM_VI_PROMPT_POS} == 'left_end' ]] && __l_prompt_val="${__l_prompt_val}${AM_VI_PROMPT_VAL} "
-  fi
   [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && __l_prompt_val=$'\n'"${__l_prompt_val}"
   echo -ne "${__l_prompt_val}" | tr -s ' '
 }
