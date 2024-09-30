@@ -24,8 +24,6 @@ am_theme(){
   [[ -z ${AM_GRADLE_COLOR} ]]           && AM_GRADLE_COLOR=246
   [[ -z ${AM_MAVEN_COLOR} ]]            && AM_MAVEN_COLOR=250
   [[ -z ${AM_TIMER_COLOR} ]]            && AM_TIMER_COLOR=247
-  [[ -z ${AM_VIINS_COLOR} ]]            && AM_VIINS_COLOR=251
-  [[ -z ${AM_VICMD_COLOR} ]]            && AM_VICMD_COLOR=255
   [[ -z ${AM_PROMPT_START_TAG_COLOR} ]] && AM_PROMPT_START_TAG_COLOR=255
   [[ -z ${AM_PROMPT_END_TAG_COLOR} ]]   && AM_PROMPT_END_TAG_COLOR=255
   [[ -z ${AM_GIT_TRACKED_COLOR} ]]      && AM_GIT_TRACKED_COLOR=255

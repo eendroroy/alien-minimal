@@ -2,10 +2,10 @@
 
 **alien-minimal** theme is faster than many other themes.
 
-**Why?** It updates part of the prompt asynchronously - the time consuming processing like git status checking,
-git dirty copy checking etc.
+**Why?** It updates part of the prompt asynchronously – the time-consuming processing like git status checking,
+git dirty copy checking and so on
 
-**How?** It starts a background job for these process, and in the mean time shows initial prompt and lets you use the
+**How?** It starts a background job for these processes, and in the meantime shows initial prompt and lets you use the
 terminal as you would normally.
 
 **alien-minimal** is **independent** of any library/framework like Oh-My-Zsh or Prezto.
@@ -62,6 +62,7 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 - am_venv
 - am_version_prompt
 - am_vcs_prompt
+- am_space
 
 #### `am_vcs_prompt` configuration
 
@@ -116,11 +117,13 @@ AM_SVN_SECTION=(
 )
 
 AM_LEFT_SECTION=(
+  am_space
   am_ssh_st
   am_prompt_start_tag
   am_prompt_dir
   am_prompt_end_tag
   am_venv
+  am_space
 )
 
 AM_RIGHT_SECTION=(
@@ -195,7 +198,7 @@ _Note: Prompt maintain declaration order._
 export AM_DIR_EXPANSION_LEVEL=2
 ```
 
-**The effect may be un-noticeable on faster CPUs.**
+**The effect may be unnoticeable on faster CPUs.**
 
 ### Hide exit code:
 
@@ -242,8 +245,6 @@ export AM_PYTHON_COLOR=2       # color for python version text
 export AM_RUBY_COLOR=1         # color for ruby version text
 export AM_JAVA_COLOR=15        # color for java version text
 export AM_TIMER_COLOR=14       # color for command execution time
-export AM_VIINS_COLOR=39       # color for viins mode
-export AM_VICMD_COLOR=208      # color vicmd mode
 ```
 
 Or creating a new theme file:
@@ -277,8 +278,6 @@ am_theme(){
   AM_GRADLE_COLOR=2
   AM_MAVEN_COLOR=3
   AM_TIMER_COLOR=248
-  AM_VIINS_COLOR=39
-  AM_VICMD_COLOR=208
   AM_PROMPT_START_TAG_COLOR=39
   AM_PROMPT_END_TAG_COLOR=39
   AM_GIT_TRACKED_COLOR=78
@@ -335,18 +334,6 @@ _Note: this overrides `AM_USE_NERD_FONT` configuration._
 - ['256color'](https://github.com/chrissicool/zsh-256color) by **[@chrissicool](https://github.com/chrissicool)**
 - ['zsh-async'](https://github.com/mafredri/zsh-async) by **[@mafredri](https://github.com/mafredri)**
 - ['promptlib-zsh'](https://github.com/eendroroy/promptlib-zsh) by **[@eendroroy](https://github.com/eendroroy)**
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at [alien-minimal](https://github.com/eendroroy/alien-minimal)
-repository. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to
-adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-1. Fork it ( https://github.com/eendroroy/alien-minimal/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
 
 ## License
 
