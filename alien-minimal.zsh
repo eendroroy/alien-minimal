@@ -14,14 +14,12 @@ fi
 
 THEME_ROOT=${0:A:h}
 
-source "${THEME_ROOT}/modules/init.zsh"
-
 source "${THEME_ROOT}/libs/promptlib/activate"
 source "${THEME_ROOT}/libs/zsh-async/async.zsh"
 source "${THEME_ROOT}/libs/zsh-256color/zsh-256color.plugin.zsh"
 
+source "${THEME_ROOT}/modules/symbols.zsh"
 source "${THEME_ROOT}/modules/theme.zsh"
-source "${THEME_ROOT}/modules/prompt.zsh"
 
 source "${THEME_ROOT}/modules/git.zsh"
 source "${THEME_ROOT}/modules/hg.zsh"
@@ -29,24 +27,25 @@ source "${THEME_ROOT}/modules/svn.zsh"
 source "${THEME_ROOT}/modules/ssh.zsh"
 source "${THEME_ROOT}/modules/async.zsh"
 source "${THEME_ROOT}/modules/versions.zsh"
+source "${THEME_ROOT}/modules/viprompt.zsh"
 
-[[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && source "${THEME_ROOT}/modules/viprompt.zsh"
+source "${THEME_ROOT}/modules/sections.zsh"
+source "${THEME_ROOT}/modules/prompt.zsh"
+
 
 function precmd(){
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_theme
+  __import_env
   [[ ${AM_ENABLE_VI_PROMPT} == 1 ]] && am_render_vi_mode
 
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
-    am_async_l_prompt
+    am_async_l_prompt "${PWD}"
   else
-    __AM_ENVS="$(env | grep --color=never "${AM_VERSIONS_REGEX}")"
-    PROMPT="$(am_l_prompt_render "${PWD}" "${__AM_ENVS}")"
-    PROMPT="$(echo "${PROMPT}" | tr -s ' ')"
+    PROMPT="$(am_l_prompt_render)"
   fi
 
   [[ ${AM_KEEP_PROMPT} != 1 ]] && RPROMPT=""
-
   am_async_r_prompt
 }

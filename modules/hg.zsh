@@ -11,3 +11,7 @@ am_hg_branch(){
 am_hg_rev(){
   echo -ne "%F{$AM_REV_COLOR}$(plib_hg_rev)%f";
 }
+
+am_hg_symbol(){
+  echo -ne "%F{$AM_VCS_COLOR}${AM_HG_SYM}:%f"
+}

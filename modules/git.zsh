@@ -42,7 +42,9 @@ am_git_dirty(){
   [[ "$__del_ut" != "0" ]] && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_DEL_SYM}%f "
   [[ "$__new" != "0" ]]    && DIRTY+="%F{$AM_GIT_UN_TRACKED_COLOR}${AM_GIT_NEW_SYM}%f "
 
-  echo "${DIRTY}"
+  if [[ "$DIRTY" != '' ]]; then
+    echo -ne "${DIRTY}"
+  fi
 
   unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del DIRTY
 }
@@ -99,4 +101,8 @@ am_git_rebasing(){
   if [[ $(plib_is_git_rebasing) == 1 ]]; then
     echo -ne "%F{$AM_ERROR_COLOR}${AM_GIT_REBASING_SYMBOL}%f"
   fi
+}
+
+am_git_symbol(){
+  echo -ne "%F{$AM_VCS_COLOR}${AM_GIT_SYM}%f"
 }
