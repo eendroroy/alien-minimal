@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+__import_env() {
+  env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_" | while IFS='\n' read -r line; do
+    eval "export $(echo "${line}" | awk -F'=' '{print $1"=\""$2"\""}')" > /dev/null
+  done
+}
+
 THEME_DIR="${0:A:h}/themes"
 
 am_load_theme(){
@@ -19,3 +25,5 @@ am_load_theme(){
   fi
   am_theme
 }
+
+[[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1

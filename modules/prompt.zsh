@@ -4,104 +4,44 @@
 # shellcheck disable=SC2034
 # shellcheck disable=SC2116
 
-__import_env() {
-  env | grep --color=never "ENV_VERSION=\|^VIRTUAL_ENV=\|^AM_" | while IFS='\n' read -r line; do
-    eval "export $(echo "${line}" | awk -F'=' '{print $1"=\""$2"\""}')" > /dev/null
-  done
-}
+[[ -z "${AM_VERSIONS_PROMPT}" ]] && AM_VERSIONS_PROMPT=()
 
-am_version_prompt(){
-  if [[ -n ${AM_VERSIONS_PROMPT} ]]; then
-    LOOP_INDEX=0
-    for version in $(echo "${AM_VERSIONS_PROMPT}"); do
-      [[ ${LOOP_INDEX} == "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
-      [[ ${LOOP_INDEX} != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}${AM_VERSION_PROMPT_SEP}%f"
+[[ -z "${AM_GIT_SECTION}" ]] && AM_GIT_SECTION=(
+  am_git_symbol
+  am_git_rebasing
+  am_git_branch
+  am_git_left_right_master
+  am_git_commit_time
+  am_git_rev
+  am_git_stash
+  am_git_left_right
+  am_git_dirty
+)
 
-      [[ ${version} == "PYTHON" ]]    && version_prompt_val+="$(am_python_version)"
-      [[ ${version} == "PYTHON_S" ]]  && version_prompt_val+="$(am_python_short_version)"
-      [[ ${version} == "RUBY" ]]      && version_prompt_val+="$(am_ruby_version)"
-      [[ ${version} == "RUBY_S" ]]    && version_prompt_val+="$(am_ruby_short_version)"
-      [[ ${version} == "JAVA" ]]      && version_prompt_val+="$(am_java_version)"
-      [[ ${version} == "JAVA_S" ]]    && version_prompt_val+="$(am_java_short_version)"
-      [[ ${version} == "GO" ]]        && version_prompt_val+="$(am_go_version)"
-      [[ ${version} == "GO_S" ]]      && version_prompt_val+="$(am_go_short_version)"
-      [[ ${version} == "ELIXIR" ]]    && version_prompt_val+="$(am_elixir_version)"
-      [[ ${version} == "ELIXIR_S" ]]  && version_prompt_val+="$(am_elixir_short_version)"
-      [[ ${version} == "CRYSTAL" ]]   && version_prompt_val+="$(am_crystal_version)"
-      [[ ${version} == "CRYSTAL_S" ]] && version_prompt_val+="$(am_crystal_short_version)"
-      [[ ${version} == "NODE" ]]      && version_prompt_val+="$(am_node_version)"
-      [[ ${version} == "NODE_S" ]]    && version_prompt_val+="$(am_node_short_version)"
-      [[ ${version} == "PHP" ]]       && version_prompt_val+="$(am_php_version)"
-      [[ ${version} == "PHP_S" ]]     && version_prompt_val+="$(am_php_short_version)"
-      [[ ${version} == "GRADLE" ]]    && version_prompt_val+="$(am_gradle_version)"
-      [[ ${version} == "MAVEN" ]]    && version_prompt_val+="$(am_maven_version)"
+[[ -z "${AM_HG_SECTION}" ]] && AM_HG_SECTION=(
+  am_hg_symbol
+  am_hg_branch
+  am_hg_rev
+)
 
-      LOOP_INDEX=$((LOOP_INDEX + 1))
-    done
+[[ -z "${AM_SVN_SECTION}" ]] && AM_SVN_SECTION=(
+  am_svn_symbol
+  am_svn_rev
+)
 
-    [[ "$LOOP_INDEX" != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
-  fi
-  echo -n "${version_prompt_val}"
-}
+[[ -z "${AM_LEFT_SECTION}" ]] && AM_LEFT_SECTION=(
+  am_ssh_st
+  am_prompt_start_tag
+  am_prompt_dir
+  am_prompt_end_tag
+  am_venv
+)
 
-am_vcs_prompt(){
-  __vcs_prompt_value=""
-  if [[ $(am_is_git) == 1 ]]; then
-    if [[ -n ${AM_GIT_SECTION} ]]; then
-      LOOP_INDEX=0
-      for section in $(echo "${AM_GIT_SECTION}"); do
-        [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
-        __vcs_prompt_value+="$($section)"
-        LOOP_INDEX=$((LOOP_INDEX + 1))
-      done
-    fi
-  elif [[ $(am_is_hg) == 1 ]]; then
-    if [[ -n ${AM_HG_SECTION} ]]; then
-      LOOP_INDEX=0
-      for section in $(echo "${AM_GIT_SECTION}"); do
-        [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
-        __vcs_prompt_value+="$($section)"
-        LOOP_INDEX=$((LOOP_INDEX + 1))
-      done
-    fi
-  elif [[ $(am_is_svn) == 1 ]]; then
-    if [[ -n ${AM_SVN_SECTION} ]]; then
-      LOOP_INDEX=0
-      for section in $(echo "${AM_GIT_SECTION}"); do
-        [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
-        __vcs_prompt_value+="$($section)"
-        LOOP_INDEX=$((LOOP_INDEX + 1))
-      done
-    fi
-  fi
-  echo -ne "${__vcs_prompt_value}"
-  unset __vcs_prompt_value LOOP_INDEX
-}
+[[ -z "${AM_RIGHT_SECTION}" ]] && AM_RIGHT_SECTION=(
+  am_version_prompt
+  am_vcs_prompt
+)
 
-am_prompt_end_tag() {
-  echo -ne "%F{$AM_PROMPT_END_TAG_COLOR}${AM_PROMPT_END_TAG}%f"
-}
-
-am_prompt_start_tag(){
-  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
-    echo -ne "%(?.%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f.%F{$AM_ERROR_COLOR}${AM_PROMPT_START_TAG}%f)"
-  else
-    echo -ne "%F{$AM_PROMPT_START_TAG_COLOR}${AM_PROMPT_START_TAG}%f"
-  fi
-}
-
-am_prompt_dir(){
-  if [[ ${AM_ERROR_ON_START_TAG} == 1 && ${AM_PROMPT_START_TAG} != "" ]]; then
-    echo -ne "%F{$AM_NORMAL_COLOR}%${AM_DIR_EXPANSION_LEVEL}~%f"
-  else
-    echo -ne "%(?.%F{$AM_NORMAL_COLOR}%${AM_DIR_EXPANSION_LEVEL}~%f.%F{$AM_ERROR_COLOR}%B%${AM_DIR_EXPANSION_LEVEL}~%b%f)"
-  fi
-  [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$AM_FADE_COLOR}%?%f)"
-}
-
-am_space(){
-  echo -ne " "
-}
 
 am_r_prompt_render(){
   __r_prompt_val=""
@@ -129,4 +69,34 @@ am_l_prompt_render(){
 
   [[ "${AM_INITIAL_LINE_FEED}" == 1 ]] && __l_prompt_val=$'\n'"${__l_prompt_val}"
   echo -ne "${__l_prompt_val}" | tr -s ' '
+}
+
+r_prompt_completed(){
+#  exec &>/dev/tty
+  RPROMPT=$(echo "${3}" | tr -s ' ')
+  zle && zle reset-prompt
+}
+
+am_async_r_prompt(){
+  cd "${1}" || return
+  async_init
+  async_stop_worker "right_prompt_$$"
+  async_start_worker "right_prompt_$$" -n
+  async_register_callback "right_prompt_$$" r_prompt_completed
+  async_job "right_prompt_$$" am_r_prompt_render
+}
+
+l_prompt_completed(){
+#  exec &>/dev/tty
+  PROMPT=$(echo "${3}" | tr -s ' ')
+  zle && zle reset-prompt
+}
+
+am_async_l_prompt(){
+  cd "${1}" || return
+  async_init
+  async_stop_worker "left_prompt_$$"
+  async_start_worker "left_prompt_$$" -n
+  async_register_callback "left_prompt_$$" l_prompt_completed
+  async_job "left_prompt_$$" am_l_prompt_render
 }

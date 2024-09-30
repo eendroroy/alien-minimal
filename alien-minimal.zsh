@@ -18,19 +18,12 @@ source "${THEME_ROOT}/libs/promptlib/activate"
 source "${THEME_ROOT}/libs/zsh-async/async.zsh"
 source "${THEME_ROOT}/libs/zsh-256color/zsh-256color.plugin.zsh"
 
+source "${THEME_ROOT}/modules/init.zsh"
 source "${THEME_ROOT}/modules/symbols.zsh"
-source "${THEME_ROOT}/modules/theme.zsh"
-
-source "${THEME_ROOT}/modules/git.zsh"
-source "${THEME_ROOT}/modules/hg.zsh"
-source "${THEME_ROOT}/modules/svn.zsh"
-source "${THEME_ROOT}/modules/ssh.zsh"
-source "${THEME_ROOT}/modules/async.zsh"
-source "${THEME_ROOT}/modules/versions.zsh"
-
-source "${THEME_ROOT}/modules/sections.zsh"
+source "${THEME_ROOT}/modules/sections_general.zsh"
+source "${THEME_ROOT}/modules/sections_vcs.zsh"
+source "${THEME_ROOT}/modules/sections_version.zsh"
 source "${THEME_ROOT}/modules/prompt.zsh"
-
 
 function precmd(){
   autoload -U add-zsh-hook
