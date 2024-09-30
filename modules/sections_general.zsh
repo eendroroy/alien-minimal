@@ -31,7 +31,10 @@ am_version_prompt(){
 
     [[ "$LOOP_INDEX" != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}]%f"
   fi
+
   echo -n "${version_prompt_val}"
+
+  unset LOOP_INDEX version_prompt_val
 }
 
 am_vcs_prompt(){
@@ -139,7 +142,7 @@ am_git_dirty(){
     echo -ne "${DIRTY}"
   fi
 
-  unset __mod_ut __new_ut __add_ut __mod_t __new_t __add_t __del DIRTY
+  unset __git_status __mod_t __add_t __del_t __mod_ut __add_ut __del_ut __new DIRTY
 }
 
 am_git_left_right(){
@@ -158,6 +161,8 @@ am_git_left_right(){
   if [[ "$__pushpull" != '' ]]; then
     echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__pushpull}%f"
   fi
+
+  unset __git_left_right __pull __push __pushpull
 }
 
 am_git_left_right_master(){
@@ -173,6 +178,8 @@ am_git_left_right_master(){
   if [[ "$__left_right" != '0|0' ]]; then
     echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__left}${AM_LEFT_RIGHT_SEP}${__right}%f"
   fi
+
+  unset __git_left_right __left __right __left_right
 }
 
 am_git_stash(){
