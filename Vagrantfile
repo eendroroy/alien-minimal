@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "minimal/trusty64"
 
   config.vm.box_check_update = false
   config.vbguest.auto_update = false
@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
-    vb.memory = 512
+    vb.memory = 128
   end
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
@@ -22,6 +22,6 @@ Vagrant.configure("2") do |config|
     sudo sed -i "${__line_num}s|/bin/bash|$(which zsh)|g" /etc/passwd
     git clone https://github.com/eendroroy/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
-    bash install
+    bash install.sh
   SHELL
 end
