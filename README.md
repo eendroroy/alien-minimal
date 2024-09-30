@@ -173,7 +173,7 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 **Apart from these default themes, custom colors can be defined:**
 
-Use https://eendroroy.github.io/alien-minimal/previewer/ to easily preview colors.
+Use [previewer](https://eendroroy.github.io/alien-minimal/previewer/) to easily preview colors.
 
 ```bash
 export AM_VCS_COLOR=1          # color for VCS (G: M: V:)
