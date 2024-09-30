@@ -3,6 +3,14 @@
 ## ===> THEME
 #  export AM_THEME=default
 
+## ===> SECTIONS
+#  export AM_VERSIONS_PROMPT=()
+#  export AM_GIT_SECTION=(am_git_symbol am_git_rebasing am_git_branch am_git_left_right_master am_git_commit_time am_git_rev am_git_stash am_git_left_right am_git_dirty)
+#  export AM_HG_SECTION=(am_hg_symbol am_hg_branch am_hg_rev)
+#  export AM_SVN_SECTION=(am_svn_symbol am_svn_rev)
+#  export AM_LEFT_SECTION=(am_space am_prompt_dir am_space)
+#  export AM_RIGHT_SECTION=(am_version_prompt am_vcs_prompt)
+
 ## ===> CONFIGS
 #  export AM_ASYNC_L_PROMPT=1
 #  export AM_INITIAL_LINE_FEED=0

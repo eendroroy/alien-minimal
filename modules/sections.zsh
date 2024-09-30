@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-AM_VERSIONS_PROMPT=()
+[[ -z "${AM_VERSIONS_PROMPT}" ]] && AM_VERSIONS_PROMPT=()
 
-AM_GIT_SECTION=(
+[[ -z "${AM_GIT_SECTION}" ]] && AM_GIT_SECTION=(
   am_git_symbol
   am_git_rebasing
   am_git_branch
@@ -14,18 +14,18 @@ AM_GIT_SECTION=(
   am_git_dirty
 )
 
-AM_HG_SECTION=(
+[[ -z "${AM_HG_SECTION}" ]] && AM_HG_SECTION=(
   am_hg_symbol
   am_hg_branch
   am_hg_rev
 )
 
-AM_SVN_SECTION=(
+[[ -z "${AM_SVN_SECTION}" ]] && AM_SVN_SECTION=(
   am_svn_symbol
   am_svn_rev
 )
 
-AM_LEFT_SECTION=(
+[[ -z "${AM_LEFT_SECTION}" ]] && AM_LEFT_SECTION=(
   am_ssh_st
   am_prompt_start_tag
   am_prompt_dir
@@ -33,7 +33,7 @@ AM_LEFT_SECTION=(
   am_venv
 )
 
-AM_RIGHT_SECTION=(
+[[ -z "${AM_RIGHT_SECTION}" ]] && AM_RIGHT_SECTION=(
   am_version_prompt
   am_vcs_prompt
 )

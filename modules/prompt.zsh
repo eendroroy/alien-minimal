@@ -99,6 +99,10 @@ am_prompt_dir(){
   [[ ${AM_HIDE_EXIT_CODE} -ne 1 ]] && echo -ne "%(?.. %F{$AM_FADE_COLOR}%?%f)"
 }
 
+am_space(){
+  echo -ne " "
+}
+
 am_r_prompt_render(){
   __r_prompt_val=""
     if [[ -n ${AM_RIGHT_SECTION} ]]; then
