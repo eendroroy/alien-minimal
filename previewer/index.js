@@ -22,8 +22,6 @@ function updateTheme() {
     var AM_GRADLE_COLOR = document.getElementById("AM_GRADLE_COLOR").value;
     var AM_MAVEN_COLOR = document.getElementById("AM_MAVEN_COLOR").value;
     var AM_TIMER_COLOR = document.getElementById("AM_TIMER_COLOR").value;
-    var AM_VIINS_COLOR = document.getElementById("AM_VIINS_COLOR").value;
-    var AM_VICMD_COLOR = document.getElementById("AM_VICMD_COLOR").value;
     var AM_PROMPT_START_TAG_COLOR = document.getElementById("AM_PROMPT_START_TAG_COLOR").value;
     var AM_PROMPT_END_TAG_COLOR = document.getElementById("AM_PROMPT_END_TAG_COLOR").value;
     var AM_GIT_TRACKED_COLOR = document.getElementById("AM_GIT_TRACKED_COLOR").value;
@@ -52,8 +50,6 @@ function updateTheme() {
     var AM_GRADLE_COLOR_PREVIEW = document.getElementsByClassName("AM_GRADLE_COLOR_PREVIEW"); for(var i = 0; i < AM_GRADLE_COLOR_PREVIEW.length; i++) {AM_GRADLE_COLOR_PREVIEW[i].style.color = AM_GRADLE_COLOR;}
     var AM_MAVEN_COLOR_PREVIEW = document.getElementsByClassName("AM_MAVEN_COLOR_PREVIEW"); for(var i = 0; i < AM_MAVEN_COLOR_PREVIEW.length; i++) {AM_MAVEN_COLOR_PREVIEW[i].style.color = AM_MAVEN_COLOR;}
     var AM_TIMER_COLOR_PREVIEW = document.getElementsByClassName("AM_TIMER_COLOR_PREVIEW"); for(var i = 0; i < AM_TIMER_COLOR_PREVIEW.length; i++) {AM_TIMER_COLOR_PREVIEW[i].style.color = AM_TIMER_COLOR;}
-    var AM_VIINS_COLOR_PREVIEW = document.getElementsByClassName("AM_VIINS_COLOR_PREVIEW"); for(var i = 0; i < AM_VIINS_COLOR_PREVIEW.length; i++) {AM_VIINS_COLOR_PREVIEW[i].style.color = AM_VIINS_COLOR;}
-    var AM_VICMD_COLOR_PREVIEW = document.getElementsByClassName("AM_VICMD_COLOR_PREVIEW"); for(var i = 0; i < AM_VICMD_COLOR_PREVIEW.length; i++) {AM_VICMD_COLOR_PREVIEW[i].style.color = AM_VICMD_COLOR;}
     var AM_PROMPT_START_TAG_COLOR_PREVIEW = document.getElementsByClassName("AM_PROMPT_START_TAG_COLOR_PREVIEW"); for(var i = 0; i < AM_PROMPT_START_TAG_COLOR_PREVIEW.length; i++) {AM_PROMPT_START_TAG_COLOR_PREVIEW[i].style.color = AM_PROMPT_START_TAG_COLOR;}
     var AM_PROMPT_END_TAG_COLOR_PREVIEW = document.getElementsByClassName("AM_PROMPT_END_TAG_COLOR_PREVIEW"); for(var i = 0; i < AM_PROMPT_END_TAG_COLOR_PREVIEW.length; i++) {AM_PROMPT_END_TAG_COLOR_PREVIEW[i].style.color = AM_PROMPT_END_TAG_COLOR;}
     var AM_GIT_TRACKED_COLOR_PREVIEW = document.getElementsByClassName("AM_GIT_TRACKED_COLOR_PREVIEW"); for(var i = 0; i < AM_GIT_TRACKED_COLOR_PREVIEW.length; i++) {AM_GIT_TRACKED_COLOR_PREVIEW[i].style.color = AM_GIT_TRACKED_COLOR;}
@@ -86,8 +82,6 @@ function updateTheme() {
                     + "  [[ -z ${AM_GRADLE_COLOR} ]]           && AM_GRADLE_COLOR="+ AM_GRADLE_COLOR +"\n"
                     + "  [[ -z ${AM_MAVEN_COLOR} ]]            && AM_MAVEN_COLOR="+ AM_MAVEN_COLOR +"\n"
                     + "  [[ -z ${AM_TIMER_COLOR} ]]            && AM_TIMER_COLOR="+ AM_TIMER_COLOR +"\n"
-                    + "  [[ -z ${AM_VIINS_COLOR} ]]            && AM_VIINS_COLOR="+ AM_VIINS_COLOR +"\n"
-                    + "  [[ -z ${AM_VICMD_COLOR} ]]            && AM_VICMD_COLOR="+ AM_VICMD_COLOR +"\n"
                     + "  [[ -z ${AM_PROMPT_START_TAG_COLOR} ]] && AM_PROMPT_START_TAG_COLOR="+ AM_PROMPT_START_TAG_COLOR +"\n"
                     + "  [[ -z ${AM_PROMPT_END_TAG_COLOR} ]]   && AM_PROMPT_END_TAG_COLOR="+ AM_PROMPT_END_TAG_COLOR +"\n"
                     + "  [[ -z ${AM_GIT_TRACKED_COLOR} ]]      && AM_GIT_TRACKED_COLOR="+ AM_GIT_TRACKED_COLOR +"\n"

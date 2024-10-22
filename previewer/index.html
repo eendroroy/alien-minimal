@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <body>
 <div id="viewport" style="background-color: #2E3440; width: 100%; border: 1px solid gray; padding: 20 0 20 0;">
     <table style="width: 100%">
@@ -96,37 +96,116 @@
     <tr>
         <td>
             <div id="config">
-                <div>
-                    <div><label for="AM_VCS_COLOR">AM_VCS_COLOR=</label><input class="color" id="AM_VCS_COLOR" type="text" value="#A0A0A0"></div>
-                    <div><label for="AM_SSH_COLOR">AM_SSH_COLOR=</label><input class="color" id="AM_SSH_COLOR" type="text" value="#E6C242"></div>
-                    <div><label for="AM_NORMAL_COLOR">AM_NORMAL_COLOR=</label><input class="color" id="AM_NORMAL_COLOR" type="text" value="#88C0D0"></div>
-                    <div><label for="AM_ERROR_COLOR">AM_ERROR_COLOR=</label><input class="color" id="AM_ERROR_COLOR" type="text" value="#BF616A"></div>
-                    <div><label for="AM_REV_COLOR">AM_REV_COLOR=</label><input class="color" id="AM_REV_COLOR" type="text" value="#B48EAD"></div>
-                    <div><label for="AM_BRANCH_COLOR">AM_BRANCH_COLOR=</label><input class="color" id="AM_BRANCH_COLOR" type="text" value="#8CBA86"></div>
-                    <div><label for="AM_LEFT_RIGHT_COLOR">AM_LEFT_RIGHT_COLOR=</label><input class="color" id="AM_LEFT_RIGHT_COLOR" type="text" value="#EACB8A"></div>
-                    <div><label for="AM_STASH_COLOR">AM_STASH_COLOR=</label><input class="color" id="AM_STASH_COLOR" type="text" value="#EACB8A"></div>
-                    <div><label for="AM_BARE_COLOR">AM_BARE_COLOR=</label><input class="color" id="AM_BARE_COLOR" type="text" value="#EACB8A"></div>
-                    <div><label for="AM_COMMIT_SINCE_COLOR">AM_COMMIT_SINCE_COLOR=</label><input class="color" id="AM_COMMIT_SINCE_COLOR" type="text" value="#A5A5A5"></div>
-                    <div><label for="AM_FADE_COLOR">AM_FADE_COLOR=</label><input class="color" id="AM_FADE_COLOR" type="text" value="#4C566B"></div>
-                    <div><label for="AM_VENV_COLOR">AM_VENV_COLOR=</label><input class="color" id="AM_VENV_COLOR" type="text" value="#C8AE48"></div>
-                    <div><label for="AM_PYTHON_COLOR">AM_PYTHON_COLOR=</label><input class="color" id="AM_PYTHON_COLOR" type="text" value="#3570A1"></div>
-                    <div><label for="AM_RUBY_COLOR">AM_RUBY_COLOR=</label><input class="color" id="AM_RUBY_COLOR" type="text" value="#FF6665"></div>
-                    <div><label for="AM_JAVA_COLOR">AM_JAVA_COLOR=</label><input class="color" id="AM_JAVA_COLOR" type="text" value="#FEBB6F"></div>
-                    <div><label for="AM_GO_COLOR">AM_GO_COLOR=</label><input class="color" id="AM_GO_COLOR" type="text" value="#76E1FE"></div>
-                    <div><label for="AM_ELIXIR_COLOR">AM_ELIXIR_COLOR=</label><input class="color" id="AM_ELIXIR_COLOR" type="text" value="#432459"></div>
-                    <div><label for="AM_CRYSTAL_COLOR">AM_CRYSTAL_COLOR=</label><input class="color" id="AM_CRYSTAL_COLOR" type="text" value="#010101"></div>
-                    <div><label for="AM_NODE_COLOR">AM_NODE_COLOR=</label><input class="color" id="AM_NODE_COLOR" type="text" value="#79B264"></div>
-                    <div><label for="AM_PHP_COLOR">AM_PHP_COLOR=</label><input class="color" id="AM_PHP_COLOR" type="text" value="#7277AE"></div>
-                    <div><label for="AM_GRADLE_COLOR">AM_GRADLE_COLOR=</label><input class="color" id="AM_GRADLE_COLOR" type="text" value="#1E9BC4"></div>
-                    <div><label for="AM_MAVEN_COLOR">AM_MAVEN_COLOR=</label><input class="color" id="AM_MAVEN_COLOR" type="text" value="#D74330"></div>
-                    <div><label for="AM_TIMER_COLOR">AM_TIMER_COLOR=</label><input class="color" id="AM_TIMER_COLOR" type="text" value="#B48EAD"></div>
-                    <div><label for="AM_VIINS_COLOR">AM_VIINS_COLOR=</label><input class="color" id="AM_VIINS_COLOR" type="text" value="208"></div>
-                    <div><label for="AM_VICMD_COLOR">AM_VICMD_COLOR=</label><input class="color" id="AM_VICMD_COLOR" type="text" value="193"></div>
-                    <div><label for="AM_PROMPT_START_TAG_COLOR">AM_PROMPT_START_TAG_COLOR=</label><input class="color" id="AM_PROMPT_START_TAG_COLOR" type="text" value="#88C0D0"></div>
-                    <div><label for="AM_PROMPT_END_TAG_COLOR">AM_PROMPT_END_TAG_COLOR=</label><input class="color" id="AM_PROMPT_END_TAG_COLOR" type="text" value="#88C0D0"></div>
-                    <div><label for="AM_GIT_TRACKED_COLOR">AM_GIT_TRACKED_COLOR=</label><input class="color" id="AM_GIT_TRACKED_COLOR" type="text" value="#89BB9D"></div>
-                    <div><label for="AM_GIT_UN_TRACKED_COLOR">AM_GIT_UN_TRACKED_COLOR=</label><input class="color" id="AM_GIT_UN_TRACKED_COLOR" type="text" value="#BA8888"></div>
-                </div>
+                <table>
+                    <tr>
+                        <td><label for="AM_VCS_COLOR">AM_VCS_COLOR</label></td>
+                        <td><input class="color" id="AM_VCS_COLOR" type="text" value="#A0A0A0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_SSH_COLOR">AM_SSH_COLOR</label></td>
+                        <td><input class="color" id="AM_SSH_COLOR" type="text" value="#E6C242"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_NORMAL_COLOR">AM_NORMAL_COLOR</label></td>
+                        <td><input class="color" id="AM_NORMAL_COLOR" type="text" value="#88C0D0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_ERROR_COLOR">AM_ERROR_COLOR</label></td>
+                        <td><input class="color" id="AM_ERROR_COLOR" type="text" value="#BF616A"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_REV_COLOR">AM_REV_COLOR</label></td>
+                        <td><input class="color" id="AM_REV_COLOR" type="text" value="#B48EAD"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_BRANCH_COLOR">AM_BRANCH_COLOR</label></td>
+                        <td><input class="color" id="AM_BRANCH_COLOR" type="text" value="#8CBA86"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_LEFT_RIGHT_COLOR">AM_LEFT_RIGHT_COLOR</label></td>
+                        <td><input class="color" id="AM_LEFT_RIGHT_COLOR" type="text" value="#EACB8A"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_STASH_COLOR">AM_STASH_COLOR</label></td>
+                        <td><input class="color" id="AM_STASH_COLOR" type="text" value="#EACB8A"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_BARE_COLOR">AM_BARE_COLOR</label></td>
+                        <td><input class="color" id="AM_BARE_COLOR" type="text" value="#EACB8A"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_COMMIT_SINCE_COLOR">AM_COMMIT_SINCE_COLOR</label></td>
+                        <td><input class="color" id="AM_COMMIT_SINCE_COLOR" type="text" value="#A5A5A5"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_FADE_COLOR">AM_FADE_COLOR</label></td>
+                        <td><input class="color" id="AM_FADE_COLOR" type="text" value="#4C566B"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_VENV_COLOR">AM_VENV_COLOR</label></td>
+                        <td><input class="color" id="AM_VENV_COLOR" type="text" value="#C8AE48"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_PYTHON_COLOR">AM_PYTHON_COLOR</label></td>
+                        <td><input class="color" id="AM_PYTHON_COLOR" type="text" value="#3570A1"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_RUBY_COLOR">AM_RUBY_COLOR</label></td>
+                        <td><input class="color" id="AM_RUBY_COLOR" type="text" value="#FF6665"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_JAVA_COLOR">AM_JAVA_COLOR</label></td>
+                        <td><input class="color" id="AM_JAVA_COLOR" type="text" value="#FEBB6F"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_GO_COLOR">AM_GO_COLOR</label></td>
+                        <td><input class="color" id="AM_GO_COLOR" type="text" value="#76E1FE"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_ELIXIR_COLOR">AM_ELIXIR_COLOR</label></td>
+                        <td><input class="color" id="AM_ELIXIR_COLOR" type="text" value="#432459"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_CRYSTAL_COLOR">AM_CRYSTAL_COLOR</label></td>
+                        <td><input class="color" id="AM_CRYSTAL_COLOR" type="text" value="#010101"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_NODE_COLOR">AM_NODE_COLOR</label></td>
+                        <td><input class="color" id="AM_NODE_COLOR" type="text" value="#79B264"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_PHP_COLOR">AM_PHP_COLOR</label></td>
+                        <td><input class="color" id="AM_PHP_COLOR" type="text" value="#7277AE"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_GRADLE_COLOR">AM_GRADLE_COLOR</label></td>
+                        <td><input class="color" id="AM_GRADLE_COLOR" type="text" value="#1E9BC4"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_MAVEN_COLOR">AM_MAVEN_COLOR</label></td>
+                        <td><input class="color" id="AM_MAVEN_COLOR" type="text" value="#D74330"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_TIMER_COLOR">AM_TIMER_COLOR</label></td>
+                        <td><input class="color" id="AM_TIMER_COLOR" type="text" value="#B48EAD"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_PROMPT_START_TAG_COLOR">AM_PROMPT_START_TAG_COLOR</label></td>
+                        <td><input class="color" id="AM_PROMPT_START_TAG_COLOR" type="text" value="#88C0D0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_PROMPT_END_TAG_COLOR">AM_PROMPT_END_TAG_COLOR</label></td>
+                        <td><input class="color" id="AM_PROMPT_END_TAG_COLOR" type="text" value="#88C0D0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_GIT_TRACKED_COLOR">AM_GIT_TRACKED_COLOR</label></td>
+                        <td><input class="color" id="AM_GIT_TRACKED_COLOR" type="text" value="#89BB9D"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="AM_GIT_UN_TRACKED_COLOR">AM_GIT_UN_TRACKED_COLOR</label></td>
+                        <td><input class="color" id="AM_GIT_UN_TRACKED_COLOR" type="text" value="#BA8888"></td>
+                    </tr>
+                </table>
             </div>
         </td>
         <td style="padding-left: 50px;">
