@@ -46,7 +46,6 @@ git submodule update --init --recursive # --remote
 
 Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 
-
 ## Customizations
 
 **add configurations in `~/.amrc`**
@@ -91,6 +90,7 @@ Subversion:
 - am_svn_rev
 
 #### A sample sensible configuration
+
 ```zsh
 AM_VERSIONS_PROMPT=()
 
@@ -199,8 +199,6 @@ _Note: Prompt maintain declaration order._
 export AM_DIR_EXPANSION_LEVEL=2
 ```
 
-**The effect may be unnoticeable on faster CPUs.**
-
 ### Hide exit code:
 
 ```zsh
@@ -217,10 +215,10 @@ export AM_KEEP_PROMPT=1
 
 ```zsh
 1. export AM_THEME=mono
-1. export AM_THEME=mono_bright
-1. export AM_THEME=terminal
-1. export AM_THEME=soft
-1. export AM_THEME=default
+2. export AM_THEME=mono_bright
+3. export AM_THEME=terminal
+4. export AM_THEME=soft
+5. export AM_THEME=default
 ```
 
 _Note: **Unset `AM_THEME` to use default color scheme.**_

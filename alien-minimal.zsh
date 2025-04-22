@@ -1,9 +1,7 @@
 #!/usr/bin/env zsh
 
-# shellcheck disable=SC2034
-# shellcheck disable=SC2088
-
 if [[ -f ~/.amrc ]]; then
+  # shellcheck disable=SC1090
   source ~/.amrc
 else
   echo
@@ -32,11 +30,13 @@ precmd() {
   __import_env
 
   if [[ ${AM_ASYNC_L_PROMPT} == 1 ]]; then
-    am_async_l_prompt "${PWD}"
+    am_async_l_prompt
   else
+    # shellcheck disable=SC2034
     PROMPT="$(am_l_prompt_render)"
   fi
 
+  # shellcheck disable=SC2034
   [[ ${AM_KEEP_PROMPT} != 1 ]] && RPROMPT=""
   am_async_r_prompt
 }

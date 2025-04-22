@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 am_version_prompt(){
-  if [[ -n ${AM_VERSIONS_PROMPT} ]]; then
+  if [[ ${#AM_VERSIONS_PROMPT[@]} -ne 0 ]]; then
     LOOP_INDEX=0
-    for version in ${AM_VERSIONS_PROMPT}; do
+    for version in "${AM_VERSIONS_PROMPT[@]}"; do
       [[ ${LOOP_INDEX} == "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
       [[ ${LOOP_INDEX} != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}${AM_VERSION_PROMPT_SEP}%f"
 
@@ -37,27 +37,27 @@ am_version_prompt(){
 am_vcs_prompt(){
   __vcs_prompt_value=""
   if [[ $(am_is_git) == 1 ]]; then
-    if [[ -n ${AM_GIT_SECTION} ]]; then
+    if [[ ${#AM_GIT_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_GIT_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))
       done
     fi
   elif [[ $(am_is_hg) == 1 ]]; then
-    if [[ -n ${AM_HG_SECTION} ]]; then
+    if [[ ${#AM_HG_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_HG_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))
       done
     fi
   elif [[ $(am_is_svn) == 1 ]]; then
-    if [[ -n ${AM_SVN_SECTION} ]]; then
+    if [[ ${#AM_SVN_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_SVN_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))

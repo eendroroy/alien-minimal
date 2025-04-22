@@ -4,7 +4,6 @@ am_vi_prompt() {
   echo -ne "${AM_VI_PROMPT_VAL}"
 }
 
-# shellcheck disable=SC2034
 __render_vi_prompt() {
   case "${KEYMAP}" in
     vicmd)

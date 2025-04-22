@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 am_version_prompt(){
-  if [[ -n ${AM_VERSIONS_PROMPT} ]]; then
+  if [[ ${#AM_VERSIONS_PROMPT[@]} -ne 0 ]]; then
     LOOP_INDEX=0
-    for version in ${AM_VERSIONS_PROMPT}; do
+    for version in "${AM_VERSIONS_PROMPT[@]}"; do
       [[ ${LOOP_INDEX} == "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}[%f"
       [[ ${LOOP_INDEX} != "0" ]] && version_prompt_val+="%F{$AM_FADE_COLOR}${AM_VERSION_PROMPT_SEP}%f"
 
@@ -40,27 +40,27 @@ am_version_prompt(){
 am_vcs_prompt(){
   __vcs_prompt_value=""
   if [[ $(am_is_git) == 1 ]]; then
-    if [[ -n ${AM_GIT_SECTION} ]]; then
+    if [[ ${#AM_GIT_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_GIT_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))
       done
     fi
   elif [[ $(am_is_hg) == 1 ]]; then
-    if [[ -n ${AM_HG_SECTION} ]]; then
+    if [[ ${#AM_HG_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_GIT_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))
       done
     fi
   elif [[ $(am_is_svn) == 1 ]]; then
-    if [[ -n ${AM_SVN_SECTION} ]]; then
+    if [[ ${#AM_SVN_SECTION[@]} -ne 0 ]]; then
       LOOP_INDEX=0
-      for section in ${AM_GIT_SECTION}; do
+      for section in "${AM_GIT_SECTION[@]}"; do
         [[ ${LOOP_INDEX} != "0" ]] && __vcs_prompt_value+=" "
         __vcs_prompt_value+="$($section)"
         LOOP_INDEX=$((LOOP_INDEX + 1))
@@ -154,15 +154,15 @@ am_git_left_right(){
   __pull=$(echo "$__git_left_right" | awk '{print $2}' | tr -d ' \n')
   __push=$(echo "$__git_left_right" | awk '{print $1}' | tr -d ' \n')
 
-  [[ "$__pull" != 0 ]] && [[ "$__pull" != '' ]] && __pushpull="${__pull}${AM_GIT_PULL_SYM}"
-  [[ -n "$__pushpull" ]] && __pushpull+=' '
-  [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __pushpull+="${__push}${AM_GIT_PUSH_SYM}"
+  [[ "$__pull" != 0 ]] && [[ "$__pull" != '' ]] && __push_pull="${__pull}${AM_GIT_PULL_SYM}"
+  [[ -n "$__push_pull" ]] && __push_pull+=' '
+  [[ "$__push" != 0 ]] && [[ "$__push" != '' ]] && __push_pull+="${__push}${AM_GIT_PUSH_SYM}"
 
-  if [[ "$__pushpull" != '' ]]; then
-    echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__pushpull}%f"
+  if [[ "$__push_pull" != '' ]]; then
+    echo -ne "%F{$AM_LEFT_RIGHT_COLOR}${__push_pull}%f"
   fi
 
-  unset __git_left_right __pull __push __pushpull
+  unset __git_left_right __pull __push __push_pull
 }
 
 am_git_left_right_master(){
