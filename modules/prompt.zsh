@@ -33,6 +33,7 @@
   am_ssh_st
   am_prompt_start_tag
   am_prompt_dir
+  am_vi_prompt
   am_prompt_end_tag
   am_venv
 )

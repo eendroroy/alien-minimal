@@ -3,6 +3,8 @@
 am_theme(){
   [[ -z ${AM_VCS_COLOR} ]]              && AM_VCS_COLOR=242
   [[ -z ${AM_SSH_COLOR} ]]              && AM_SSH_COLOR=244
+  [[ -z ${AM_VI_INSERT_COLOR} ]]        && AM_VI_INSERT_COLOR=244
+  [[ -z ${AM_VI_NORMAL_COLOR} ]]        && AM_VI_NORMAL_COLOR=244
   [[ -z ${AM_NORMAL_COLOR} ]]           && AM_NORMAL_COLOR=250
   [[ -z ${AM_ERROR_COLOR} ]]            && AM_ERROR_COLOR=250
   [[ -z ${AM_REV_COLOR} ]]              && AM_REV_COLOR=240

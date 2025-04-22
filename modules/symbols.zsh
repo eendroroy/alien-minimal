@@ -9,6 +9,9 @@
 [[ -z "${AM_PROMPT_START_TAG}" ]]    && AM_PROMPT_START_TAG='_'
 [[ -z "${AM_PROMPT_END_TAG}" ]]      && AM_PROMPT_END_TAG='$'
 
+[[ -z "${AM_VIM_INSERT_SYM}" ]]      && AM_VIM_INSERT_SYM='(i)'
+[[ -z "${AM_VIM_NORMAL_SYM}" ]]      && AM_VIM_NORMAL_SYM='(n)'
+
 if [[ ${AM_USE_NERD_FONT} = 1 ]]; then
   [[ -z "${AM_GIT_SYM}" ]]           && AM_GIT_SYM='󰊢'
   [[ -z "${AM_HG_SYM}" ]]            && AM_HG_SYM=' '

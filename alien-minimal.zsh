@@ -23,8 +23,9 @@ source "${THEME_ROOT}/modules/sections_general.zsh"
 source "${THEME_ROOT}/modules/sections_vcs.zsh"
 source "${THEME_ROOT}/modules/sections_version.zsh"
 source "${THEME_ROOT}/modules/prompt.zsh"
+source "${THEME_ROOT}/modules/viprompt.zsh"
 
-function precmd(){
+precmd() {
   autoload -U add-zsh-hook
   setopt prompt_subst
   am_load_theme

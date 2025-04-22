@@ -16,25 +16,25 @@ Add the following line in `~/.zshrc` depending on zsh plugin manager
 
 ##### [antigen](https://github.com/zsh-users/antigen):
 
-```bash
+```zsh
 antigen theme eendroroy/alien-minimal alien-minimal
 ```
 
 ##### [zgen](https://github.com/tarjoilija/zgen):
 
-```bash
+```zsh
 zgen load eendroroy/alien-minimal
 ```
 
 ##### [zplug](https://github.com/zplug/zplug):
 
-```bash
+```zsh
 zplug "eendroroy/alien-minimal"
 ```
 
 ##### [oh-my-zsh: Overriding and Adding Themes](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes)
 
-```bash
+```zsh
 # if using git 2.13 or higher
 git clone --recurse-submodules https://github.com/eendroroy/alien-minimal.git ${ZSH_CUSTOM}/themes/alien-minimal
 
@@ -63,6 +63,7 @@ Then set `ZSH_THEME="alien-minimal/alien-minimal"` in the `~/.zshrc` file.
 - am_version_prompt
 - am_vcs_prompt
 - am_space
+- am_vi_prompt
 
 #### `am_vcs_prompt` configuration
 
@@ -90,7 +91,7 @@ Subversion:
 - am_svn_rev
 
 #### A sample sensible configuration
-```bash
+```zsh
 AM_VERSIONS_PROMPT=()
 
 AM_GIT_SECTION=(
@@ -134,7 +135,7 @@ AM_RIGHT_SECTION=(
 
 ### Update left prompt asynchronously
 
-```bash
+```zsh
 export AM_ASYNC_L_PROMPT=1
 ```
 
@@ -142,7 +143,7 @@ export AM_ASYNC_L_PROMPT=1
 
 Always show a new line
 
-```bash
+```zsh
 export AM_INITIAL_LINE_FEED=1
 ```
 
@@ -150,7 +151,7 @@ Unset `AM_INITIAL_LINE_FEED` to stop printing a new line.
 
 ### Add start tag and end tag:
 
-```bash
+```zsh
 export AM_PROMPT_START_TAG='-->'     # previously `PROMPT_START_TAG`     
 export AM_PROMPT_END_TAG='\ $'       # previously `PROMPT_END_TAG`       
 export AM_PROMPT_START_TAG_COLOR=81  # previously `PROMPT_START_TAG_COLOR`  
@@ -159,7 +160,7 @@ export AM_PROMPT_END_TAG_COLOR=81    # previously `PROMPT_END_TAG_COLOR`
 
 **Result:**
 
-```bash
+```zsh
 --> ~ $
 --> ~ $ 1
 (venv) --> python-project $
@@ -168,7 +169,7 @@ export AM_PROMPT_END_TAG_COLOR=81    # previously `PROMPT_END_TAG_COLOR`
 
 You can additionally show the error color on prompt start tag:
 
-```bash
+```zsh
 export AM_ERROR_ON_START_TAG=1
 ```
 
@@ -180,13 +181,13 @@ Available version are:
 `PYTHON`,`PYTHON_S`,`RUBY`,`RUBY_S`,`JAVA`,`JAVA_S`,`GO`,`GO_S`,`ELIXIR`,`ELIXIR_S`,
 `CRYSTAL`,`CRYSTAL_S`,`NODE`,`NODE_S`,`PHP`,`PHP_S`,`GRADLE`,`MAVEN`
 
-```bash
+```zsh
 export AM_VERSIONS_PROMPT=(RUBY PYTHON JAVA GO CRYSTAL NODE PHP ELIXIR GRADLE)
 ```
 
 Customize Separator:
 
-```bash
+```zsh
 export AM_VERSION_PROMPT_SEP='|'
 ```
 
@@ -194,7 +195,7 @@ _Note: Prompt maintain declaration order._
 
 ### Configure dirname in prompt:
 
-```bash
+```zsh
 export AM_DIR_EXPANSION_LEVEL=2
 ```
 
@@ -202,19 +203,19 @@ export AM_DIR_EXPANSION_LEVEL=2
 
 ### Hide exit code:
 
-```bash
+```zsh
 export AM_HIDE_EXIT_CODE=1
 ```
 
 ### Keep previous RPROMPT:
 
-```bash
+```zsh
 export AM_KEEP_PROMPT=1
 ```
 
 ### Color themes:
 
-```bash
+```zsh
 1. export AM_THEME=mono
 1. export AM_THEME=mono_bright
 1. export AM_THEME=terminal
@@ -228,9 +229,11 @@ _Note: **Unset `AM_THEME` to use default color scheme.**_
 
 Use [previewer](https://eendroroy.github.io/alien-minimal/previewer/) to easily preview colors.
 
-```bash
+```zsh
 export AM_VCS_COLOR=1          # color for VCS (G: M: V:)
 export AM_SSH_COLOR=11         # color for ssh indicator
+export AM_VI_INSERT_COLOR=11   # color for vi insert mode indicator
+export AM_VI_NORMAL_COLOR=11   # color for vi normal mode indicator
 export AM_NORMAL_COLOR=12      # color for normal text
 export AM_ERROR_COLOR=1        # color for ERROR
 export AM_REV_COLOR=14         # color for VCS Revision number
@@ -251,12 +254,14 @@ Or creating a new theme file:
 
 __/path/to/custom/theme.zsh__
 
-```bash
+```zsh
 #!/usr/bin/env zsh
 
 am_theme(){
   AM_VCS_COLOR=248
   AM_SSH_COLOR=143
+  AM_VI_INSERT_COLOR=143
+  AM_VI_NORMAL_COLOR=143
   AM_NORMAL_COLOR=39
   AM_ERROR_COLOR=208
   AM_REV_COLOR=248
@@ -288,7 +293,7 @@ am_theme(){
 
 Then activate the theme using:
 
-```bash
+```zsh
 export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
 ```
 
@@ -298,13 +303,13 @@ export AM_CUSTOM_THEME_PATH=/path/to/custom/theme.zsh
 
 Enable Nerd Font
 
-```bash
+```zsh
 export AM_USE_NERD_FONT=1 # previously `USE_NERD_FONT`
 ```
 
 ### customize symbols
 
-```bash
+```zsh
 export AM_GIT_STASH_SYM='@'
 export AM_GIT_BARE_SYM='☢'
 export AM_GIT_SYM='G'
@@ -325,6 +330,8 @@ export AM_GIT_REBASING_SYMBOL='⇋'
 export AM_GIT_PUSH_SYM='↑'
 export AM_GIT_PULL_SYM='↓'
 export AM_LEFT_RIGHT_SEP='|'
+export AM_VIM_INSERT_SYM='(i)'
+export AM_VIM_NORMAL_SYM='(n)'
 ```
 
 _Note: this overrides `AM_USE_NERD_FONT` configuration._

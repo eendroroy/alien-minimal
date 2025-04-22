@@ -27,3 +27,4 @@ am_load_theme(){
 }
 
 [[ -z "${AM_DIR_EXPANSION_LEVEL}" ]] && AM_DIR_EXPANSION_LEVEL=1
+[[ -z "${AM_VI_PROMPT_VAL}" ]]       && AM_VI_PROMPT_VAL=""
